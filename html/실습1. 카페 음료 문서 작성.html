@@ -1,0 +1,52 @@
+<!--
+    실습1. 카페 음료 문서 작성
+        * 카페 이름은 <h1>
+        * 메뉴 이름은 <h2>
+        * 카페 전체 음료 리스트는 <ul>태그, 음료 최소 5개
+            -<ul>의 자식요소 <ol>요소를 넣고 가격을 표시
+        * ul 태그 아래에 수평 줄을 추가하고 그 아래에 각각 음료에 대한 설명을 <p>,<span>태그를
+            번걸아 사용하여 표시
+        * 카페 이름은 파란색으로 표시 (style="color:blue;" 속성 추가)
+        
+    실습2. img, a 태그 실습
+        * 앞에서 진행한 실습1에 이미지를 추가하시오.
+        * 이미지에 마우스를 올렸을때 카페 이름이 나오도록 하시오.
+        * 이미지를 클릭했을때 http://google.com 으로 이동하게 하시오.
+-->
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>실습 1. 카페 음료 문서 작성</title>
+    </head>
+    <body>
+        <h1 style="color: blue;">SeSAC COFFEE</h1>
+        <ul>
+            <a href="http://google.com" target="_blank">
+                <img src="./coffee.jpg" alt="" width="100px" height="100px" title="SeSAC COFFEE">
+            </a>
+            <li>
+                <h2>아메리카노</h2>
+                <ol>5.9</ol>
+            </li>
+    
+            <li>
+                <h2>화이트 초콜릿 모카</h2>
+                <ol>6.4</ol>
+            </li>
+            <li>
+                <h2>카페 라떼</h2>
+                <ol>6.4</ol>
+            </li>
+            <li>
+                <h2>카푸치노</h2>
+                <ol>6.4</ol>
+            </li>
+            <li>
+                <h2>오늘의 커피</h2>
+                <ol>6.4</ol>
+            </li>
+        </ul>
+        <hr>
+        <p>핫/아이스 선택 가능<span style="color: green;">(일부 음료 제외)</span></p>
+    </body>
+</html>
