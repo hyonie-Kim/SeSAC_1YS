@@ -6,11 +6,12 @@
             margin-right: auto;
             font-size: 13px;
         }
-        tr td:first-child{
-            color: red;
-        }
+        /* td가 하나일 경우 첫째이자 막내이기 때문에 아래 style이 적용됨 */
         tr td:last-child{
             color: blue
+        }
+        tr td:first-child{
+            color: red;
         }
         td {
             text-align: center;
@@ -81,12 +82,12 @@
             </tr>
             <tr>
                 <td>30</td>
+                <!-- <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
-                <td></td>
+                <td></td> -->
             </tr>
         </table>
     </body>

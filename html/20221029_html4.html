@@ -1,0 +1,137 @@
+<html>
+    <head>
+        <!-- 스타일태그는 일반적으로 헤더에 저장을 권장  -->
+        <style>
+            /* 아이디는 고유값으로 중첩해서는 안된다. */
+            /* #hrid{ border: 3px red solid} */
+            
+
+
+            /* 네이버 html 색상표 참고 */
+            /* h1{color: red;}
+            h2{color: blue; text-decoration: underline;}
+            h3{color: green; text-shadow: 3px 1px 1px black;}
+            hr{border: 5px; color: yellow; border-style: dotted solid;}
+            p{background-color: black; color: white;}
+            img{cursor: pointer; margin-left: 100px;}
+            div{border:3px red solid; height: 100px; width: 100px;
+                border-radius: 50px; background-color: pink;
+            } */
+
+            /* 전체 선택자 */
+            /* *{
+                color: red;
+                font-family: 'Courier New', Courier, monospace;
+            } */
+
+            /* 자식 선택자 */
+            #div2 { background-color: yellow;}
+            #div2 .apple { color: green;}
+            #div2 > .apple {text-decoration: underline;}
+
+            /* 형제 선택자 */
+            /* -인접선택자는 +으로 선택함 apple의 */
+            /* -인접선택자는 바로 다음 형제를 선택한다 */
+            .apple + p {background-color: pink;}
+
+            /* 일반형제 선택자 */
+            /* .b 다음 형제중 모든 span 선택한다 */
+            /* 물결로 표시(~)내뒤에 존재하는 모든 형제들한테 적용이 된다. */
+            /* .b ~ span {color: blue;} */
+
+            /* 가상 선택자 */
+            /* div {width: 100px; height: 100px; background-color: yellowgreen}
+            div:hover{cursor: pointer; background-color: chartreuse;} */
+
+            /* a 태그 선택자 */
+            /* a{color: black;}
+            /* 활성화 했을 때 - 클릭 시 */
+            /* p:active {color: red;} */
+            /* 키보드 포커스가 맞춰졌을때 */
+            /* input:focus{color: blue;} */
+            /* 방문하기 전 상태 */
+            a:link{color: yellow;}
+            /* 방문한 이후 상태 */
+            a:visited{color:green;}
+            /* 복합 선택자 */
+            /* .fruits span:first-child{
+                color: red;
+            }
+
+            .fruits h3:last-child{
+                color: royalblue;
+            }
+
+            .fruits *:nth-child(2){
+                color: aqua;
+            } */
+
+            /* span을 제외한 모든 선택자가 선택이됨 */
+            /* .fruits *:not(span){
+                text-decoration: underline;
+            } */
+
+            div div:first-child {color: blue;}
+
+    </style>
+    </head>
+    <body>
+        <div>
+            <span>-1</span>
+            <div>0</div>
+            <span>1</span>
+            <span>2</span>
+            <h2></h2>
+        </div>
+
+        
+
+        <!-- <div class="fruits">
+            <span>딸기</span>
+            <span>수박</span>
+            <div>오렌지</div>
+            <p>망고</p>
+            <h3>사과</h3>
+        </div> -->
+
+
+        <!-- <div></div>
+        <a href="http://naver.com">a태그1</a>
+        <a href="http://naver.com">a태그2</a>
+        <p>p태그</p>
+        <input type="text"> -->
+
+        <!-- <div>
+            <span class="a">-1</span>
+            <span>0</span>
+            <span>1</span>
+            <span class="b">2</span>
+            <span>3</span>
+            <span>4</span>
+            <span>5</span>
+            <span>6</span>
+        </div> -->
+        <!-- <div>
+            <div id="div2">
+                <p class="apple">1</p>
+                <p class="apple">2</p>
+                <div>
+                    <p>3</p>
+                </div>
+                <p>4</p>
+            </div>
+            <p class="apple">5</p>
+            <p>6</p>
+        </div> -->
+        
+
+        <!-- <h1 class="deco">h1</h1>
+        <h2 class="red deco">h2</h2>
+        <h3>h3</h3>
+        <hr>
+        <p id="hrid">p1</p>
+        <p>p2</p>
+        <img src="./gitHublogo.webp" alt="" width="300px" height="300px">
+        <div></div> -->
+    </body>
+</html>

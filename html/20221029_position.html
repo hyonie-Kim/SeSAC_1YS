@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <!-- 헤더안에 스타일 배치하기 -->
+        <style>
+        div{
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            /* position은 위치지정 static속성은 위치 지정이 불가능하다 */
+            position: static;
+        }
+
+        #circle1{
+            background-color: indianred;
+
+        }
+        #circle2{
+            background-color: aqua;
+            /* relative는 상대 위치 지정방식 */
+            position: relative;
+            /* 원래 정적 위치로부터 상대적으로 지정됨 */
+            left: 100px;
+        }
+        #circle3{
+            background-color: bisque;
+            /* absolute는 부모 or 조상 relative 기준으로 기본 위치가 된다. */
+            /* absolute는 부모가 relative를 찾는다. relative가 없다면 부모로 body를 찾는다 */
+            position: absolute;
+            left: 10px;
+            
+        }
+        #circle4{
+            background-color: greenyellow;
+            /* fixed는 고정 위치 지정방식 */
+            position: fixed;
+            left: 50px;
+            bottom: 10px;
+        }
+
+        /* z-index는 축을 기준으로 레이어를 쌓는 것 */
+        /* z-index는 부모기준으로 쌓인다 */
+        /* relative/absolute 일때 z-index를 사용가능하다  */
+
+        .div1{
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            /* position은 위치지정 static속성은 위치 지정이 불가능하다 */
+            position: absolute;
+        }
+
+        #c1{background-color: red;}
+        #c2{background-color: orange; left: 50px;}
+        #c3{background-color: yellow; left: 100px; z-index: 10;}
+        #c4{background-color: green; left: 150px;}
+        #c5{background-color: blue; left: 200px;}
+        </style>
+    </head>
+    <body>
+        <div id="circle1"></div>
+        <div id="circle2">
+            <div id="circle3"></div>
+        </div>
+        <div id="circle4"></div>
+        <hr>
+        <div id="c1" class="div1"></div>
+        <div id="c2" class="div1"></div>
+        <div id="c3" class="div1"></div>
+        <div id="c4" class="div1"></div>
+        <div id="c5" class="div1"></div>
+    </body>
+</html>
