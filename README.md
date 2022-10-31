@@ -13,6 +13,9 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
 
 🌱 Saturday, October 29th, 2022
 
+- HTML Table Tag
+- 실습3. Table 달력
+- 실습4. Table 시간표
 - CSS 선택자 (단일 선택자, 복합선택자)
 - 우선순위
   - !important> 인라인스타일> 아이디 선택자> 클래스/속성/가상선택자> 태그 선택자> 전체 선택자
