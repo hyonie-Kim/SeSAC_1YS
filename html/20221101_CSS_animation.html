@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            div {
+                width: 100px;
+                height: 100px;
+                background: blue;
+                position: relative;
+                animation-name: anim;
+                /* 애니메이션 동작 시간 */
+                animation-duration: 2s;
+                animation-delay: 1s;
+                animation-timing-function: ease;
+                /* 애니메이션 반복 횟수 */
+                animation-iteration-count: 3;
+
+            }
+
+            /* 키프레임은 중간상태를 저장한다 */
+            @keyframes anim {
+                /* 1. from 1 에서부터 100px까지 2s 걸림 */
+                /* from {left: 0px;} 
+                 to {left: 100px;} */
+
+                /* 2. 퍼센트로 하면 더 세부적으로 상태를 나눌수있다. */
+                0% {left: 0px;}
+                50% {left: 200px;}
+                100%{left: 100px;}
+            }
+            
+            .div1 {
+                border-radius: 50px;
+                background: yellow;
+                animation-name: ball;
+                animation-delay: 2s;
+                animation-direction: 1s;
+                animation-iteration-count: 30;
+
+            }
+            @keyframes ball {
+                to {top:100px; opacity:0 ;}
+                from {top: 300px; opacity:1;}
+            }
+        </style>
+    </head>
+    <body>
+        <div></div>
+        <div class="div1"></div>
+        
+    </body>
+</html>

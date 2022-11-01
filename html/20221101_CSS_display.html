@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html rang="ko">
+    <head>
+        <mata charset="UTF-8">
+        <style>
+            .d-inline1{
+                display: inline-block;
+                background-color: red;
+               
+                
+            }
+            .d-inline2{
+                display: inline-block;
+                background-color: yellow;
+                width: 100px;
+                
+            }
+            .d-flex{
+                /* display 공부 */
+                /* display: flex; */
+                /* justify-content 가로정렬 */
+                /* space-between 같은여백을 유지하면서 정렬 */
+                /* justify-content: space-between; */
+
+                /*align-items 세로정렬 */
+                /* 세로의 크기가 없으면 정렬이 되지 않는다. */
+                /* align-items: ; */
+
+                display: none;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <!-- 인라인 속성은 크기조절이 안된다 -->
+        <div class="d-inline1">
+            d-inline1
+        </div>
+        <div class="d-inline2">
+            d-inline2
+        </div>
+
+        <!-- 플렉스 속성 -->
+        <div class="d-flex">
+            <div style="background-color: green;">
+                <div>1</div>
+                <div>2</div>
+            </div>
+            <div style="background-color: blue; width: 200px;">
+                <div>3</div>
+            </div>
+            <div>4</div>
+        </div>
+    </body>
+</html>
