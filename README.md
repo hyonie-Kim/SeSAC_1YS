@@ -30,14 +30,17 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
 - CSS 복잡한 속성
   - display
   - animation
-- 실습8. CSS_ 정사각형 애니메이션
-- 실습9. CSS_ 문자 애니메이션
+- 실습8. CSS\_정사각형 애니메이션
+- 실습9. CSS\_문자 애니메이션
 
 - JS 입문
+
   - var, let, const 변수
   - 대입, 비교, 산술, 논리 연산자
   - if, switch 조건문
   - for, while 반복문
-  - 실습11. Javascript 변수 + 함수 
+  - 실습11. Javascript 변수 + 함수
   - 실습12. 구구단 만들기
   - 실습 13. 합계 구하기
+
+  🌱 Thursday, November 3rd, 2022

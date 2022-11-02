@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>z-index속성 적용</title>
+    <style>
+      /* position 속성에 relative 적용 */
+      body > div {
+        width: 400px;
+        height: 100px;
+        border: 3px solid black;
+        position: relative;
+      }
+      .circle {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        position: absolute;
+      }
+
+      .circle:nth-child(1) {
+        background-color: red;
+        left: 10px;
+        top: 10px;
+        z-index: 100;
+      }
+      .circle:nth-child(2) {
+        background-color: green;
+        left: 50px;
+        top: 50px;
+        z-index: 10;
+      }
+      .circle:nth-child(3) {
+        background-color: blue;
+        left: 90px;
+        top: 90px;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>위치 속성과 관련된 공식</h1>
+    <div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+    <h1>위치 속성과 관련된 공식</h1>
+  </body>
+</html>
