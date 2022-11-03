@@ -1,35 +1,48 @@
 <html>
-    <head>
-        <title>Transform과 z-index를 이용해 이미지 3개를 연달아 나열하기</title>
-        <style>
-            
-            #img_skew1{
-                position: relative;
-                top: 200px;
-                left: 100px;
-                z-index: 100;
-            }
-            #img_skew2{
-                position: absolute;
-                left: 200px;
-                z-index: 50;
-            }
-            #img_skew3{
-                position: absolute;
-                left: 360px;
-                z-index: 0;
-                
-            }
-            #img_skew1 {transform: skewY(20deg);}
-            #img_skew2 {transform: skewY(20deg);}
-            #img_skew3 {transform: skewY(20deg);}
-        </style>
-    </head>
-    <body>
-        <div id="wrap">
-            <div><img id="img_skew1" src="./background.jpg" alt="" width="300px"></div>
-            <div><img id="img_skew2" src="./background.jpg" alt="" width="300px"></div>
-            <div><img id="img_skew3" src="./background.jpg" alt=""  width="300px"></div>
-       </div>
-    </body>
+  <head>
+    <title>Transform과 z-index를 이용해 이미지 3개를 연달아 나열하기</title>
+    <style>
+      #wrap {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        /* border: 5px solid black; */
+      }
+      .skew {
+        width: 300px;
+        top: 40%;
+        position: absolute;
+        transform: translateX(200px) skewY(20deg);
+      }
+      .daum {
+        z-index: 100;
+      }
+      .tistory {
+        z-index: 10;
+        left: 200px;
+      }
+      .naver {
+        z-index: 1;
+        left: 400px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <div>
+        <img class="skew daum" src="../img/daum.png" alt="" width="300px" />
+      </div>
+      <div>
+        <img
+          class="skew tistory"
+          src="../img/tistory.png"
+          alt=""
+          width="300px"
+        />
+      </div>
+      <div>
+        <img class="skew naver" src="../img/naver.png" alt="" width="300px" />
+      </div>
+    </div>
+  </body>
 </html>
