@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // var boardArray = new Array();
+        var number = 1;
+        function main(){
+           var uName = document.getElementById("uName").value;
+           var uContent = document.getElementById("uContent").value;
+           console.log(uName)
+           console.log(uContent)
+           //console.log(uName)
+        //    var len = boardArray.length;     
+        //    boardArray[len] = new Board(uName,uContent)
+        //    console.log(len)
+
+            var table = document.querySelector("#bbsTable");
+            var tr = document.createElement("tr");
+            table.appendChild(tr);
+
+            
+
+            var td1 = document.createElement("td");
+            td1.innerText = number++ 
+            tr.append(td1);
+
+            var td2 = document.createElement("td");
+            td2.innerText = uName;
+            tr.append(td2)
+
+            var td3 = document.createElement("td");
+            td3.innerText = uContent;
+            tr.append(td3)
+
+            var td4 = document.createElement("td");
+            // 날짜생성
+            var today = new Date();
+            console.log(today);
+            var year = today.getFullYear();
+            var month = ('0'+(today.getMonth()+1)).slice(-2);
+            var day = ('0' + today.getDate()).slice(-2);
+
+            var hours = ('0'+today.getHours()).slice(-2);
+            var minutes = ('0'+today.getMinutes()).slice(-2);
+            var seconds = ('0'+today.getSeconds()).slice(-2);
+           
+
+            var dateString = year + '-' + month + '-' +day + ' '+hours +':'+minutes+':'+seconds;
+            console.log(dateString)
+            td4.innerText = dateString;
+            tr.append(td4)
+            
+
+       
+            
+
+        
+        }
+
+
+    </script>
+</head>
+<body>
+    <p>방명록입니다.</p>
+    <form>
+        <table class="tbl">
+            <tr>
+                <th>작성자</th>
+                <td><input type="text" id="uName"></td>
+            </tr>
+            <tr>
+                <th>내용</th>
+                <td><input type="text" id="uContent" style="width: 400px;"></td>
+            </tr>
+        </table>
+    </form>
+
+    <br>
+    <input type="button" value="작성" class="btn" onclick="main()">
+    <!-- <button onclick="add()">작성</button> -->
+
+    <br><br>
+    <table border="2" cellspacing="0" cellpadding="10px" class="tbl" id="bbsTable" >  
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>작성자</th>
+                <th>내용</th>
+                <th>작성일</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+</body>
+</html>

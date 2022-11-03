@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>간단한 계산기 만들기</title>
+    <script>
+        function sum (){
+           var num1 = document.getElementById("value1").value;
+           var num2 = document.getElementById("value2").value;
+        //document.all.result.value = parseInt(num1)+parseInt(num2)
+            var value1 = Number(num1);
+            var value2 = Number(num2);
+            var operater = document.getElementById("operator").value;
+            // var result = 0;
+            if (operater === "+"){
+                document.all.result.value = parseInt(num1)+parseInt(num2)
+            }else if(operater === "-"){
+                document.all.result.value = parseInt(num1)-parseInt(num2)
+            }else if(operater === "*"){
+                document.all.result.value = parseInt(num1)*parseInt(num2)
+            }else if (operater === "/"){
+                document.all.result.value = parseInt(num1)/parseInt(num2)
+            }else{
+                console.log("+,-,*,/, 중 기호를 입력하세요.")
+                
+            }
+           
+            
+            //document.getElementById("result").innerHTML = result
+        }
+        
+
+    </script>
+</head>
+<body>
+    <div>값1: <input type="text" id="value1" placeholder="값1을 입력하세요."></div>
+    <div>값2: <input type="text" id="value2" placeholder="값2을 입력하세요."></div>
+    <!-- <select name="operator" id="">
+        <option value="add" selected>더하기</option>
+        <option value="minus">빼기</option>
+        <option value="mutiply">곱하기</option>
+        <option value="division">나누기</option>
+    </select> -->
+    <div>연산자: <input type="text" id="operator"></div>
+    <div>결과: <input type="text" id="result" name="result"></div>
+    <br>
+    <button onclick="sum()">계산하기</button>
+    <button>초기화</button>
+</body>
+</html>

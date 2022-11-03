@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function imgChange(){
+            var tag = document.querySelector("img");
+            console.log(tag);
+            console.log(tag.src);
+            console.log(tag.width);
+            tag.src = "./../img/gitHublogo.webp" // 속성값 변경
+        }
+
+        function add(){
+            var li = document.createElement("li");
+            li.innerText = "새로운 li"; // 글자를 넣어준다.
+            console.log(li);
+
+            var ul = document.querySelector("ul");
+            // ul태그 안에 자식 태그로 추가하겠다. 
+            // append는 마지막에 추가됨, 
+            // ul.append(li,"123"); 
+
+            // 가장 끝에 자식을 추가한다. 
+            // 한개의 노드 자식만 추가할수 있다.
+            ul.appendChild(li);
+        }
+
+
+        function remove() {
+            
+            // 내 자신 선택해서 삭제하기
+            var li = document.querySelector("li");
+            li.remove();
+
+            // 부모 요소 선택해서 삭제하기
+            var ul = document.querySelector("ul");
+            var li2 = document.querySelector("li");
+            ul.removeChild(li2)
+
+            // console.log(li.parentElement) li 부모요소 선택
+            // li.remove(); //가장위에 있는 첫번째 요소부터 삭제됨
+            // li.parentElement.removeChild(li);
+            // 부모요소. removeChild(자식요소)
+        }
+    </script>
+</head>
+<body>
+    <img src="./../img/cat.jfif" alt="cat" width="100" height="100">
+    <button type="button" onclick="imgChange()">이미지</button>
+    
+    <ul>
+        <li>이름</li>
+    </ul>
+    <button type="button" onclick="add()">추가</button>
+    <button type="button" onclick="remove()">삭제</button>
+</body>
+</html>
