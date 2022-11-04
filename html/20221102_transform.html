@@ -4,16 +4,25 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>transform 사용법</title>
+    <title>transform - 변환</title>
     <style>
-      section {
+      body > div {
+        border: 2px solid greenyellow;
+      }
+      .transform div {
+        display: inline-block;
+        padding: 5px;
+        color: white;
+        background: olive;
+      }
+      .transformBox1 > section {
         width: 100px;
         height: 100px;
         border: 5px solid black;
         position: relative;
         left: 20px;
       }
-      div {
+      .transformBox1 div {
         width: 100px;
         height: 100px;
         background: red;
@@ -21,13 +30,42 @@
         /* transform 속성 사용 */
         transform: rotate(60deg) scale(1.2) skewY(10deg);
       }
+
+      /* 변환 */
+      .Box2 #rotate {
+        transform: rotate(20deg);
+      }
+      .Box2 #skew {
+        transform: skew(0, -20deg);
+      }
+      .Box2 #translate {
+        transform: translateY(100px);
+      }
+      .Box2 #scale {
+        transform: scale(3, 1);
+      }
     </style>
   </head>
   <body>
-    <br />
-    <br />
-    <section>
-      <div></div>
-    </section>
+    <br /><br />
+    <div class="transformBox1">
+      <section>
+        <div></div>
+      </section>
+    </div>
+    <br /><br />
+
+    <div class="transform Box2">
+      <h2>다양한 transform</h2>
+      <p>
+        회전(rotate), 기울임(skew), 이동(translate), 확대/축소(scale)가 적용된
+        사례이다.
+      </p>
+      <hr />
+      <div id="rotate">rotate(20deg)</div>
+      <div id="skew">skew(0,-20deg)</div>
+      <div id="translate">translate(100px)</div>
+      <div id="scale">scale(3,1)</div>
+    </div>
   </body>
 </html>

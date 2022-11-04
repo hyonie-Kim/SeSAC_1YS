@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>animation</title>
+    <style>
+      body > div {
+        border: 2px solid greenyellow;
+      }
+      .ColorLetter span {
+        /* 애니메이션 스타일 시트 작성 */
+        animation-name: textColorAnimation;
+        animation-duration: 5s; /*시간*/
+        /* animation-iteration-count: infinite;  */
+        /*반복 횟수, infinite로 주면 무한반복*/
+      }
+      @keyframes textColorAnimation {
+        0% {
+          color: blue;
+        }
+        30% {
+          color: green;
+        }
+        100% {
+          color: red;
+        }
+      }
+      /* 축소애니메이션 */
+      .smallLetter > h3 {
+        animation-name: bomb;
+        /* animation-duration: 3s; */
+        /* animation-iteration-count: infinite; */
+      }
+      @keyframes bomb {
+        from {
+          font-size: 500%;
+        }
+        to {
+          font-size: 100%;
+        }
+      }
+      /* 전환프로퍼티 */
+      .hoverLetter span {
+        transition: font-size 5s; /*전환 프로퍼티: font-size, 전환시간: 5초*/
+      }
+      .hoverLetter span:hover {
+        font-size: 500%;
+      }
+
+      .rotation {
+        position: absolute;
+        width: 100%;
+        height: 200px;
+      }
+      .rotation > div {
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        background: linear-gradient(#cb60b3 0%, #db36a4 100%);
+        text-align: center;
+        position: absolute;
+        /* display: flex; */
+        /* align-items: center; 세로 정렬 */
+        /* justify-content: center; 가로 정렬 */
+
+        /* 애니메이션 스타일 시트 작성 */
+        animation-name: rin;
+        animation-duration: 3s;
+        animation-timing-function: linear;
+      }
+      .rotation > div > h1 {
+        line-height: 200px;
+      }
+      @keyframes rin {
+        from {
+          left: 0;
+          transform: rotate(0deg);
+        }
+        50% {
+          left: 500px;
+        }
+        to {
+          left: 500px;
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 텍스트 색상 변화 애니메이션 -->
+    <div class="ColorLetter">
+      <h2>텍스트 애니메이션</h2>
+      <hr />
+      <p>
+        <span>Text-animation 5초에 blue, green ,red 무한반복</span>
+      </p>
+    </div>
+    <br /><br />
+
+    <!-- 글자가 축소되는 애니메이션 -->
+    <div class="smallLetter">
+      <h2>글자가 축소되는 애니메이션</h2>
+      <hr />
+      <h3>꽝!</h3>
+      <hr />
+      <p>
+        꽝! 글자가 500%의 크기로 시작하여 3초 내에 100%로 줄어드는 애니메이션
+      </p>
+    </div>
+    <br /><br />
+
+    <div class="hoverLetter">
+      <h2>transition: font-size 전환 프로퍼티</h2>
+      <hr />
+      <p><span>꽝!</span> 글자에 마우스를 올려보세요.</p>
+    </div>
+    <br /><br />
+
+    <!-- 회전하는 원 -->
+    <div class="rotation">
+      <div>
+        <h1>Rotation</h1>
+      </div>
+    </div>
+    <br /><br />
+  </body>
+</html>

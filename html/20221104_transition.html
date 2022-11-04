@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transition - 변형 속성</title>
+    <style>
+      body > div {
+        border: 2px solid yellowgreen;
+      }
+      #graph1 {
+        width: 610px;
+        border: 3px solid black;
+      }
+      #graph1 > .bar {
+        width: 10px;
+        height: 50px;
+        background-color: orange;
+        margin: 5px;
+
+        transition-duration: 5s;
+      }
+      #graph1:hover .bar {
+        width: 500px;
+      }
+      /* transition-timing-function 속성 - 수치를 변형 할때 사용 */
+      .bar:nth-child(1) {
+        transition-timing-function: linear; /* 처음속도와 마지막 속도 일정 */
+      }
+      .bar:nth-child(2) {
+        transition-timing-function: ease; /* 처음엔 천천히 시작하여 빨라지고 마지막에 느려짐. */
+      }
+      .bar:nth-child(3) {
+        transition-timing-function: ease-in; /* 천천히 시작하여 정상 속도가 됨 */
+      }
+      .bar:nth-child(4) {
+        transition-timing-function: ease-in-out; /* 천천히 시작되어 정상 속도가 되었다가 느려짐 */
+      }
+      .bar:nth-child(5) {
+        transition-timing-function: ease-out; /* 마지막에 천천히 속도를 줄여 끝남 */
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h2>Transition Graph</h2>
+      <hr />
+      <div id="graph1">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </div>
+  </body>
+</html>
