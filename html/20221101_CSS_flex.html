@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html rang="ko">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <title>display:flex</title>
@@ -18,21 +18,75 @@
         margin: 10px;
 
         /* flex-grow, flex-shrink, flex-basis */
-        /* flex:1은 flex: 1 1 0 의 줄인 표현 */
+        /* 1. flex-grow: 공간이 남을 때, 크기를 늘려주는 방법 */
+        /* 2. flex-shrink: 공간이 부족할 때, 크기를 줄여 채워주는 방법 */
+        flex: 1; /* flex:1은 flex: 1 1 0 의 줄인 표현 */
+      }
+      /* ----- box2 ----- */
+      .flexBox2 {
+        display: flex;
+        flex-direction: column-reverse; /*세로 역순 나열*/
+      }
+      .flexBox2 > div {
+        background: pink;
+        color: white;
+        font-size: 30px;
+        margin: 10px;
         flex: 1;
+      }
+      /* ----- box3 ----- */
+      .flexBox3 {
+        display: flex;
+        justify-content: space-between; /*양쪽 정렬*/
+      }
+      .flexBox3 > div {
+        background: skyblue;
+        color: white;
+        font-size: 30px;
+        margin: 10px;
+        flex: 0 0 200px;
+      }
+      /* ----- box4 ----- */
+      .flexBox4 {
+        display: flex;
+        justify-content: space-around; /*양쪽 정렬 및 좌우 여백 동일*/
+      }
+      .flexBox4 > div {
+        background: skyblue;
+        color: white;
+        font-size: 30px;
+        margin: 10px;
+        flex: 0 0 200px;
+      }
+      /* ----- box5 ----- */
+      .flexBox5 {
+        display: flex;
+        flex-wrap: wrap; /*자식요소들이 많으면 다음 줄로 넘침*/
+      }
+      .flexBox5 > div {
+        background: navy;
+        color: white;
+        font-size: 30px;
+        margin: 10px;
+        flex: 0 1 100px; /*자식요소들이 많아서 넘치면 안 넘치게 알아서 좁아짐*/
+      }
+      /* ----- box6 ----- */
+      .fleBox6 {
+        display: flex;
+        align-items: flex-start; /*세로 위쪽 정렬*/
+        height: 200px; /* 세로의 크기가 없으면 정렬이 되지 않는다. */
+      }
+      .fleBox6 > div {
+        background: navy;
+        color: white;
+        font-size: 30px;
+        margin: 10px;
+        flex: 1 1 100px;
       }
 
       .d-flex {
         /* display 공부 */
         display: flex;
-        /* justify-content 가로정렬 */
-        /* space-between 같은여백을 유지하면서 정렬 */
-        /* justify-content: space-between; */
-
-        /*align-items 세로정렬 */
-        /* 세로의 크기가 없으면 정렬이 되지 않는다. */
-        /* align-items: ; */
-
         /* display: none; */
       }
     </style>
@@ -51,10 +105,60 @@
     </div>
     <br /><br />
     <!-- display-flex 속성  -->
+    <h2>display:flex (플렉스)</h2>
+    <hr />
     <div class="flexBox">
       <div><img src="./../img/gitHublogo.webp" alt="gitLogo" /></div>
       <div><img src="./../img/gitHublogo.webp" alt="gitLogo" /></div>
       <div><img src="./../img/gitHublogo.webp" alt="gitLogo" /></div>
+    </div>
+    <br /><br />
+
+    <h2>flex-direction: 요소들의 나열 방향 지정</h2>
+    <hr />
+    <div class="flexBox2">
+      <div>flex-child-1</div>
+      <div>flex-child-2</div>
+      <div>flex-child-3</div>
+    </div>
+    <br /><br />
+
+    <h2>justify-content: flex-grow가 0일때, 자식 요소들 가로 정렬 속성</h2>
+    <h3>1️⃣ justify-content: space-between</h3>
+    <hr />
+    <div class="flexBox3">
+      <div>flex-justify-content-1</div>
+      <div>flex-justify-content-2</div>
+      <div>flex-justify-content-3</div>
+    </div>
+
+    <h3>2️⃣ justify-content: space-around</h3>
+    <hr />
+    <div class="flexBox4">
+      <div>flex-justify-content-1</div>
+      <div>flex-justify-content-2</div>
+      <div>flex-justify-content-3</div>
+    </div>
+    <br /><br />
+
+    <h2>flex-wrap: 자식 요소들의 줄바꿈 방식을 지정하는 속성</h2>
+    <div class="flexBox5">
+      <div>child1</div>
+      <div>child2</div>
+      <div>child3</div>
+      <div>child4</div>
+      <div>child5</div>
+      <div>child6</div>
+      <div>child7</div>
+      <div>child8</div>
+    </div>
+    <br /><br />
+
+    <h2>align-item: 자식 요소들을 세로 정렬하는 속성</h2>
+    <div class="fleBox6">
+      <div>child1</div>
+      <div><h2>child2</h2></div>
+      <div>child3</div>
     </div>
   </body>
 </html>
