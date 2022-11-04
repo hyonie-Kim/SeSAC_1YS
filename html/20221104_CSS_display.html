@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>display</title>
+    <style>
+      body > div {
+        border: 2px solid greenyellow;
+      }
+
+      .blockSpan > span {
+        display: block;
+        width: 100px;
+        height: 60px;
+        border: 3px solid black;
+      }
+
+      .inlineDiv > div {
+        border: 2px dotted black;
+        display: inline;
+      }
+      .inlineBlockDiv > div {
+        border: 2px dotted black;
+        display: inline-block;
+        background-color: powderblue;
+        margin: 10px;
+        width: 80px;
+        height: 80px;
+      }
+      .displayPropertyAll > div {
+        border: 3px solid green;
+        color: blue;
+        background: aliceblue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>박스 유형 제어, display</h1>
+    <!-- 1. span에 display-block박스 지정 -->
+    <div class="blockSpan">
+      <h2>display:block (블록 박스)</h2>
+      <hr />
+      <span>block span</span>과 <span>block span</span>입니다.
+    </div>
+    <br /><br />
+
+    <!-- 2. div에 display-inline박스 지정 -->
+    <div class="inlineDiv">
+      <h2>display:inline (인라인 박스)</h2>
+      <hr />
+      <div>inline Div</div>
+      <div>inline Div</div>
+      <div>inline Div</div>
+    </div>
+    <br /><br />
+
+    <!-- 3. div에 display-inline-Block박스 지정 -->
+    <div class="inlineBlockDiv">
+      <h2>display:inline-block (인라인 블록 박스)</h2>
+      <hr />
+      <div>inline-Block Div</div>
+      <div>inline-Block Div</div>
+      <div>inline-Block Div</div>
+    </div>
+    <br /><br />
+
+    <!-- 4. display property 박스 유형 설정 -->
+    <div class="displayPropertyAll">
+      <h2>none, inline, inline-Block, Block</h2>
+      <hr />
+      나는
+      <!-- display:none 으로 지정되어 텍스트가 보이지않음 -->
+      <div style="display: none">div(none)</div>
+      입니다.<br /><br />
+      나는
+      <div style="display: inline">div(inline)</div>
+      입니다. <br /><br />
+      나는
+      <div style="display: inline-block; height: 50px">div(inline-block)</div>
+      입니다. <br /><br />
+      나는
+      <div>
+        div(Block)
+        <span style="display: block; border: 3px dotted red; background: yellow"
+          >span(block)</span
+        >입니다.
+      </div>
+    </div>
+  </body>
+</html>

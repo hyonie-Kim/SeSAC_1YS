@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html rang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>display:flex</title>
+    <style>
+      body > div {
+        border: 3px solid greenyellow;
+      }
+      img {
+        width: 120px;
+      }
+      .flexBox {
+        display: flex;
+      }
+      .flexBox div {
+        border: 3px dotted black;
+        margin: 10px;
+
+        /* flex-grow, flex-shrink, flex-basis */
+        /* flex:1은 flex: 1 1 0 의 줄인 표현 */
+        flex: 1;
+      }
+
+      .d-flex {
+        /* display 공부 */
+        display: flex;
+        /* justify-content 가로정렬 */
+        /* space-between 같은여백을 유지하면서 정렬 */
+        /* justify-content: space-between; */
+
+        /*align-items 세로정렬 */
+        /* 세로의 크기가 없으면 정렬이 되지 않는다. */
+        /* align-items: ; */
+
+        /* display: none; */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 플렉스 속성 -->
+    <div class="d-flex">
+      <div style="background-color: green">
+        <div>1</div>
+        <div>2</div>
+      </div>
+      <div style="background-color: blue; width: 200px">
+        <div>3</div>
+      </div>
+      <div>4</div>
+    </div>
+    <br /><br />
+    <!-- display-flex 속성  -->
+    <div class="flexBox">
+      <div><img src="./../img/gitHublogo.webp" alt="gitLogo" /></div>
+      <div><img src="./../img/gitHublogo.webp" alt="gitLogo" /></div>
+      <div><img src="./../img/gitHublogo.webp" alt="gitLogo" /></div>
+    </div>
+  </body>
+</html>
