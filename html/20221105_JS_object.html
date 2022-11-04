@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>객체 생성 및 활용</title>
+  </head>
+  <body>
+    <h3>객체 생성 및 활용</h3>
+    <hr />
+    <script>
+      // Date 객체 생성
+      let today = new Date();
+
+      // Date 객체 toLocaleString() 메소드 호출
+      document.write("현재시간 :" + today.toLocaleString() + "<br>");
+
+      // String 객체 생성
+      let str = new String("자바스크립트 공부중");
+      document.write("str 변수의 내용 : " + str + "<br>");
+      document.write("str의 길이 : " + str.length);
+
+      // []로 배열 만들기
+      let week = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+
+      //인덱스 접근
+      week[6] = "Sunday";
+    </script>
+
+    <h3>[] 배열 만들기</h3>
+    <p>
+      []로 정수 5개의 배열을 만들고, 원소의 값만큼 '*'를 출력하는 프로그램을
+      작성
+    </p>
+    <hr />
+    <script>
+      let plots = [20, 5, 8, 15, 20];
+      document.write("let plots = [20, 5, 8, 15, 20]");
+    </script>
+  </body>
+</html>
