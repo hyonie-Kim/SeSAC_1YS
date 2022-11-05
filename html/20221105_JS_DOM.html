@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body > div{
+            border: 2px solid yellowgreen;
+        }
+    </style>
+  </head>
+  <body>
+    <h2>createElement 그리고 appendChild</h2>
+    <hr />
+    <p>
+      1. document의 createElement메소드는 지정된 이름의HTML요소를 만들어
+      반환해준다. <br />
+      2. appendChild 메소드는 DOM 내 개별 요소('노드')에 자식 요소를 추가할 때
+      사용하는 메소드이다.
+    </p>
+    <script>
+      // document.createElement("p"); //요소가 만들어지고 반환이 된다.
+      // document.body.appendChild(p);
+    </script>
+    <br /><br />
+    <h2>appendChild & append</h2>
+    <hr />
+    <p>주요한 차이
+        <ul>
+            <li>appendChild의 경우 추가한 자식 노드를 반환하지만,append는반환 데이터가 없다.</li>
+            <li>append를 이용하면 요소에 노드 객체 또는 문자열을 자식 요소로 추가할 수 있지만, appendChild는 노드 객체만을 추가할 수 있다.</li>
+        </ul>
+    </p>
+    <br><br>
+    <div>
+        <h2>JS 실습</h2>
+        <hr>
+        <button id="push">눌러</button>
+        <div id="area"></div>
+    </div>
+    <br>
+    <h2>입력 요소값 읽기</h2>
+    <hr>
+    <p>input, select 처럼 사용자로 부터 입력을 받는데 사용 되는 요소들이 있다.<br>
+    여기에서 사용자가 입력한 값을 읽어들 일 때는 요소 value 속성에 접근하자.
+    </p>
+    <p>
+        <ul>
+            <li>요소의 텍스트에 접근하고 싶다: textContent 또는 innerText</li>
+            <li>사용자가 요소에 입력한 값에 접근하고 싶다: value</li>
+        </ul>
+    </p>
+    <div>
+        <h2>JS 실습 2</h2>
+        <hr>
+        <input type="text" placeholder="입력하세요." id="text">
+        <input type="button" value="PUSH" id="button">
+    </div>
+
+    <script>
+        // 버튼을 클릭할때 마다 div이 추가생성
+        const btn = document.getElementById("push");
+        const div = document.getElementById("area");
+
+        btn.addEventListener('click', function(){
+            console.log("div 생성중..");
+            const newDiv = document.createElement("div"); //1.요소 생성
+            
+
+            newDiv.style.backgroundColor = "pink"; // 1-1.만들어진 div 조작
+            newDiv.style.width = "200px"
+            newDiv.style.height = "200px"
+
+
+            div.appendChild(newDiv);    //2.DOM 추가
+
+            // 입력 요소의 value에 접근하여 읽기와 쓰기
+            //console.log(target.value)
+            //target.value = "변경값"
+
+        });
+
+        // 실습2
+        const textInput = document.getElementById("text");
+            const btnInput = document.getElementById("button");
+
+            btnInput.addEventListener("click", function(){
+                console.log(textInput.value) // 사용자 입력값 받는중
+                
+            })
+    </script>
+    
+  </body>
+</html>
