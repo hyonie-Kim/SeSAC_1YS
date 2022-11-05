@@ -51,25 +51,38 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
 - Javascript DOM (문서 객체 모델)
   - 속성
   - 요소 선택
-    🌼 실습14. 간단 계산기 만들기
-    🌼 실습15. 방명록 만들기
+  - 🌼 실습14. 간단 계산기 만들기
+  - 🌼 실습15. 방명록 만들기
 
 🌱 Saturday, November 5th, 2022
 
 - Bootstrap
 
-  - 1. 부트스트랩 사용 방법
-  - 2. 부트스트랩이 사용하는 다단 레이아웃
-  - 3. 웹 페이지 만들기 - 연습
-       🌼 실습16. 웹 페이지 만들기
+  - 부트스트랩 사용 방법
+  - 부트스트랩이 사용하는 다단 레이아웃
+  - 웹 페이지 만들기 - 연습
+  - 실습16. 웹 페이지 만들기
 
 - Jquery
 
-  - 기본 선택자
-  - 문서 객체 조작
-  - 클래스 조작
-    🌼 실습17. 이미지 바꾸기
+  - 속성 조작 메서드
+
+    - attr("속성명")
+    - removeAttr("속성명")
+    - prop("상태 속성명")
+    - val()
+    - addClass("class값")
+    - removeClass("class값")
+    - toggleClass("class값")
+    - hasClass("class값")
+
+  - 객체 편집 메서드
+    - before()/after() 메서드
+    - append()/prepend() 메서드
+    - empty()/remove() 메서드
+  - 실습17. 이미지 바꾸기
 
 - Jquery UI
-  - switchClass
-    🌼 실습18. 클래스 바꾸기
+  - 변환 클래스
+    - switchClass
+  - 실습18. 클래스 바꾸기
