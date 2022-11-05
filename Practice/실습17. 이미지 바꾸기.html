@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jquery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <!-- jquery UI 파일 경로-->
+    <!-- <script src="./jquery-ui-1.13.2/jquery-ui.js"></script> -->
+    <!-- <link href="./jquery-ui-1.13.2/jquery-ui.css"> -->
+    <title>이미지 바꾸기</title>
+    <style>
+        body > div {
+            border: 1px solid black;
+           
+        }
+        .fruit{
+            display: flex;
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+            /* background-color: aqua; */
+            border-radius: 50px;
+            border: 8px solid goldenrod;
+           
+        }
+        img {
+            width: 80%;
+            height: auto;
+            margin: 0 auto;
+            text-align: center;
+        
+        }
+        
+        .btn{
+            /* border: 1px solid black; */
+            text-align: center;
+        }
+        .btn button {
+            background-color: black;
+            color: white;
+        }
+        
+    </style>
+    <script>
+        function apple(){
+           var fruit = document.querySelector("img")
+           // console.log(fruit)
+           // fruit.src = "./../img/apple.png"
+           $("img").attr("src","./../img/apple.png")
+        }
+        function banana(){
+            var fruit = document.querySelector("img")
+            //fruit.src = "./../img/banana.webp"
+            $("img").attr("src","./../img/banana.webp")
+        }
+        function grape(){
+            var fruit = document.querySelector("img")
+            fruit.src = "./../img/grape.jpg.crdownload"
+        }
+        function peach(){
+            var fruit = document.querySelector("img")
+            fruit.src = "./../img/peach.jpg"
+        }
+    </script>
+</head>
+<body>
+    <h2>실습17. 이미지 바꾸기</h2>
+    <hr>
+    <div>
+        <div class="fruit">
+            <img src="" alt="">
+        </div>
+        <br>
+        <div class="btn">
+            <button id="apple" onclick="apple()">사과</button>
+            <button id="banana" onclick="banana()">바나나</button>
+            <button id="grape" onclick="grape()">포도</button>
+            <button id="peach" onclick="peach()">복숭아</button>
+        </div>
+        <br>
+        
+    </div>
+
+</body>
+</html>

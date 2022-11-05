@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jquery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <!-- jquery UI 파일 경로-->
+    <script src="./jquery-ui-1.13.2/jquery-ui.js"></script>
+    <link href="./jquery-ui-1.13.2/jquery-ui.css">
+    <title>jquery UI</title>
+    <style>
+        div{width: 100px; height: 100px;}
+        .first {background-color: red;}
+        .second {background-color: yellow;} 
+        .third {background-color: green;}
+        .sizeup {font-size: 30px;}
+    </style>
+    <script>
+        function second (){
+            $("div").switchClass("first","second", 2000)
+        }
+        function sizeup (){
+            $("div").switchClass("second","sizeup", 2000)
+        }
+        function third (){
+            $("div").switchClass("sizeup","third", 2000)
+        }
+        function first (){
+            $("div").switchClass("third","first", 2000)
+        }
+    </script>
+</head>
+<body>
+    <h3>jQuery UI</h3>
+    <div class="first">div</div>
+    <br>
+    <button type="button" onclick="second()">first -> second</button>
+    <button type="button" onclick="sizeup()">second -> sizeup</button>
+    <button type="button" onclick="third()">sizeup -> third</button>
+    <button type="button" onclick="first()">third -> first</button>
+</body>
+</html>

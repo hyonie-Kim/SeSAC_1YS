@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jquery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <title>jquery</title>
+    <style>
+        .class {
+            background-color: pink;
+            font-weight: bold;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+    <script>
+        // 클래스 속성을 추가
+        function addClass () {
+            $("div").addClass("class");
+        }
+
+        function removeClass () {
+            $("div").removeClass("class");
+        }
+
+        // 클래스를 여부 확인 
+        function hasClass () {
+            console.log( $("div").hasClass("class"))
+           
+        }
+
+        //없으면 추가하고 있으면 삭제
+        function toggleClass () {
+            $("div").toggleClass("class");
+        }
+
+        
+    </script>
+</head>
+<body>
+    <h3>클래스 조작하기</h3>
+    <hr>
+    <div>div 입니다.</div>
+    <br>
+    <button type="button" onclick="addClass()">addClass</button>
+    <button type="button" onclick="removeClass()">removeClass</button>
+    <button type="button" onclick="hasClass()">hasClass</button>
+    <button type="button" onclick="toggleClass()">toggleClass</button>
+</body>
+</html>
