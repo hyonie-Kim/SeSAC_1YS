@@ -44,6 +44,16 @@
         $("#div1").switchClass("green", "blue", 1000);
         $("#div1").switchClass("blue", "purple", 1000);
       }
+
+      // for문
+
+      function changeColor2() {
+        if ($("#div1").hasClass("red")) $("#div").switchClass("red", "orang");
+        else if ($("#div1").hasClass("orang"))
+          $("#div").switchClass("orang", "yellow");
+        else if ($("#div").hasClass("yellow"))
+          $("#div").switchClass("yellow", "green");
+      }
     </script>
   </head>
   <body>
