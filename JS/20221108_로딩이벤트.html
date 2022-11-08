@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <!-- jquery CDN -->
+        <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+        <title>로딩이벤트</title>
+    </head>
+    <body>
+        
+        body 태그
+        <input type="text" id="input1">
+        <br><br>
+        <p id="alert"> </p>
+        <div id="div1" 
+        style="width: 100px; height: 100px; 
+            background-color: yellow;"
+        >
+        </div>
+        <script>
+            // 로딩 이벤트 1 : 사용자에게 화면에 보여지기 전에 시작하는 이벤트
+            // $(document).ready(function(){
+            //     alert("document.ready");
+            // });
+
+            // 로딩 이벤트 2 - 축약형
+            // $(function(){
+            //     alert("ready")
+            // })
+
+            // 마우스 클릭 이벤트 3
+            $("#div1").click(function(e){
+                console.log("div click");
+                console.log("e :", e)
+            })
+            // 마우스 오버 이벤트 4
+            $("#div1").mouseover(function(){
+                console.log("div mouseover")
+            })
+
+            // 마우스 hover 이벤트 5
+            // 마우스를 올리고 뗄때 둘다 감지한다. 
+            // 때문에 올리고 뗄때 다르게 동작하고 싶다면 함수를 2개를 다르게 실행이 가능하다. 
+            $("#div1").hover(function(){
+                console.log("div hover")
+            }, function(){
+                console.log("div hover2")
+            })
+
+            // 스크롤 이벤트
+            // window 브라우저 창 전체를 의미
+            $(window).scroll(function(){
+                console.log("window scroll")
+            })
+
+            // 키보드 이벤트
+            // 키를 누른상태이지만 텍스트 값을 입력하기 전 상태
+            // 키보드에는 특정 key code가 지정되어 있는데, key(ex:2)객체가 있다. 
+            $("#input1").keydown(function(e){
+                console.log("keydown: ",e.currentTarget.value)
+                $("#alert").text("글자가 입력됨, " + e.currentTarget.value)
+                console.log("input keydown")
+                console.log("e")
+                if (e.keyCode == 13) {
+                    console.log("enter key")
+                }
+            })
+
+            // 키를 오른것
+            $("#input1").keyup(function(e){
+                console.log("input keyup")
+            })
+
+            // // 입력창에 값이 반영이 된 상태 - 2021년에 사라지고 없음
+            // $("#input1").keypress(function(e){
+            //     console.log("input keypress");
+
+            // })
+        </script>
+    </body>
+</html>

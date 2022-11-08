@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- sweetalert CDN -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!-- chart.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js" integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Sweetalert</title>
+    <style>
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- sweetalert -->
+    <h2>Sweetalert</h2>
+    <hr>
+    <ol>
+        <li><button onclick="box1()">클릭</button> text</li>
+        <li><button onclick="box2()">클릭</button> title, text</li>
+        <li><button onclick="box3()">클릭</button> title, text, icon</li>
+    </ol>
+    <br><br>
+
+    <!-- chart.js -->
+    <h2>Chart.js</h2>
+    <hr>
+    <canvas id="myChart" width="400px" height="400px"></canvas>
+
+    <script>
+        function box1 (){
+            swal("Hello world!")
+        }
+        
+        function box2 (){
+            swal("Sweetalert 공부중","swal 인자가 2개이면, 차례로 tilte, text")
+        }
+        function box3(){
+            swal("Good job!!","아이콘은 4가지 있다. success, info, warning, error", "success")
+        }
+
+        // chart.js
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {    //newChart를 통해 차트 생성
+            type: 'bar',
+            data: {
+                labels: ['red', 'blue', 'yellow', 'green'],
+                datasets: [{                    // 각 축에 들어갈 데이터를 넣어주고 색,두께 요소 지정
+                    label: '# of Votes',        // 축제목
+                    data: [12, 19, 3, 5],       // 차트를 넣어준다.
+                    backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)'
+                    ],
+                    borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)'
+                    ],
+
+                    borderWidth: 1,
+                    
+                }]
+            },
+            option: {   // 차트를 꾸밀수 있다.
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
