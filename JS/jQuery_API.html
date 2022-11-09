@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- jquery CDN -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"
+    ></script>
+    <title>API 연습</title>
+  </head>
+  <body>
+    <h1>효니 사이트 hi</h1>
+    <div id="title"></div>
+    <div id="content"></div>
+    <img id="book_img" />
+    <script>
+      //   $.ajax({
+      //     // <요청 방식>
+      //     method: "GET", // 전송 방식
+      //     url: "http://www.aladin.co.kr/ttb/api/ItemList.aspx", // 전송 주소
+      //     data: { QueryType: "ItemNewSpecial" }, // JSON형태_보낼 데이터
+
+      //   }).done(function (msg) {
+      //     alert("Data Saved: " + msg); // 요청 응답 처리 코드
+      //   });
+
+      function aladin1(success, data) {
+        console.log("성공!", success);
+        console.log(data);
+
+        var title = data.item[0].title;
+        var cover = data.item[0].cover;
+        var content = data.item[0].description;
+
+        $("#title").append("<strong>" + title + "</strong>");
+        $("#content").append(content);
+
+        var img = "<img src='" + cover + "'/>";
+        $("#book_img").append(img);
+      }
+      $.ajax({
+        method: "GET",
+        dataType: "jsonp",
+        jsonp: "aladin1",
+        url: "http://www.aladin.co.kr/ttb/api/ItemSearch.aspx",
+        data: {
+          Query: "미움받을 용기",
+          TTBKey: "ttblovely2012530900001",
+          output: "JS",
+          cover: "big",
+          callback: "aladin1",
+        },
+      });
+      //https://blog.naver.com/jjanghyewon/222118183510 참고
+    </script>
+  </body>
+</html>
