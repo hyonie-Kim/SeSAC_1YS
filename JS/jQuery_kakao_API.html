@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- jquery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <title>KAKAO API</title>
+    <style>
+        img{
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <input type="text" id="query">
+    <button id="search">검색</button>
+    <div></div>
+    <hr> -->
+    <p></p>
+
+    <script>
+        $.ajax({
+            //요청 정보
+            method: "GET",
+            url: "https://dapi.kakao.com/v3/search/book?target=title",
+            data: { query:"제이쿼리" },
+            headers:{Authorization: "KakaoAK e04473d46599613a0c21d848cedc2df0"}
+        })
+            .done(function (msg) {
+                //응답 후 코드
+                console.log("조회 데이터", msg)
+                console.log("제목 검색 :", msg.documents[0].title)
+                console.log("책 이미지 :", msg.documents[0].thumbnail)
+
+                // $("p").append("<strong>" + msg.documents[0].title +"</strong>");
+                // $("p").append("<img src='"+ msg.documents[0].thumbnail +"'/>")
+
+               for(let i=0; i <10; i++){
+                console.log(msg.documents[i].thumbnail)
+                $("p").append("<img src='"+ msg.documents[i].thumbnail +"'/>")
+
+               }
+            });
+    </script>
+</body>
+
+</html>

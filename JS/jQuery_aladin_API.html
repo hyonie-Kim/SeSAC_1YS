@@ -18,15 +18,16 @@
     <div id="content"></div>
     <img id="book_img" />
     <script>
-      //   $.ajax({
-      //     // <요청 방식>
-      //     method: "GET", // 전송 방식
-      //     url: "http://www.aladin.co.kr/ttb/api/ItemList.aspx", // 전송 주소
-      //     data: { QueryType: "ItemNewSpecial" }, // JSON형태_보낼 데이터
+      
+        // $.ajax({
+        //   // <요청 방식>
+        //   method: "GET", // 전송 방식
+        //   url: "http://www.aladin.co.kr/ttb/api/ItemList.aspx", // 전송 주소
+        //   data: { QueryType: "ItemNewSpecial" }, // JSON형태_보낼 데이터
 
-      //   }).done(function (msg) {
-      //     alert("Data Saved: " + msg); // 요청 응답 처리 코드
-      //   });
+        // }).done(function (msg) {
+        //   alert("Data Saved: " + msg); // 요청 응답 처리 코드
+        // });
 
       function aladin1(success, data) {
         console.log("성공!", success);
@@ -55,6 +56,7 @@
           callback: "aladin1",
         },
       });
+
       //https://blog.naver.com/jjanghyewon/222118183510 참고
     </script>
   </body>
