@@ -10,3 +10,11 @@ $(function () {
     sectionsColor: ["#ccc", "#bbb", "#eee", "#fff"],
   });
 });
+
+// $(window).resize(function () {
+//   if ($(this).width() <= 768) {
+//     //window의 너비가 768 이하라면
+//     fullpage_api.destroy("all");
+//   } else {
+//   }
+// });

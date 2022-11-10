@@ -86,3 +86,12 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
   - 변환 클래스
     - switchClass
   - 🌷실습18. 클래스 바꾸기
+
+🌱 Thursday, November 8th, 2022
+
+- Jquery
+  - 🌷실습19-20. 스케줄
+- Javascript 전체 실습
+  - 🌷실습12. 반응형 페이지 만들기
+
+🌱 Thursday, November 11th, 2022
