@@ -1,4 +1,4 @@
-$(function () {
+$(function fullpageActivate() {
   // jQuery를 사용한 초기화
   $("#fullpage").fullpage({
     //options here
@@ -10,21 +10,22 @@ $(function () {
     sectionsColor: ["#ccc", "##fef8f8", "#eee", "#fff"],
   });
 
+  // $(window).resize(function () {
+  //   if ($(this).width() <= 768) {
+  //     //window의 너비가 768 이하라면
+  //     $.fn.fullpage.destroy("all");
+  //   } else {
+  //     fullpageActivate();
+  //   }
+  // });
+
   // if ($(this).width() <= 768) {
   //   //window의 너비가 768 이하라면
   //   $.fn.fullpage.destroy();
   // } else {
   // }
 });
-
-
-// $(window).resize(function () {
-//   if ($(this).width() <= 768) {
-//     //window의 너비가 768 이하라면
-//     fullpage_api.destroy('all');
-//   } else {
-//   }
-// });
+// fullpageActivate();
 
 // 알라딘 API
 
@@ -42,7 +43,6 @@ $(function () {
 //   var img = "<img src='" + cover + "'/>";
 //   $("#book_img").append(img);
 // }
-
 
 // function aladin2(success, data) {
 //   if (!success) {
@@ -82,7 +82,7 @@ $(function () {
 //     QueryType: "ItemNewAll",
 //     TTBKey: "ttblovely2012530900001",
 //     SearchTarget: "Book",
-    
+
 //     output: "JS",
 //     cover: "big",
 //     callback: "aladin2",
@@ -93,21 +93,19 @@ $.ajax({
   //요청 정보
   method: "GET",
   url: "https://dapi.kakao.com/v3/search/book?target=title",
-  data: { query:"제이쿼리" },
-  headers:{Authorization: "KakaoAK e04473d46599613a0c21d848cedc2df0"}
-})
-  .done(function (msg) {
-      //응답 후 코드
-      console.log("조회 데이터", msg)
-      console.log("제목 검색 :", msg.documents[0].title)
-      console.log("책 이미지 :", msg.documents[0].thumbnail)
+  data: { query: "제이쿼리" },
+  headers: { Authorization: "KakaoAK e04473d46599613a0c21d848cedc2df0" },
+}).done(function (msg) {
+  //응답 후 코드
+  console.log("조회 데이터", msg);
+  console.log("제목 검색 :", msg.documents[0].title);
+  console.log("책 이미지 :", msg.documents[0].thumbnail);
 
-      // $("p").append("<strong>" + msg.documents[0].title +"</strong>");
-      // $("p").append("<img src='"+ msg.documents[0].thumbnail +"'/>")
+  // $("p").append("<strong>" + msg.documents[0].title +"</strong>");
+  // $("p").append("<img src='"+ msg.documents[0].thumbnail +"'/>")
 
-     for(let i=0; i <10; i++){
-      console.log(msg.documents[i].thumbnail)
-      $("p").append("<img src='"+ msg.documents[i].thumbnail +"'/>")
-
-     }
-  });
+  for (let i = 0; i < 10; i++) {
+    console.log(msg.documents[i].thumbnail);
+    $("p").append("<img src='" + msg.documents[i].thumbnail + "'/>");
+  }
+});
