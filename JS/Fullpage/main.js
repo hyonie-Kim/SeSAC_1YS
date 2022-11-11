@@ -1,4 +1,4 @@
-$(function fullpageActivate() {
+$(function () {
   // jQuery를 사용한 초기화
   $("#fullpage").fullpage({
     //options here
@@ -10,21 +10,22 @@ $(function fullpageActivate() {
     sectionsColor: ["#ccc", "##fef8f8", "#eee", "#fff"],
   });
 
-  // $(window).resize(function () {
-  //   if ($(this).width() <= 768) {
-  //     //window의 너비가 768 이하라면
-  //     $.fn.fullpage.destroy("all");
-  //   } else {
-  //     fullpageActivate();
-  //   }
-  // });
-
   // if ($(this).width() <= 768) {
   //   //window의 너비가 768 이하라면
   //   $.fn.fullpage.destroy();
   // } else {
   // }
 });
+
+// $(window).resize(function () {
+//   if ($(this).width() <= 768) {
+//     //window의 너비가 768 이하라면
+//     $.fn.fullpage.destroy("all");
+//   } else {
+//     fullpageActivate();
+//   }
+// });
+
 // fullpageActivate();
 
 // 알라딘 API

@@ -95,3 +95,10 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
   - 🌷실습21. 반응형 페이지 만들기
 
 🌱 Thursday, November 11th, 2022
+
+- Web Front-end library (추천)
+  1. Materialize (Bootstrap과 비슷한 라이브러리)
+  2. Slick (carousel, slider 라이브러리)
+  3. SweetAlert (alert창 라이브러리)
+  4. Animate CSS (애니메이션 라이브러리)
+  5. pagination.js (페이지네이션 라이브러리)
