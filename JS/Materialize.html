@@ -18,6 +18,28 @@
       rel="stylesheet"
     />
     <title>Materialize</title>
+    <style>
+      body {
+        /* margin: 0;
+        padding: 0; */
+      }
+      .search-box{
+        
+        /* padding: 10px;
+        position: absolute;
+        top: 50%;
+        left: 40%;
+        height: 30px;
+        transform: translate(0%, -50%);
+        border: 1px solid black;
+        border-radius: 30px; */
+      }
+
+      .search-input input {
+        border: none;
+        border-bottom: 1px solid 
+      }
+    </style>
   </head>
   <body>
     <nav>
@@ -30,8 +52,8 @@
         </ul>
       </div>
     </nav>
-    <br />
-    <form>
+    
+    <!-- <form>
       <div class="input-field">
         <input id="search" type="search" required />
         <label class="label-icon" for="search"
@@ -39,6 +61,23 @@
         >
         <i class="material-icons">close</i>
       </div>
-    </form>
+    </form> -->
+
+    <!-- Search 창 구현 -->
+    <!-- <div class="search-box">
+      <input type="text" class="search-txt" placeholder="Search a Book..">
+      <a class="search-btn" href="#">
+        <i class="material-icons">search</i>
+      </a>
+    </div> -->
+    <br>
+    <!-- <form className={classes.root} noValidate autoComplete="off">
+      
+      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+    </form> -->
+
+    <div class="search-input">
+      <input type="text">
+    </div>
   </body>
 </html>
