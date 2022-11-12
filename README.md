@@ -87,14 +87,14 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
     - switchClass
   - 🌷실습18. 클래스 바꾸기
 
-🌱 Thursday, November 8th, 2022
+🌱 Tuesday, November 8th, 2022
 
 - Jquery
   - 🌷실습19-20. 스케줄
 - Javascript 전체 실습
   - 🌷실습21. 반응형 페이지 만들기
 
-🌱 Thursday, November 11th, 2022
+🌱 Thursday, November 10th, 2022
 
 - Web Front-end library (추천)
   1. Materialize (Bootstrap과 비슷한 라이브러리)
@@ -102,3 +102,10 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
   3. SweetAlert (alert창 라이브러리)
   4. Animate CSS (애니메이션 라이브러리)
   5. pagination.js (페이지네이션 라이브러리)
+
+🌱 Saturday, November 12th, 2022
+
+- 서버 구축하기 (클라우드 서버)
+  - Naver Cloud Platform
+  - AWS(Amazon Web Service)
+  - Apache
