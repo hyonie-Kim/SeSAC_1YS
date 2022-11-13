@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>Vue Instance Lifecycle</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 인스턴스의 유효 범위 -->
+      {{ message }}
+    </div>
+    <!-- vue library CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js"></script>
+    <script>
+      // 뷰 인스턴스 생성
+      new Vue({
+        el: "#app",
+        data: {
+          message: "Hello Vue.js!",
+        },
+        beforeCreate: function () {
+          // 인스턴스가 생성되고 가장 처음으로 실행되는 라이프 사이클 단계
+          console.log("beforeCreate");
+        },
+        created: function () {
+          console.log("created");
+        },
+        mounted: function () {
+          console.log("mounted");
+          this.message = "Hello Vue!";
+        },
+        updated: function () {
+          // 데이터가 변경되고 나서 가상 돔으로 다시 화면을 그리고 나면 실행되는 단계
+          console.log("updated");
+        },
+      });
+    </script>
+  </body>
+</html>
