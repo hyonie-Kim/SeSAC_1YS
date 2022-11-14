@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>JS Object</title>
 </head>
 <body>
     <script>
@@ -126,5 +126,41 @@
         console.log(Math.ceil(1.1));
 
     </script>
+    <h2>오브젝트</h2>
+    <hr>
+    <ul>
+        <li>오브젝트는 배열하고 비슷하면서도 약간다르다.</li>
+        <li>오브젝트는 속성과 값, 즉 쌍을 이루고 있는 데이터이다.</li>
+        <li>배열을 값으로 가지는 키도 선언할수 있다.</li>
+        <li>오브젝트 안에 또 다른 오브젝트를 선언할 수도 있다.</li>
+    </ul>
+    <pre>
+        <code>
+            const monkey = {
+                name : 'kiki',
+                age : 5,
+                weight: 40,
+                gender: 'male',
+                isCute: true,
+                <!-- 배열을 값으로 가지는 키 -->
+                food: ["banana", "carrot", "potato"]
+                <!-- 오브젝트 선언 -->
+                home: {
+                    location: "zoo",
+                    size: "big",
+                    price: 3000
+                }
+            }
+
+            console.log(monkey);
+            <!-- 오브젝트 안에 name값만 가져올때 -->
+            console.log(money["name"]) // kiki
+            <!-- 오브젝트 값에 프로퍼티에 접근을 할때 점을 찍는다. -->
+            console.log(money.weight)  // 40
+            <!-- 오브젝트 안에 값 바꾸기 -->
+            monkey.gender = "female"
+            console.log(money.gender)
+        </code>
+    </pre>
 </body>
 </html>
