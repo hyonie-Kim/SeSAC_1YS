@@ -109,3 +109,13 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
   - Naver Cloud Platform
   - AWS(Amazon Web Service)
   - Apache
+
+🌱 Tuesday, November 15th, 2022
+
+- 애자일 방법론
+- Git Branch
+  - git Branch merge 충돌 해결하기
+  - Branch 종류
+  - Pull Request 검토 메시지
+  - gitignore
+- Node.js 로컬/서버 설치
