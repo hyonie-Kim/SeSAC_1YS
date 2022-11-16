@@ -1,0 +1,116 @@
+<html>
+
+<head>
+    <title>삼항연산자 - map, reduce, filter</title>
+</head>
+<style>
+    code {
+        font-weight: bold;
+        color: blue;
+    }
+</style>
+
+<body>
+    <h3>삼항연산자</h3>
+    <ul>
+        <li>삼항연산자를 사용하면 if문 으로 반복적으로 만드는 코드를 짧고 간결하게 만들수 있다.</li>
+        <li>(조건) ? 성립할때 : 성립하지않을때</li>
+    </ul>
+    <pre>
+            <code>
+                const num = 10;
+
+                예제1]
+                if(num > 10) {
+                    console.log(true);
+                } else {
+                    console.log(false);
+                }
+
+                예제2]
+                num > 10 ? console.log(true) : console.log(false)
+            </code>
+        </pre>
+    <script>
+        const num = 10;
+        // if(num > 10) {
+        //     console.log(true)
+        // } else {
+        //     console.log(false)
+        // }
+        // 삼항연산자를 사용하면 위 코드보다 짧게 작성할수있다
+
+        num > 10 ? console.log(true) : console.log(false)
+    </script>
+    <h3>forEach 메서드를 사용한 반복문</h3>
+    <hr>
+    <ul>
+        <li>forEach는 반복문을 단순하게 돌려주는 기능을 함 </li>
+        <li>요소가 끝날때까지 돌고 반복문이 종료된다</li>
+        <li>예제2번 참고 ▶️ 인덱스 값을 가져오기 위해서는 function 인자 두번째 부분에 Parameter로 index라는 이름을 주면된다.</li>
+        <li>첫번째 인자는 원소, 두번째 인자는 인덱스</li>
+    </ul>
+    <pre>
+            <code>
+            const coronaCases = [
+                {city: 'Seoul', case: 1000},
+                {city: 'Daejeon', case: 500},
+                {city: 'Daegu', case: 300},
+                {city: 'Busan', case: 100},
+                {city: 'Gwangju', case: 50},
+            ]
+            
+            예제1] 
+            coronaCases.forEach( function(corona){
+                console.log(corona)
+            })
+
+            예제2] 인덱스도 함께 출력
+            coronaCases.forEach( function(corona, index){
+                console.log(corona, index)
+            })
+            </code>
+        </pre>
+    <script>
+        console.log("========== forEach 메서드 반복문 ==========")
+        const coronaCases = [
+            { city: 'Seoul', case: 1000 },
+            { city: 'Daejeon', case: 500 },
+            { city: 'Daegu', case: 300 },
+            { city: 'Busan', case: 100 },
+            { city: 'Gwangju', case: 50 },
+        ]
+        coronaCases.forEach(function (corona) {
+            console.log(corona.city)
+        })
+        console.log("========== map 메서드 반복문 ==========")
+        // map 메소드 안에 함수에 인자 선언
+        const coronaCities = coronaCases.map((corona)=>{
+            // console.log(corona)
+            return corona.city
+        })
+        // 도시의 이름들만 배열로 출력
+        console.log(coronaCities)
+    </script>
+    <h3>map 메서드는 어떠한 배열을 가공하여 새로운 형태의 배열을 만들때</h3>
+    <hr>
+    <pre>
+        <code>
+            예제1]
+            const coronaCities = coronaCases.map((corona)=>{
+                return corona.city
+            })
+            console.log(coronaCities)
+
+            예제2] 문장으로 가공된 새로운 형태의 배열만들기
+            const coronaCities = coronaCases.map((corona)=>{
+                return `${corona.city}의 확진자 발생 수는 ${corona.case}`;
+            })
+            console.log(coronaCities)
+
+        </code>
+    </pre>
+    <h3>filter는 배열에서 특정한 값을 가진 데이터를 필터링 할때</h3>
+</body>
+
+</html>
