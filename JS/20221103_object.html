@@ -5,6 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JS Object</title>
+    <style>
+      code {
+        font-weight: bold;
+        color: blue;
+      }
+    </style>
   </head>
   <body>
     <script>
@@ -174,5 +180,42 @@
         Key가 쌍따옴표로 감싸져 있다.
       </li>
     </ul>
+    <h3>🌱 JSON.stringify(monkey) 메서드 - 오브젝트가 JSON 형태로 문자열화 된다</h3>
+    <pre>
+      <code>
+        const monkeyJSON = JSON.stringify(monkey);
+        console.log(monkeyJSON);
+      </code>
+    </pre>
+    <script>
+      console.log("========== JSON ==========")
+      const monkey = {
+        name: 'kiki',
+        age: 5,
+        weight: 40,
+        gender: 'male',
+        isCute: true,
+        food: ['banana', 'carrot', 'potato'],
+        home: {
+          location: 'zoo',
+          size: 'big',
+          price: 3000
+        }
+      }
+      console.log("monkey object: ",monkey);
+      const monkeyJSON = JSON.stringify(monkey);
+      console.log("monkeyJSON: ",monkeyJSON);
+    </script>
+    <h3>🌱 JSON.parse(monkey) 메서드 - 오브젝트 형태로 파싱을 시켜준다</h3>
+    <pre>
+      <code>
+        const parsedJSON = JSON.parse(monkeyJSON);
+        console.log(parsedJSON);
+      </code>
+    </pre>
+    <script>
+      const parsedJSON = JSON.parse(monkeyJSON) 
+      console.log("parsedJSON: ",parsedJSON)
+    </script>
   </body>
 </html>

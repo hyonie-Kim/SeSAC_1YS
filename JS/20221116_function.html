@@ -1,0 +1,140 @@
+<html>
+    <head>
+        <title>JS function</title>
+        <style>
+            code {
+                font-weight: bold;
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Function 사용법</h2>
+        <hr>
+        <ul>
+            <li>함수를 왜 사용해야하는지..? => 반복된 작업을 줄이고 성능과 업무 효율화</li>
+            <li>함수 외부에 선언된 변수를 함수 안에서 사용 할수 있다.</li>
+            <li>인자: Parameter </li>
+            <li>인자로 값을 넘겨 받는것이 일반적인 함수의 패턴</li>
+        </ul>
+        <pre>
+            <code>
+            const item1 = 3000;
+            const item2 = 2000;
+            const item3 = 5000;
+
+            const loyalty = 1000;
+
+            function showPrice(price){
+                console.log("price 합계:",price + loyalty);
+            };
+
+            showPrice(item1);
+            showPrice(item2);
+            showPrice(item3);
+            </code>
+        </pre>
+        <script>
+            const item1 = 3000;
+            const item2 = 2000;
+            const item3 = 5000;
+
+            const loyalty = 1000;
+
+            // function showPrice(price){
+            //     // console.log("price 합계:",price + loyalty);
+            //     return price + loyalty;
+            // };
+            const showPrice = (price) =>{
+                console.log("price 합계:",price+loyalty)
+            }
+
+            showPrice(item1);
+            showPrice(item2);
+            showPrice(item3);
+        </script>
+
+        <h3>1. 어떠한 값을 return 명령으로 되돌려 줄수 있다.</h3>
+        <ul>
+            <li>return은 어딘가에 값을 담아 두고 싶을때 사용하면 된다.</li>
+        </ul>
+        <pre>
+            <code>
+                function showPrice(price){
+                    return price + loyalty;
+                };
+                const price1 = showPrice(item1);
+                const price2 = showPrice(item2);
+                const price3 = showPrice(item3);
+
+                console.log(price1);
+            </code>
+        </pre>
+        
+        <h3>2. 함수 자체를 변수에 담아서 사용하는 방법</h3>
+        <pre>
+            <code>
+                const showPrice = function(price){
+                    return price + loyalty;
+                }
+                console.log(showPrice(item1));
+            </code>
+        </pre>
+        <h3>3. ES6에 추가된 화살표 함수</h3>
+        <ul>
+            <li>
+                화살표 함수는 반드시 함수 선언한 후에 밑에 작성(호출)을 해야 정상적으로 출력이 된다.
+            </li>
+            
+        </ul>
+        <pre>
+            <code>
+                const showPrice = (price) => {
+                    console.log(price + loyalty;)
+                }
+                showPrice(item1)
+            </code>
+        </pre>
+        <h3>4. function으로 선언한 함수와 화살표 함수로 선언한 함수 차이</h3>
+        <ul>
+            <li>같은 오브젝트 안에 선언이 되었는데, 서로 다른 this(객체)를 가리킨다. </li>
+            <li>화살표 함수는 window객체를 가리키고, function은 객체 자신을 가리킨다.</li>
+            <li>화살표 함수에서 렉시컬 스코프의 중요성!</li>
+            <li>this는 호출되는 시점을 기준으로 객체를 가르키기 때문에 차이가 있다.</li>
+        </ul>
+        <pre>
+            <code>
+                const obj = {
+                    name: 'test',
+                    test1: function(){
+                        console.log(this)
+                    },
+                    test2: () => {
+                        console.log(this)
+                    }
+                }
+                obj.test1();
+                obj.test2();
+            </code>
+        </pre>
+        <script>
+            // console.log("this",this)
+
+            const obj = {
+                name: 'test',
+                test1: function(){
+                    console.log("Function this",this)
+                },
+                test2: () => {
+                    console.log("arrow function this",this)
+                }
+            }
+            obj.test1();
+            obj.test2();
+            // const a = obj.test1;
+            // const b = obj.test2;
+            // a();
+            // b();
+        </script>
+    </body>
+</html>
