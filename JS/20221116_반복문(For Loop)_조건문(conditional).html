@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <title>조건문/반복문</title>
+        <style>
+            code {
+                font-weight: bold;
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>조건문</h2>
+        <hr>
+        <ul>
+            <li>if문 괄호 안에는 조건이 들어간다.</li>
+            <li>이퀄 표시가 2개(==)인것과 3개(===)인 것 차이점
+                <ul>
+                    <li>== :데이터타입 비교안함 </li>
+                    <li>=== :데이터타입 까지 비교</li>
+                </ul>
+            </li>
+            <li>if와 else중간에 else if 를 넣어 또 다른 조건문을 만들수 있다.</li>
+            
+        </ul>
+        <pre>
+            <code>
+            const num = 9;
+            
+            예제1]
+
+            if(num < 10){
+                console.log('10보다 작습니다.')
+            }else {
+                console.log('10보다 크거나 같습니다.')
+            }
+
+            예제2]
+            if(num < 10){
+                console.log('10보다 작습니다.')
+            } else if (num === 10){
+                console.log('10과 같습니다.')
+            } else {
+                console.log('10보다 큽니다..')
+            }
+            </code>
+        </pre>
+        <script>
+            // 간단한 배열만들기
+            const animals = [
+                {name:'lion', size:'big'},
+                {name:'monkey', size:'medium'},
+                {name:'dog', size:'small'}
+            ]
+            console.log("animals:",animals)
+            const num = 9;
+            // 조건문: 만약에 num이 10이면 명령 출력 num == 10
+            if(num < 10){
+                console.log('10보다 작습니다.')
+            }else {
+                console.log('10보다 크거나 같습니다.')
+            }
+
+
+        </script>
+
+        <h3>switch문</h3>
+        <hr>
+        <ul>
+            <li>switch 소괄호에는 비교할 값을 넣어준다</li>
+            <li>각각 case마다 비교할 값을 넣어주면된다.</li>
+            <li>명령이 끝나면 break를 작성하여 switch문이 종료되었다는 걸 표시한다.</li>
+            <li>default는 if else에서 else와 같은 역할을한다.</li>
+        </ul>
+        <pre>
+            <code>
+            const animal = 'monkey';
+            // const animal = animals[2].name
+            switch(animal){
+                case 'lion':
+                    console.log('사자입니다.');
+                    break;
+                case 'monkey':
+                    console.log('원숭이입니다.');
+                    break;
+                default:
+                    console.log('동물이 아닙니다.');
+                    break;
+            }
+            </code>
+        </pre>
+        <script>
+            const animal = 'monkey';
+            
+            switch(animal){
+                case 'lion':
+                    console.log('사자입니다.');
+                    break;
+                case 'monkey':
+                    console.log('원숭이입니다.');
+                    break;
+                default:
+                    console.log('동물이 아닙니다.');
+                    break;
+            }
+        </script>
+
+    <h2>반복문</h2>
+    <hr>
+    </body>
+</html>
