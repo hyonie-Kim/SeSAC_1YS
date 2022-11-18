@@ -119,3 +119,17 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
   - Pull Request 검토 메시지
   - gitignore
 - Node.js 로컬/서버 설치
+
+🌱 Thursday, November 17th, 2022
+
+- Node.js 내장모듈
+
+  - os 모듈
+  - path 모듈
+  - 🌷실습25. 내장 모듈 이용하기
+  - 🌷실습26. url 모듈 이용하기
+
+- Javascript
+  - 객체,배열 구조 분해
+  - Callback 함수 - 동기/비동기
+  - Callback Hell
