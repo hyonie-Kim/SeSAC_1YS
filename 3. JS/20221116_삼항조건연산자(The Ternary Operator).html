@@ -1,20 +1,22 @@
 <html>
-
-<head>
+  <head>
     <title>삼항연산자 - map, reduce, filter</title>
-</head>
-<style>
+  </head>
+  <style>
     code {
-        font-weight: bold;
-        color: blue;
+      font-weight: bold;
+      color: blue;
     }
-</style>
+  </style>
 
-<body>
+  <body>
     <h3>삼항연산자</h3>
     <ul>
-        <li>삼항연산자를 사용하면 if문 으로 반복적으로 만드는 코드를 짧고 간결하게 만들수 있다.</li>
-        <li>(조건) ? 성립할때 : 성립하지않을때</li>
+      <li>
+        삼항연산자를 사용하면 if문 으로 반복적으로 만드는 코드를 짧고 간결하게
+        만들수 있다.
+      </li>
+      <li>(조건) ? 성립할때 : 성립하지않을때</li>
     </ul>
     <pre>
             <code>
@@ -32,23 +34,27 @@
             </code>
         </pre>
     <script>
-        const num = 10;
-        // if(num > 10) {
-        //     console.log(true)
-        // } else {
-        //     console.log(false)
-        // }
-        // 삼항연산자를 사용하면 위 코드보다 짧게 작성할수있다
+      const num = 10;
+      // if(num > 10) {
+      //     console.log(true)
+      // } else {
+      //     console.log(false)
+      // }
+      // 삼항연산자를 사용하면 위 코드보다 짧게 작성할수있다
 
-        num > 10 ? console.log(true) : console.log(false)
+      num > 10 ? console.log(true) : console.log(false);
     </script>
-    <h3>forEach 메서드를 사용한 반복문</h3>
-    <hr>
+    <!-- forEach, map, reduce -->
+    <h3>forEach 메서드</h3>
+    <hr />
     <ul>
-        <li>forEach는 반복문을 단순하게 돌려주는 기능을 함 </li>
-        <li>요소가 끝날때까지 돌고 반복문이 종료된다</li>
-        <li>예제2번 참고 ▶️ 인덱스 값을 가져오기 위해서는 function 인자 두번째 부분에 Parameter로 index라는 이름을 주면된다.</li>
-        <li>첫번째 인자는 원소, 두번째 인자는 인덱스</li>
+      <li>forEach는 반복문을 단순하게 돌려주는 기능을 함</li>
+      <li>요소가 끝날때까지 돌고 반복문이 종료된다</li>
+      <li>
+        예제2번 참고 ▶️ 인덱스 값을 가져오기 위해서는 function 인자 두번째
+        부분에 Parameter로 index라는 이름을 주면된다.
+      </li>
+      <li>첫번째 인자는 원소, 두번째 인자는 인덱스</li>
     </ul>
     <pre>
             <code>
@@ -60,7 +66,7 @@
                 {city: 'Gwangju', case: 50},
             ]
             
-            예제1] 
+            예제1] forEach 사용
             coronaCases.forEach( function(corona){
                 console.log(corona)
             })
@@ -72,31 +78,89 @@
             </code>
         </pre>
     <script>
-        console.log("========== forEach 메서드 반복문 ==========")
-        const coronaCases = [
-            { city: 'Seoul', case: 1000 },
-            { city: 'Daejeon', case: 500 },
-            { city: 'Daegu', case: 300 },
-            { city: 'Busan', case: 100 },
-            { city: 'Gwangju', case: 50 },
-        ]
-        coronaCases.forEach(function (corona) {
-            console.log(corona.city)
-        })
-        console.log("========== map 메서드 반복문 ==========")
-        // map 메소드 안에 함수에 인자 선언
-        const coronaCities = coronaCases.map((corona)=>{
-            // console.log(corona)
-            return corona.city
-        })
-        // 도시의 이름들만 배열로 출력
-        console.log(coronaCities)
+      //  1.forEach 반복문
+      console.log("========== forEach 메서드 반복문 ==========");
+      console.log("예제1]배열의 city 출력하기");
+      const coronaCases = [
+        { city: "Seoul", case: 1000 },
+        { city: "Daejeon", case: 500 },
+        { city: "Daegu", case: 300 },
+        { city: "Busan", case: 100 },
+        { city: "Gwangju", case: 50 },
+      ];
+      coronaCases.forEach(function (corona) {
+        console.log(corona.city);
+      });
+      console.log("예제2]배열의 각각의 인덱스 출력하기");
+      coronaCases.forEach(function (corona2, index) {
+        console.log(corona2.city, index);
+      });
+
+      //   2.map 반복문
+      console.log("========== map 메서드 반복문 ==========");
+      console.log("예제1]map으로 가공한 coronaCities 출력하기");
+      // map 메소드 안에 함수에 인자 선언
+      const coronaCities = coronaCases.map((corona) => {
+        // console.log(corona)
+        return corona.city;
+      });
+      // 도시의 이름들만 배열로 출력
+      console.log(coronaCities);
+      console.log("예제2]문자와 문장으로 생성한 배열완성하기");
+      const coronaCities2 = coronaCases.map((corona) => {
+        return `${corona.city}의 확진자는 ${corona.case}명 입니다.`;
+      });
+      console.log(coronaCities2);
+
+      //   3. filter 반복문
+      console.log("========== filter 메서드 반복문 ==========");
+      console.log("예제1]filter case가 300보다 큰것만 출력");
+      const dangerousCity = coronaCases.filter(function (corona, index) {
+        // coronaCase가 300보다 큰것만 반환
+        return corona.case > 300;
+      });
+      console.log(dangerousCity);
+      console.log("예제2]인덱스가 3보다 작은것만 출력");
+      const dangerousCity2 = coronaCases.filter(function (corona, index) {
+        return index < 3;
+      });
+      console.log(dangerousCity2);
+
+      //   4. reduce
+      console.log("========== reduce 메서드 반복문 ==========");
+      const numbers = [10, 123, 22, 33, 44, 55];
+      const totalNumber = numbers.reduce((acc, cur) => {
+        console.log(acc, cur);
+        return acc + cur;
+      });
+      console.log("reduce의 총 더한 값:", totalNumber);
+      console.log("예제2]오브젝트");
+      const totalCases = coronaCases.reduce((acc, cur) => {
+        console.log(acc + cur.case);
+        return acc + cur.case;
+      }, 0);
+      console.log("totalCases 총 더한 값", totalCases);
     </script>
-    <h3>map 메서드는 어떠한 배열을 가공하여 새로운 형태의 배열을 만들때</h3>
-    <hr>
+    <h3>map 메서드</h3>
+    <hr />
+    <ul>
+      <li>메서드는 어떠한 배열을 가공하여 새로운 형태의 배열을 만들때</li>
+      <li>
+        map은 forEach와 비슷한 기능을 하지만 어떠한 배열을 재정의할때,
+        다른모양으로 가공하여 새로운 배열을 만들때 사용할수 있다.
+      </li>
+      <li>
+        map의 역할은 어떠한 값을 새롭게 가공을 해서 재정의하는 것이기 때문에
+        return명령이 필요하다
+      </li>
+      <li>
+        아래 예시는 어떠한 새로운 배열로 만들어 넣을 것이기 때문에 변수에
+        담는다.
+      </li>
+    </ul>
     <pre>
         <code>
-            예제1]
+            예제1] coronaCities 라는 배열을 새롭게 만들어 map 메서드로 새롭게 재가공한다.
             const coronaCities = coronaCases.map((corona)=>{
                 return corona.city
             })
@@ -110,7 +174,62 @@
 
         </code>
     </pre>
-    <h3>filter는 배열에서 특정한 값을 가진 데이터를 필터링 할때</h3>
-</body>
+    <h3>filter 메서드</h3>
+    <hr />
+    <ul>
+      <li>배열에서 특정한 값을 가진 데이터를 필터링 할때</li>
+      <li>
+        조건을 만족하는 배열만 출력할때 사용할수 있다. - 조건성립시 return
+      </li>
+      <pre>
+        <code>
+            예제1] 300보다 큰 도시만 출력
+            const dangerousCity = coronaCases.filter(function(corona, index){
+                return corona.case > 300;
+            });
+            console.log(dangerousCity);
 
+            예제2] 인덱스가 3보다 작은것만 출력
+            const dangerousCity2 = coronaCases.filter(function (corona, index) {
+                return index < 3;
+              });
+              console.log(dangerousCity2);
+        </code>
+      </pre>
+    </ul>
+    <h3>reduce</h3>
+    <hr />
+    <ul>
+      <li>배열의 값을 이용하여 특정 값을 도출하거나 재가공 할때</li>
+      <li>배열이 가지고 있는 값을 합치거나 계산할때 사용한다.</li>
+      <li>
+        예제 설명: return 된 값이 다시 acc에 담기게된다. 마지막 요소까지
+        더해지면서 총 값이 나온다
+      </li>
+      <li>
+        예제2] 설명: acc 가장 첫번째 값에 오브젝트 그 자체가 (배열요소 값)
+        초기값으로 담기기 때문에 오브젝트로 이루어진 프로퍼티의 숫자를 구할때는
+        값을 초기화 시켜줘야한다.
+        <br />가장 초기값은 0이다. 0부터 시작!하면 모든 case값이 더해진다.
+      </li>
+    </ul>
+    <pre>
+        <code>
+            예제1] reduce 사용
+        const numbers = [10, 123, 22, 33, 44, 55];
+        const totalNumber = numbers.reduce((acc, cur) => {
+        console.log(acc, cur);
+        return acc + cur;
+      });
+
+      console.log("reduce의 총 더한 값:", totalNumber);
+      예제2] 오브젝트 값 0으로 초기화
+      const totalCases = coronaCases.reduce((acc, cur) => {
+        console.log(acc + cur.case);
+        return acc + cur.case;
+      }, 0);
+      console.log(totalCases);
+        </code>
+    </pre>
+  </body>
 </html>

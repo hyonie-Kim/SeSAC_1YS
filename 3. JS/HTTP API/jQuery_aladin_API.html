@@ -10,24 +10,36 @@
       integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
       crossorigin="anonymous"
     ></script>
-    <title>API 연습</title>
+    <title>HTTP API</title>
   </head>
   <body>
     <h1>효니 사이트 hi</h1>
+    <p>HTTP로 API 통신하는 방법을 알아보자.</p>
+    <hr />
+    <ul>
+      <li>
+        GET 방식: 주소에 요청하는 내용의 데이터를 함께 보내는 것, 때문에 ID,PW
+        정보를 보내면 위험하다
+      </li>
+      <li>POST 방식: 주소에 포함 하지않고, Body에 숨겨서 보내는 것</li>
+      <li>
+        json(): 응답을 받아 읽고 json데이터를 파싱하여 자바스크립트 object를
+        만들어주는 메서드
+      </li>
+    </ul>
     <div id="title"></div>
     <div id="content"></div>
     <img id="book_img" />
     <script>
-      
-        // $.ajax({
-        //   // <요청 방식>
-        //   method: "GET", // 전송 방식
-        //   url: "http://www.aladin.co.kr/ttb/api/ItemList.aspx", // 전송 주소
-        //   data: { QueryType: "ItemNewSpecial" }, // JSON형태_보낼 데이터
+      // $.ajax({
+      //   // <요청 방식>
+      //   method: "GET", // 전송 방식
+      //   url: "http://www.aladin.co.kr/ttb/api/ItemList.aspx", // 전송 주소
+      //   data: { QueryType: "ItemNewSpecial" }, // JSON형태_보낼 데이터
 
-        // }).done(function (msg) {
-        //   alert("Data Saved: " + msg); // 요청 응답 처리 코드
-        // });
+      // }).done(function (msg) {
+      //   alert("Data Saved: " + msg); // 요청 응답 처리 코드
+      // });
 
       function aladin1(success, data) {
         console.log("성공!", success);
@@ -59,5 +71,6 @@
 
       //https://blog.naver.com/jjanghyewon/222118183510 참고
     </script>
+    <script src="./main.js"></script>
   </body>
 </html>
