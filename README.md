@@ -133,3 +133,15 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
   - 객체,배열 구조 분해
   - Callback 함수 - 동기/비동기
   - Callback Hell
+
+🌱 Saturday, November 19th, 2022
+
+- Javascript
+  - Promise - resolve/reject
+  - 🌷추가실습. Callback함수 Promises로 변경하기
+  - 🌷실습27. fs.Promises 모듈 이용하기
+- server
+  - http 모듈
+  - localhost와 port
+  - 🌷실습28. http 모듈
+
