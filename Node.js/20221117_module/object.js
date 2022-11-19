@@ -24,15 +24,3 @@ const file = __filename;
 console.log("path.extname : ",path.extname(file))
 console.log("path.parse : ",path.parse(file))
 
-
-console.log("====================================== 내장모듈 이용하기(1) ======================================");
-// 1. os 모듈
-// 1) 사용 가능한 메모리(RAM)출력하기
-
-console.log("전체 메모리 용량 출력하기",os.totalment())
-console.log("홈 디렉토리 경로 출력하기",os.homedir());
-
-// 2. path 모듈
-console.log("경로 구분자 출력: ",path.parse.root(file));
-console.log("현재 파일의 확장자 출력: ",path.extname(file));
-console.log("현재 파일의 경로를 분리해서 출력: ",)
