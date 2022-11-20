@@ -1,0 +1,42 @@
+/* 초기화 */
+* {
+  /* 마진과 패딩삭제 */
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  color: #fff;
+  /* ui gradient */
+  background: linear-gradient(15deg, #c6ffdd, #fbd786, #f7797d);
+  /* 1em => 16px */
+  padding: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-container {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  border-bottom: 1px solid #ccc;
+}
+.input-text {
+  width: 90%;
+  padding: 0.3em;
+  border: none;
+}
+.add-button {
+  width: 10%;
+  border: none;
+  background: #28324e;
+  color: #fff;
+}
