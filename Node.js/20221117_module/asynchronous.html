@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자바스크립트 비동기</title>
+  </head>
+  <body>
+    <h2>비동기(asynchronous)</h2>
+    <hr />
+    <ul>
+      <li>비동기 코드는, 코드의 순서와 다르게 실행됨</li>
+      <li>비동기 처리 코드를 감싼 블록은 task queue 에 넣어짐</li>
+      <li>
+        main thread가 동기 코드를 실행한 후에 제어권이 돌아왔을때<br />
+        event loop가 task queue에 넣어진 비동기 코드를 실행함
+      </li>
+    </ul>
+    <h4>예시]</h4>
+    <pre>
+      <code>
+        setTimeout(()=> console.log("This is asynchronous..."),5000);
+        console.log("This is synchronous...");
+
+        for(let i=0; i < 1000000000; ++i) {
+          console.log("I am blocking the main thread...")
+        }
+      </code>
+    </pre>
+    <p>
+      예시로 setTimeout이 5초가 아니라 0초 일때, 동작을 예측하자면 for문이 끝날
+      때까지 main thread가 반환되지않았기 때문에 <br />
+      setTimeout이 바로 0초뒤에 콜백이 호출되겠끔, task queue에 넣어진다고
+      하더라도 main thread에 여유가 없으므로 task queue는 비워질수가 없다.
+      <br />
+      그래서 콜백은 0초 보다도 지난 시간에 호출이 될것이다.main thread의 여유가
+      있을때, 실행이 된다.
+    </p>
+  </body>
+</html>

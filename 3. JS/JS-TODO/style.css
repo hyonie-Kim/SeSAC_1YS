@@ -3,11 +3,13 @@
   /* 마진과 패딩삭제 */
   margin: 0;
   padding: 0;
+  outline: none;
 }
 
 .wrapper {
   height: 100vh;
   width: 100%;
+  /* flex는 기본적으로 가로 정렬을 지원 */
   display: flex;
   flex-direction: column;
 }
@@ -15,10 +17,11 @@
 header {
   color: #fff;
   /* ui gradient */
-  background: linear-gradient(15deg, #c6ffdd, #fbd786, #f7797d);
+  background: linear-gradient(15deg, #52c234, #061700);
   /* 1em => 16px */
   padding: 1em;
   display: flex;
+  /* align-items는 위아래로 가운데정렬 */
   align-items: center;
   justify-content: center;
 }
@@ -39,4 +42,52 @@ header {
   border: none;
   background: #28324e;
   color: #fff;
+  outline: none;
+}
+
+.add-button:hover {
+  cursor: pointer;
+  background: #333;
+}
+
+.list {
+  list-style: none;
+}
+
+.list li {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding: 1em;
+}
+
+.like {
+  flex: 1;
+}
+.item {
+  flex: 8;
+}
+.manage {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.like i {
+  color: salmon;
+}
+
+.check {
+  color: #38ef7d;
+}
+.clear {
+  color: salmon;
+}
+
+.done .item {
+  text-decoration: line-through;
+}
+
+.done .check {
+  visibility: hidden;
 }
