@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%=title%></title>
+</head>
+<body>
+    <h2>🌱ejs 파일로 만든 html</h2>
+    <hr>
+    <ul>
+        <li>템플릿 엔진
+            <ul>
+                <li>문법과 설정에 따라 파일을 html 형식으로 변환시키는 모듈</li>
+            </ul>
+        </li>
+        <li>ejs
+            <ul>
+                <li>Embedded JavaScript의 약자로, 자바스크립트가 내장되어 있는 html 파일</li>
+                <li>확장자는 .ejs</li>
+            </ul>
+        </li>
+    </ul>
+    <img src="/static/img/apeach.png" alt="APEACH">
+
+    
+    <!-- 아래 %태그로 Javascript 코드를 작성할수 있음 -->
+    <!-- 반복문 작성하기 -->
+    <% for(var i=0; i< data.length; i++) { %>
+          <div>안녕<%=data[i]%></div>
+    <% } %>
+    
+    <div style="color: red;"><%="<span style='color:blue'>안녕</span>"%> 하세요</div>
+    <div style="color: red;"><%-"<span style='color:blue'>안녕</span>"%> 하세요</div>
+    
+    <!-- 상대경로 입력 : 같은 경로에 있기 때문에 파일명만 적음 -->
+    <!-- 여기서 장점! 폴더를 구조하기 편하다 -->
+    <!-- 마이너스기호(-)가 태그를 인식한다. -->
+    <%-include("test.ejs")%>
+</body>
+</html>
