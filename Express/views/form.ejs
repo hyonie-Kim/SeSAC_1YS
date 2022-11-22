@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form.ejs</title>
+</head>
+
+<body>
+    <h2>🌱form태그 클라이언트 서버로 정보 받기</h2>
+    <!-- 서버로 기능을 전송할수 있는기능 -->
+    <!-- 1. action은 정보를 전송할 주소 입력, ! 서버에 해당 주소가 있어야함-->
+    <!-- 2. method는 get또는 post 둘중 입력 -->
+    <!-- 3. name은 원하는데로 지정! script태그에서 해당 폼을 선택할수있다. -->
+    <h3>get 요청</h3>
+    <ul>
+        <li>get요청은 쿼리에 담겨온다</li>
+        <li>url로 검색하여 접속할수있다. 임의로 쿼리를 만들어서 정보를 넘겨줄수 있다.</li>
+    </ul>
+    <form action="/getForm" method="get" name="getform">
+        ID <input type="text" name="id">
+        PW <input type="password" name="pw">
+        <h4>radio 옵션 - 단일선택은 name이 같은 것에서 하나만 선택할수 있다.</h4>
+        <p>label옵션 - label for 아이디와 input태그 id 값 동일하게 입력</p>
+
+        <fieldset>
+            <legend>성별</legend>
+            <input type="radio" name="gender" value="남자" id="men"> <label for="men">남자</label>
+            <input type="radio" name="gender" value="여자" id="women"> <label for="women">여자</label>
+        </fieldset>
+        <br>
+
+        <fieldset>
+            <legend>취미 - checkbox 옵션</legend>
+            <input type="checkbox" name="interest" value="넷플보기" /> 넷플보기
+            <input type="checkbox" name="interest" value="음악감상" /> 음악감상
+            <input type="checkbox" name="interest" value="운동하기" /> 운동하기
+        </fieldset>
+        <br>
+        <button type="submit">제출</button>
+    </form>
+    <br>
+    <hr>
+    <h3>post 요청</h3>
+    <ul>
+        <li>post요청은 정보가 body에 담겨온다</li>
+        <li>정보 노출이 되지 않는다.</li>
+        +
+    </ul>
+    <form action="/postForm" method="post" name="postform">
+        <h4>Input태그 - readonly, placeholder 옵션</h4>
+        ID <input type="text" name="id" value="hyonie" readonly>
+        PW <input type="password" name="pw" placeholder="비밀번호" required>
+        <br><br>
+        <select name="birthMonth">
+            <% for(var i=1; i <=12; i++) {%>
+                <option value="<%=i%>">
+                    <%=i%>월
+                </option>
+                <% }%>
+        </select>
+        <br>
+        <h4>textarea 태그</h4>
+        <textarea name="content" id="" cols="30" rows="10"></textarea>
+
+        <button type="submit">제출</button>
+    </form>
+    <script>
+        console.log("getform 선택:", document.forms["getform"])
+
+    </script>
+</body>
+
+</html>
