@@ -145,3 +145,9 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
   - localhost와 port
   - 🌷실습28. http 모듈
 
+🌱 Tuesday, November 22th, 2022
+
+- Express.ejs
+  - EJS 템플릿
+  - EJS 문법 사용하기
+- form 전송
