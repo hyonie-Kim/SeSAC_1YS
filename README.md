@@ -145,9 +145,23 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
   - localhost와 port
   - 🌷실습28. http 모듈
 
-🌱 Tuesday, November 22th, 2022
+🌱 Tuesday, November 22nd, 2022
 
 - Express.ejs
   - EJS 템플릿
   - EJS 문법 사용하기
 - form 전송
+  - GET/POST
+
+🌱 Thursday, November 24th, 2022
+
+- form, JS validation(유효성 검사)
+- nodemon package
+- 비동기 HTTP통신
+  1. Ajax
+  2. Axios
+  3. Fetch
+  - 🌷실습32. 30번 실습 axios로 보내기
+  - 🌷실습33. 로그인(axios POST 이용하기)
+  - 🌷실습34. axios -> ajax, fetch 동작 가능하게 바꾸기
+- JSON (JavaScript Object Notation)
