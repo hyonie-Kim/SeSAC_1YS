@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>axios</title>
+        <!-- axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        // a
+        function sendGet(){
+            var form = document.getElementById("form_info");
+            //form.name.value
+            //form.age.value
+            axios({
+                method: "get",
+                url: "/form",
+                // params: {name: "hyonie"}
+                params: {name: form.name.value} // form은 변수 지칭
+            }).then(function(res){
+                // console.log(res);
+                // res.data = {msg: ~~}
+                // alert(res.data.msg)
+                alert(res.data.msg);
+
+            })
+        }
+        function sendPost(){
+            var form = document.getElementById("form_info");
+            //form.name.value
+            //form.age.value
+            axios({
+                method: "post",
+                url: "/form",
+                data: {name: form.name.value}
+            }).then(function(res){
+                // console.log(res);
+                // res.data = {msg: ~~}
+                // alert(res.data.msg)
+                alert(res.data.msg);
+
+            })
+        }
+    </script>
+    </head>
+    <body>
+        <button type="button" onclick="sendGet()">get</button>
+        <button type="button" onclick="sendPost()">post</button>
+        <br><br>
+        <form id="form_info">
+            <input type="text" name="name">
+        </form>
+    </body>
+</html>

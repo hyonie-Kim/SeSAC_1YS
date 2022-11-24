@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        function sendGet(){
+            // axios get을 이용한 통신
+            axios({
+                method: "get",
+                url: "/axios",
+                params: {
+                    name: "hyonie"
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <button type="button" onclick="sendGet()">get전송</button>
+    <button type="button" onclick="sendPost()">post전송</button>
+    <br><br>
+    <form action="/axios" method="post">
+        이름:<input type="text" name="id">
+        나이:<input type="password" name="pw" placeholder="나이">
+    </form>
+</body>
+</html>

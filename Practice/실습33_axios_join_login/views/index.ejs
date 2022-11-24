@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습33. 로그인(axios post 이용하기)</title>
+    <!-- axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+     <!-- jquery CDN -->
+     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        // axios get/post
+        function axiosGet(){
+            var form = document.getElementById("form_login");
+            axios({
+                method:"get",
+                url:"/login",
+                params: {id:form.id.value, pw:form.pw.value}
+            }).then(function(res){
+                console.log("axiosGet");
+                document.querySelector("#result").innerHTML = res.data.msg
+            });
+        }
+
+        function axiosPost(){
+            var form = document.getElementById("form_login");
+            axios({
+                method: "post",
+                url: "/login",
+                data: {id: form.id.value, pw:form.pw.value}
+            }).then(function(res){
+                console.log("axiosPost")
+                document.querySelector("#result").innerHTML = res.data.msg
+
+            })
+        }
+
+        // ajax get/post
+        function ajaxGet(){
+            var form = document.getElementById("form_login");
+            $.ajax({
+                url:'/login',
+                type:'GET',
+                data: {id: form.id.value, pw:form.pw.value},
+                success: function(data){
+                    console.log("ajaxGet");
+                    document.querySelector("#result").innerHTML = data.msg
+                },
+                error: function(error){
+                    console.log(error)
+    
+                    }
+
+            })
+        }
+
+        
+
+        function ajaxPost(){
+            var form = document.getElementById("form_login");
+            $.ajax({
+                url:'/login',
+                type:'POST',
+                data: {id: form.id.value, pw:form.pw.value},
+                success: function(data){
+                    console.log("ajaxPost");
+                    document.querySelector("#result").innerHTML = data.msg
+                },
+                error: function(error){
+                    console.log(error)
+    
+                    }
+
+            })
+        }
+
+        // fetch get/post
+
+        function fetchGet() {
+            var form = document.getElementById("form_login");
+            let queryString = "?id="+form.id.value+"&pw="+form.pw.value;
+            
+            fetch("/login" + queryString, {
+                method:"get",
+            }).then(function(response){
+                return response.json();
+            }).then(function(result){
+                console.log("fetchGet");
+                document.querySelector("#result").innerHTML = result.msg
+            })
+        }
+
+
+        function fetchPost(){
+            var form = document.getElementById("form_login");
+            fetch("/login", {
+                method: "post",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(
+                    {id: form.id.value, pw:form.pw.value}
+                ),
+            }).then(function(response){
+                return response.json();
+            }).then(function(result){
+                console.log("fetchPost");
+                document.querySelector("#result").innerHTML = result.msg
+            })
+        }
+    </script>
+</head>
+<body>
+    <form id="form_login" >
+        아이디: <input type="text" name="id" title="대소문자, 한글, 숫자, 4글자 이상" required> <br>
+        비밀번호: <input type="password" name="pw" pattern="^(a-z0-9){8,12}$" title="소문자, 숫자로 8자리 이상 12자리 이하" required> <br><br>
+        <button type="button" onclick="axiosGet()">axios Get 로그인</button>
+        <button type="button" onclick="axiosPost()">axios Post 로그인</button> <br><br>
+        <button type="button" onclick="ajaxGet()">ajax Get 로그인</button>
+        <button type="button" onclick="ajaxPost()">ajax Post 로그인</button>  <br><br>
+        <button type="button" onclick="fetchGet()">fetch Get 로그인</button>
+        <button type="button" onclick="fetchPost()">fetch Post 로그인</button>
+        <div style="text-align: center;" id="result"></div>
+    </form>
+</body>
+</html>

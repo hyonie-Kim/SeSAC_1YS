@@ -51,6 +51,10 @@ app.get("/form",(req, res)=>{
     res.render("form");
 })
 
+app.get("/axios",(req, res)=>{
+    res.render("axios");
+})
+
 // get메서드 사용 - 정보가 헤더에 담겨옴
 app.get("/getForm",(req, res)=>{
     // 클라이언트가 서버에 보내는 정보
@@ -65,6 +69,14 @@ app.post("/postForm",(req, res)=>{
     // res.send("post 요청 성공!💚")
     res.render("result", {data: req.body})
 })
+
+
+app.get("/axios", function(req, res){
+    console.log(req.query);
+    // 문자보내기
+    res.send("이름은: ", req.query.name);
+})
+
 
 // app서버 열기 (포트번호, 함수) - ! 서버를 여는 코드는 마지막줄에 작성
 app.listen(port, ()=>{
