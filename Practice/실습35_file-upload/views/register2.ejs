@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <title>Practice35-register</title>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+        <script>
+            function register(){
+                var form = document.getElementById("form_register");
+                var formData = new FormData(form);
+                // formData를 만들 때 기본값으로 form을 보내면 현재 form에 세팅된 값으로 formData 객체가 만들어진다.
+                // append를 이용해 하나하나 만들 경우에는 아래 코드처럼 작성해야 한다.
+                /*
+FormData라는 것은 html 에서가 아닌 javascript에서 폼 데이터를 다루기 위해 사용하는 객체
+( html 에서는 <form> 태그를 이용해 폼 데이터를 만들 수 있지만, javascript에서는 form 태그를 이용하는 것이 불가능하기 때문에 formData라는 객체를 만들어 사용해야 한다. )
+var formData = new FormData();
+formData.append('id', form.id.value);
+
+formData.append( key,value ) 라는 문법을 이용할 때 key가 <input name="~~"> 에서 ~~ 가 된다.
+즉, 서버에서 req.body 로 받을 때 formData.append 할 때 이용한 key 가 req.body 에 key로 들어가게 된다.
+formData.append(key,value) -> req.body에 { key:value } 로 들어간다.
+
+-----------------------------------------------------------------------
+axios({
+    method: 'post',
+    url: '~~',
+    data: { id: '123', pw: 'abcd'}
+}) 
+로 전송하는 것을 formData를 이용해서 전송할 때는
+
+var formData = new FormData();
+formData.append("id", "123");
+formData.append("pw", "abcd");
+axios({
+    method: 'post',
+    url: '~~',
+    data: formData
+}) 
+로 변경해서 사용할 수 있다.
+
+                */
+
+                axios({
+                    method: "post",
+                    url: "/register2",
+                    data: formData,
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                }).then((a) => { return a.data; })
+                .then((d) => {
+                    document.querySelector("img").src = d.path;
+                });
+            }
+        </script>
+    </head>
+
+    <body>
+        <form id="form_register" enctype="multipart/form-data">
+            <fieldset style="width:300px;">
+                <legend> 개인 정보 </legend>
+                아이디 : <input type="text" name="id"><br>
+                비밀번호 : <input type="password" name="pw"><br>
+                이름 : <input type="text" name="name"><br>
+                나이 : <input type="text" name="age"><br>
+            </fieldset>
+            <input type="file" name="userfile">
+            <button type="button" onclick="register();">회원가입</button>
+        </form>
+        <br>
+        <img>
+    </body>
+</html>

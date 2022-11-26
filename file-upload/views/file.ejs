@@ -1,32 +1,43 @@
 <html>
-    <head>
-        <title>flie</title>
-    </head>
-    <body>
-        <h5>upload.single()</h5>
-        <hr>
-        <form action="/upload-single" method="POST" enctype="multipart/form-data">
-            <input type="text" name="name"> <!-- multer 미들웨어에서 처리 O-->
-            <input type="file" name="userfile">
-            <input type="text" name="name2"> <!-- multer 미들웨어에서 처리 X-->
-            <button>업로드</button>
-        </form>
 
-        <h5>upload.array()</h5>
-        <hr>
-        <form action="/upload-array" method="POST" enctype="multipart/form-data">
-            <!-- multiple속성이 지정된 함수가 온다면 upload.array 라는 함수로 받는다. -->
-            <input type="file" name="userfile" multiple>
-            <button>업로드</button>
-        </form>
+<head>
+    <title>flie</title>
+</head>
 
-        <h5>upload.fields()</h5>
-        <hr>
-        <form action="/upload-fields" method="POST" enctype="multipart/form-data">
-            userfile1 <input type="file" name="userfile1">
-            userfile2 <input type="file" name="userfile2">
-            userfile3 <input type="file" name="userfile3">
-            <button>업로드</button>
-        </form>
-    </body>
+<body>
+    <h5>upload.none()</h5>
+    <hr>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="text" name="name">
+        <input type="file" name="userfile">
+        <button>업로드</button>
+    </form>
+
+    <h5>upload.single()</h5>
+    <hr>
+    <form action="/upload-single" method="POST" enctype="multipart/form-data">
+        <input type="text" name="name"> <!-- multer 미들웨어에서 처리 O-->
+        <input type="file" name="userfile">
+        <input type="text" name="name2"> <!-- multer 미들웨어에서 처리 X-->
+        <button>업로드</button>
+    </form>
+
+    <h5>upload.array()</h5>
+    <hr>
+    <form action="/upload-array" method="POST" enctype="multipart/form-data">
+        <!-- multiple속성이 지정된 함수가 온다면 upload.array 라는 함수로 받는다. -->
+        <input type="file" name="userfile" multiple>
+        <button>업로드</button>
+    </form>
+
+    <h5>upload.fields()</h5>
+    <hr>
+    <form action="/upload-fields" method="POST" enctype="multipart/form-data">
+        <input type="file" name="userfile1">
+        <input type="file" name="userfile2">
+        <input type="file" name="userfile3">
+        <button>업로드</button>
+    </form>
+</body>
+
 </html>
