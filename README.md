@@ -174,4 +174,13 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
 
 🌱 Tuesday, November 29nd, 2022
 
-- DB
+- Database
+  - DBMS
+  - RDBMS
+    - MySQL
+      - MySQL Workbench
+
+  - SQL문
+    - DDL
+    - DML
+    - DCL
