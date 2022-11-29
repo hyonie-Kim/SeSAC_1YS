@@ -176,11 +176,16 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
 
 - Database
   - DBMS
-  - RDBMS
-    - MySQL
-      - MySQL Workbench
-
   - SQL문
     - DDL
     - DML
     - DCL
+  - 🌷실습37. SQL - DDL
+  - 🌷실습38. SQL - DDL2
+
+  - RDBMS
+    - MySQL
+      - MySQL Workbench
+  - 🌷실습39. CREATE문
+  - 🌷실습40. INSERT문
+  - 🌷실습41. SELECT문
