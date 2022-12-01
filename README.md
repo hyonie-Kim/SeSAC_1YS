@@ -189,3 +189,6 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
   - 🌷실습39. CREATE문
   - 🌷실습40. INSERT문
   - 🌷실습41. SELECT문
+
+
+  🌱 Thursday, December 1th, 2022
