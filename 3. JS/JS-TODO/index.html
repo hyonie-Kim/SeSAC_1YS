@@ -5,37 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo List</title>
-    <!-- Material Icons CDN -->
+    <!--외부 라이브러리 사용 Material Icons CDN -->
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <!-- 스타일 태그 import -->
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div class="wrapper">
+      <!-- 헤더 -->
       <header>
         <h1>Todo List</h1>
       </header>
+      <!-- 인풋,리스트 영역 -->
       <section>
+        <!-- 1. 인풋 컨데이너 -->
         <div class="input-container">
           <input type="text" class="input-text" />
           <button class="add-button">추가</button>
         </div>
+        <!-- 2. 리스트 컨테이너 -->
         <div class="list-container">
           <ul class="list">
-            <li>
-              <span class="like">
+            <!-- <li> -->
+            <!-- 2-1. 좋아요 -->
+            <!-- material-icon 사용 명시  -->
+            <!-- <span class="like">
                 <i class="material-icons favorite">favorite_border</i>
-              </span>
-              <span class="item">자바스크립트 투두</span>
-              <span class="manage">
+              </span> -->
+            <!-- 2-2. 텍스트 -->
+            <!-- <span class="item">자바스크립트 투두</span> -->
+            <!-- 2-3. 관리 -->
+            <!-- <span class="manage">
                 <i class="material-icons check">check</i>
                 <i class="material-icons clear">clear</i>
-              </span>
-            </li>
+              </span> -->
+            <!-- </li> -->
 
-            <li>
+            <!-- <li>
               <span class="like">
                 <i class="material-icons favorite">favorite_border</i>
               </span>
@@ -44,12 +53,12 @@
                 <i class="material-icons check">check</i>
                 <i class="material-icons clear">clear</i>
               </span>
-            </li>
+            </li> -->
           </ul>
         </div>
       </section>
     </div>
-
+    <!-- script 태그 import -->
     <script src="./main.js"></script>
   </body>
 </html>
