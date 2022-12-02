@@ -175,6 +175,7 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
 🌱 Tuesday, November 29nd, 2022
 
 - Database
+
   - DBMS
   - SQL문
     - DDL
@@ -190,5 +191,7 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
   - 🌷실습40. INSERT문
   - 🌷실습41. SELECT문
 
-
   🌱 Thursday, December 1th, 2022
+
+  - MVC
+  - 🌷실습42. 로그인 실습 MVC 구조로 바꿔보기
