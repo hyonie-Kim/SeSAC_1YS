@@ -8,10 +8,8 @@ app.use("/static", express.static(__dirname+"/static"));
 app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
-const router = require("./routes");
-
-// localhost:8003/visitor
-app.use('/visitor', router);
+const router = require("./routes"); //라우터를 미들웨어로 걸기기
+app.use('/visitor', router); // localhost:8003/visitor
 
 app.get('*', (req, res)=>{
     res.send('error')

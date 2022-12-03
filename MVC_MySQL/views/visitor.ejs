@@ -17,14 +17,22 @@
         table, tr, td {
             border: 1px solid black;
         }
+        .d-none {
+            display: none;
+        }
     </style>
 </head>
 <body>
     <form id="form_register">
         <fieldset style="display: inlin-block;">
             <legend>방명록 등록</legend>
+            <input type="hidden" name="id" >
             이름: <input type="text" name="name" placeholder="사용자 이름"> <br>
             방명록: <input type="text" name="comment" placeholder="방명록"> <br>
+            <div class="update-btn d-none">
+                <button type="button" onclick="update_visitor()">수정</button>
+                <button type="button" onclick="">취소</button>
+            </div>
             <div class="register-btn">
                 <button type="button" onclick="register()">등록</button>
             </div>
@@ -43,13 +51,79 @@
                 <td><%=data[i].id%></td>
                 <td><%=data[i].name%></td>
                 <td><%=data[i].comment%></td>
-                <td><button type="button">수정</button></td>
-                <td><button type="button">삭제</button></td>
+                <td><button type="button" onclick="update_load('<%=data[i].id%>', this);">수정</button></td>
+                <td><button type="button" onclick="delete_visitor('<%=data[i].id%>', this)">삭제</button></td>
             </tr>
         <% }%>
     </table>
-
+<!-- 
+    get: 조회 // query 
+    post: 데이트 생성, 삽입, insert // body
+    delete: 데이터 삭제
+    patch, put: 데이터 수정
+ -->
+    
     <script>
+        let update_tr;
+
+        function update_visitor(){
+            var form = document.getElementById("form_register");
+            axios({
+                method: 'patch',
+                url: '/visitor/update',
+                data: {
+                    id: form.id.value,
+                    name: form.name.value,
+                    comment: form.comment.value
+                }
+            })
+            .then((response)=>{
+                update_tr.children[1].innerText = form.name.value;
+                update_tr.children[2].innerText = form.comment.value;
+
+                form.id.value = "";
+                form.name.value = "";
+                form.comment.value = "";
+                $(".update-btn").addClass("d-none");
+                $(".register-btn").removeClass("d-none");
+
+                
+            })
+        }
+
+        // 업데이트 로드
+        function update_load(id, element){
+            axios({
+                method: 'get',
+                url: '/visitor/get_visitor',
+                params: {id: id}
+            })
+            .then((response)=>{
+                var form = document.getElementById("form_register");
+
+                form.id.value = response.data.id;
+                form.name.value = response.data.name;
+                form.comment.value = response.data.comment;
+
+                $(".update-btn").removeClass("d-none"); //update-btn 선택하고 d-none 클래스 삭제
+                $(".register-btn").addClass("d-none");
+
+                update_tr = element.parentElement.parentElement;
+            })
+        }
+        // 삭제 버튼
+        function delete_visitor(delete_id, element) {
+            axios({
+                method: 'delete',
+                url:'/visitor/delete',
+                data: {id: delete_id}
+            })
+             .then((response)=>{
+                if(response.data) element.parentElement.parentElement.remove(); //parentNode
+                else alert("알수없는 오류 발생")
+             })
+        }
+
         function register(){
             let form = document.getElementById("form_register");
             let data = {
@@ -68,7 +142,7 @@
                         <td>${data.name}</td>
                         <td>${data.comment}</td>
                         <td><button type="button">수정</button></td>
-                        <td><button type="button">삭제</button></td>
+                        <td><button type="button" onclick="delete_visitor(${response.data}, this)">삭제</button></td>
                     </tr>
                 `)
             })
