@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+     <!-- axios CDN -->
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+     <script>
+        
+     </script>
+    <style>
+        form {
+            margin: 0 auto;
+            border: 1px solid black;
+            width: 30%;
+            box-shadow: 5px 5px 5px 5px grey;
+        }
+        form > h2 {
+            text-align: center;
+        }
+        .login_data {
+            /* margin: 0 auto; */
+            text-align: center;
+        }
+        .loginBtn {
+            text-align: center;
+        }
+        .joinBtn {
+            text-align: center;
+          
+        }
+    </style>
+</head>
+<body>
+    <form action="form_login">
+        <h2>Login</h2>
+        <div class="login_data">
+        Username <br><input type="text" name="name" > <br>
+        Password <br><input type="text" name="password" > <br><br>
+        </div>
+        
+        <div class="loginBtn">
+            <button type="button">Log In</button>
+        </div>
+        <br>
+        <div class="joinBtn">
+            <a href="/login/join">
+                Join
+            </a>
+        </div>
+        
+        <br>
+    </form>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        form {
+            margin: 0 auto;
+            border: 1px solid black;
+            width: 30%;
+            box-shadow: 5px 5px 5px 5px grey;
+        }
+        form > h2 {
+            text-align: center;
+        }
+        .join_data {
+            text-align: center;
+        }
+        .join_data > input {
+            vertical-align: 10px;
+        }
+    </style>
+    <script>
+        function joinPost(){
+            var form = document.getElementById("form_join");
+            axios({
+                method: "Post",
+                url: "/login/join",
+                data: {
+                    id: form.id.value, 
+                    pw:form.pw.value, 
+                    name:form.name.value, 
+                    email:form.email.value}
+            })
+            .then((response)=>{
+                alert(`${response.data.name}`+" 반갑습니다!")
+            })
+        }
+    </script>
+</head>
+<body>
+    <form id="form_join">
+        <h2>회원가입</h2>
+        <div class="join_data">
+        <input type="text" name="id" placeholder="아이디"> <br>
+        <input type="password" name="pw" placeholder="비밀번호"> <br>
+        <input type="text" name="name" placeholder="이름"> <br>
+        <input type="text" name="email" placeholder="이메일"><br>
+        <input type="button" class="btn" value="Join" onclick="joinPost()"><br>
+    </div>
+    </form>
+</body>
+</html>
