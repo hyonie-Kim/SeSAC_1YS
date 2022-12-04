@@ -4,6 +4,6 @@ const router = express.Router();
 
 router.get("/", controller.login);
 router.get("/join", controller.join);
-router.post("/join", controller.joinReult)
+router.post("/join", controller.joinReult);
 
 module.exports = router;
