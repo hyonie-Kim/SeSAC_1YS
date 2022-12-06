@@ -1,0 +1,18 @@
+{
+    "development" : { 
+        "host":"localhost",
+        "database":"sasac_tast",
+        "username":"user",
+        "password":"sehyeon90",
+        "dialect":"mysql"
+    },
+    
+    "production":{
+        "host":"localhost",
+        "database":"sasac_tast",
+        "username":"user",
+        "password":"sehyeon90",
+        "dialect":"mysql"
+        
+    }
+}
