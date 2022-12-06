@@ -69,10 +69,12 @@ exports.get_visitor_by_id = async(req, res) => {
     // req.query.id 에 해당하는 데이터를 조회
     // 서버 응답 > 조회한 데이터
 
-    let result = await Visitor.findOne({where:{id:req.query.id}})
+    let result = await Visitor.findOne({attributes: ["id", "name","comment"],where:{id:req.query.id}})
     res.send(result)
 
+    // 
     // Visitor.findOne({ 
+    //    attributes: ["id", "name","comment"],
     //     where : { id: req.query.id }
     //  })
     //  .then((result)=>{
