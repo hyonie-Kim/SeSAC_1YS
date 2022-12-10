@@ -24,6 +24,12 @@
 exports.sessionMain = (req, res) =>{
     res.render("session_login");
 }
+// exports.sessionMain = (req, res) =>{
+//     console.log(req.session.user)
+//     if (res. session.user) res.render("session_login", {isLogin: true});
+//     else res.render("session_login", {isLogin: false});
+    
+// }
 
 exports.sessionLogin = (req, res) =>{
 
@@ -45,7 +51,9 @@ exports.postLogin = (req, res)=> {
 }
 
 exports.logout = (req, res)=>{
-    req.session.destroy(function(){
+    req.session.destroy(function(err){
+        if(err) throw err;
+        
         res.send("로그아웃 성공")
     })
 }
