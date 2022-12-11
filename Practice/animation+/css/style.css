@@ -34,7 +34,6 @@ section .sky .sun {
   margin-left: -90px;
   top: -130px;
   transform-origin: center 600px;
-
 }
 
 section .sky .moon {
@@ -44,8 +43,6 @@ section .sky .moon {
   margin-left: -80px;
   top: -130px;
   transform-origin: center 600px;
-
-  
 }
 
 section .sky .cloud_1 {
@@ -53,17 +50,29 @@ section .sky .cloud_1 {
   width: 160px;
   left: 0%;
   top: -30px;
-
-    /* 애니메이션 */
-    animation-name: cloud1;
-    animation-duration: 9s;
-    animation-duration: leaner;
-    animation-iteration-count: infinite;
-    animation-direction: alternate
+  animation: cloud_1 linear 20s infinite;
 }
-@-webkit-keyframes cloud1 {
-  0% {left: 0;}
-  100% {left: 100%;}
+@keyframes cloud_1 {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+  25% {
+    left: 50%;
+    opacity: 1;
+  }
+  50% {
+    left: 100%;
+    opacity: 0;
+  }
+  75% {
+    left: 50%;
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
 }
 
 section .sky .cloud_2 {
@@ -72,17 +81,29 @@ section .sky .cloud_2 {
   left: 12%;
   top: 20px;
 
-  /* 애니메이션 */
-  animation-name: cloud2;
-  animation-duration: 10s;
-  animation-duration: leaner;
-  animation-iteration-count: infinite;
-  animation-direction: alternate
-
+  animation: cloud_2 linear 15s infinite;
 }
-@-webkit-keyframes cloud2 {
-  0% {left: 0;}
-  100% {left: 100%;}
+@keyframes cloud_2 {
+  0% {
+    left: 12%;
+    opacity: 0;
+  }
+  25% {
+    left: 62%;
+    opacity: 1;
+  }
+  50% {
+    left: 112%;
+    opacity: 0;
+  }
+  75% {
+    left: 62%;
+    opacity: 1;
+  }
+  100% {
+    left: 12%;
+    opacity: 0;
+  }
 }
 
 section .city .city_img {
