@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="cloud"><img src="../static/cloud.png" alt="구름" /></div>
+      <div class="air air1"><img src="../static/air.png" alt="낙하산" /></div>
+      <div class="air air2"><img src="../static/air.png" alt="낙하산2" /></div>
+      <div class="plane plane1">
+        <img src="../static/plane1.png" alt="비행기1" />
+      </div>
+      <div class="plane plane2">
+        <img src="../static/plane2.png" alt="비행기1" />
+      </div>
+
+      <div class="main">
+        <input type="checkbox" id="chk" aria-hidden="true" />
+
+        <div class="signup">
+          <form>
+            <label for="chk" aria-hidden="true">Sign up</label>
+            <input
+              type="text"
+              name="userName"
+              placeholder="User name"
+              required=""
+            />
+            <input type="text" name="userId" placeholder="id" required="" />
+            <input
+              type="password"
+              name="pw"
+              placeholder="Password"
+              required=""
+            />
+            <button>Sign up</button>
+          </form>
+        </div>
+
+        <div class="login">
+          <form>
+            <label for="chk" aria-hidden="true">Login</label>
+            <input type="text" name="userId" placeholder="id" required="" />
+            <input
+              type="password"
+              name="pw"
+              placeholder="Password"
+              required=""
+            />
+            <button>Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
