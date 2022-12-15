@@ -1,7 +1,7 @@
 {
   "development": {
     "host": "localhost",
-    "database": "sesac_test",
+    "database": "mile_easy",
     "username": "user",
     "password": "sehyeon90",
     "dialect": "mysql"
@@ -9,7 +9,7 @@
 
   "production": {
     "host": "localhost",
-    "database": "sesac_test",
+    "database": "mile_easy",
     "username": "user",
     "password": "sehyeon90",
     "dialect": "mysql"

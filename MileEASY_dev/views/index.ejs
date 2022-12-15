@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/static/css/style.css" />
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="wrapper">
@@ -23,7 +29,7 @@
         <input type="checkbox" id="chk" aria-hidden="true" />
 
         <div class="signup">
-          <form>
+          <form id="signup">
             <label for="chk" aria-hidden="true">Sign up</label>
             <input
               type="text"
@@ -34,28 +40,76 @@
             <input type="text" name="userId" placeholder="id" required="" />
             <input
               type="password"
-              name="pw"
+              name="userPw"
               placeholder="Password"
               required=""
             />
-            <button>Sign up</button>
+            <button type="button" onclick="signup();">Sign up</button>
           </form>
         </div>
 
-        <div class="login">
-          <form>
+        <div class="login" id="login_do">
+          <form id="login">
             <label for="chk" aria-hidden="true">Login</label>
             <input type="text" name="userId" placeholder="id" required="" />
             <input
               type="password"
-              name="pw"
+              name="userPw"
               placeholder="Password"
               required=""
             />
-            <button>Login</button>
+            <button type="button" onclick="login()">Login</button>
+          </form>
+        </div>
+
+        <!-- 회원가입 완료 자동 로그인 -->
+        <div class="login" id="login_did" style="display: none">
+          <form id="login">
+            <label for="chk" aria-hidden="true">Login</label>
+            <div class="profile">
+              <a href="#"
+                ><img src="../static/profile-1.png" alt="profile"
+              /></a>
+              <h4 id="myName"></h4>
+            </div>
+
+            <button type="button">MBTI 검사 하기</button>
           </form>
         </div>
       </div>
     </div>
+    <script>
+      function signup() {
+        var form = document.getElementById("signup");
+        // if (!form.checkValidity()) {
+        //   form.reportValidity();
+        //   console.log("reportValidity");
+        //   return false;
+        // }
+        let user = {
+          id: form.userId.value,
+          pw: form.userPw.value,
+          name: form.userName.value,
+        };
+        axios({
+          method: "post",
+          url: "/signup",
+          data: user,
+        })
+          // .then((res) => {
+          //   return res;
+          // })
+          .then((res) => {
+            console.log(res);
+            console.log(user.id + "님 회원가입 성공");
+            document.querySelector("#login_do").style = "display: none";
+            document.querySelector("#login_did").style = "";
+            document.querySelector("#chk").checked = true;
+            let name = document.querySelector("#myName");
+            name.innerText = user.id;
+            // alert(`${user.id}님 회원가입 성공`);
+          });
+      }
+    </script>
   </body>
 </html>

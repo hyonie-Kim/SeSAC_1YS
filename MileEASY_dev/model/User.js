@@ -1,23 +1,23 @@
 const User = (Sequelize, DataTypes) => {
   return Sequelize.define(
-    "user2",
+    "User",
     {
       id: {
-        type: DataTypes.STRING(10),
+        type: DataTypes.STRING(50),
         allowNull: false,
         primaryKey: true,
       },
-      name: {
-        type: DataTypes.STRING(10),
+      pw: {
+        type: DataTypes.STRING(50),
         allowNull: false,
       },
-      pw: {
-        type: DataTypes.STRING(20),
+      name: {
+        type: DataTypes.STRING(128),
         allowNull: false,
       },
     },
     {
-      tableName: "user2",
+      tableName: "User",
       freezeTableName: true,
       timestamps: false,
     }
