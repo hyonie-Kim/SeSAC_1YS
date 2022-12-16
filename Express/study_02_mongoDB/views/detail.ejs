@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- jquery ajax CDN -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.2.min.js"
+      integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA="
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h2><%= postInfo.title %></h2>
+    <p><%= postInfo.date %></p>
+    <p><%= postInfo.content %></p>
+    <button id="edit" data-post_num="<%=postInfo._id%>">수정하기</button>
+    <button id="test">삭제하기</button>
+  </body>
+  <script>
+    // 자바스크립트 선택자
+    //document.querySelector("#test").addEventListener("click", (e)=>{
+
+    //})
+    // 제이쿼리 변수 선택자
+    $("#edit").click((e) => {
+      location.href = "/post/edit" + e.target.dataset.post_num;
+    });
+    $("#test").click((e) => {
+      $.ajax({
+        method: "post",
+        url: "/test",
+        data: {
+          text: "안녕하세요",
+        },
+      })
+        .done((response) => {
+          // 요청이 성공 했을 때 수행할 코드
+          alert("요청성공");
+        })
+        .fail((xhr, status, err) => {
+          //요청이 실패 했을 때 수행할 코드
+          alert("요청실패");
+        });
+    });
+  </script>
+</html>

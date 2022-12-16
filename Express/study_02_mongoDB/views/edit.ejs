@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head></head>
+
+  <body>
+    <form
+      action="/post/edit"
+      method="post"
+      style="display: flex; flex-direction: column"
+    >
+      <input type="hidden" name="postNum" value="<%= postInfo._id%>" />
+      <label for="title">제목:</label>
+      <input type="text" name="title" id="title" value="<%= postInfo.title%>" />
+      <label for="content">내용:</label>
+      <textarea
+        type="text"
+        name="content"
+        id="content"
+        cols="30"
+        rows="10"
+        style="resize: none"
+      >
+<%= postInfo.content %></textarea
+      >
+      <button type="submit">제출</button>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('header') -%>
+  <body>
+    <%# 주석 %>
+    <h2>Hello, CRUD</h2>
+    <ul>
+      <% for(let i =0; i < postData.length; i++ ){ %>
+      <li><a href="/post/<%=postData[i]._id%>"><%=postData[i].title%></a></li>
+      <% } %>
+    </ul>
+  </body>
+</html>
