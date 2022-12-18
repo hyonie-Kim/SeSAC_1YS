@@ -127,7 +127,7 @@ MongoClient.connect(process.env.MongoURL, (err, database) => {
       console.log(`Example app listening on port ${port}`);
     });
     db = database.db("Express");
-    post = db.collection("posts");
+    post = db.collection("post s");
     counter = db.collection("counter");
   }
 });
