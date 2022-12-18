@@ -138,7 +138,9 @@ label {
   font-size: 2.3em;
   justify-content: center;
   display: flex;
-  margin: 60px;
+  /* margin: 60px; */
+  /* padding: 60px; */
+  padding: 50px 60px 10px;
   font-weight: bold;
   cursor: pointer;
   transition: 0.5s ease-in-out;
@@ -147,7 +149,7 @@ label {
 input {
   width: 60%;
   height: 20px;
-  background: #c0ecfd;
+  background: #f8f4da;
   justify-content: center;
   display: flex;
   margin: 20px auto;
@@ -164,7 +166,7 @@ button {
   justify-content: center;
   display: block;
   color: #fff;
-  background: #2295d0;
+  background: #e89d3a;
   font-size: 1em;
   font-weight: bold;
   margin-top: 20px;
