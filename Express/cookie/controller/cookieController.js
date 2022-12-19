@@ -1,6 +1,28 @@
-// exports.index = (req, res) =>{
-//     res.render("index");
-// }
+exports.index = (req, res) => {
+  res.render("index");
+};
+
+exports.getCookie = (req, res) => {
+  // 브라우저가 cookie라는 이름의 test값을 쿠키로 저장하게 된다.
+  // path 특정 url에만 쿠키가 발급됨
+  res
+    .cookie("cookie", "test", { path: "/cookie-parser", signed: true })
+    .render("index");
+};
+exports.checkCookie = (req, res) => {
+  // 쿠키를 확인하거나 값을 알고싶을 경우
+  //console.log(req.cookies); // 오브젝트로 확인
+  console.log(req.signedCookies);
+  console.log(req.headers.cookie);
+  res.render("index");
+};
+exports.clearCookie = (req, res) => {
+  res.clearCookie("cookie").render("index");
+};
+// 특정 url 쿠키 삭제
+exports.Unique_clearCookie = (req, res) => {
+  res.clearCookie("cookie", { path: "/cookie-parser" }).render("index");
+};
 
 // exports.modal = (req, res) =>{
 //     if(req.cookies.popup == "1") res.render("cookie", {pop:"none"});
@@ -12,48 +34,46 @@
 //     //2. 서버 응답
 
 //     const option = {
-//         httpOnly: true, 
+//         httpOnly: true,
 //         maxAge: 30000,
- 
+
 //     }
 
 //     res.cookies("popup", "1", option);
 //     res.send(true)
 // }
 
-exports.sessionMain = (req, res) =>{
-    res.render("session_login");
-}
+exports.sessionMain = (req, res) => {
+  res.render("session_login");
+};
 // exports.sessionMain = (req, res) =>{
 //     console.log(req.session.user)
 //     if (res. session.user) res.render("session_login", {isLogin: true});
 //     else res.render("session_login", {isLogin: false});
-    
+
 // }
 
-exports.sessionLogin = (req, res) =>{
-
-    res.render("session_signin",{id : req.session.user});
-}
+exports.sessionLogin = (req, res) => {
+  res.render("session_signin", { id: req.session.user });
+};
 
 let user = {
-    id: "sesac",
-    pw: "1234"
+  id: "sesac",
+  pw: "1234",
 };
-exports.postLogin = (req, res)=> {
+exports.postLogin = (req, res) => {
+  if (req.body.id == user.id && req.body.pw == user.pw) {
+    req.session.user = req.body.id;
+    res.send("로그인 성공");
+  } else {
+    res.send("로그인 실패");
+  }
+};
 
-    if(req.body.id == user.id && req.body.pw == user.pw){
-        req.session.user = req.body.id;
-        res.send("로그인 성공");
-    }else {
-        res.send("로그인 실패")
-    }
-}
+exports.logout = (req, res) => {
+  req.session.destroy(function (err) {
+    if (err) throw err;
 
-exports.logout = (req, res)=>{
-    req.session.destroy(function(err){
-        if(err) throw err;
-        
-        res.send("로그아웃 성공")
-    })
-}
+    res.send("로그아웃 성공");
+  });
+};
