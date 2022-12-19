@@ -14,6 +14,7 @@ exports.signup_post = async (req, res) => {
     name: req.body.name,
   };
   let result = await User.create(data);
+
   // console.log(result);
   res.send(result.id);
   // res.redirect("/");

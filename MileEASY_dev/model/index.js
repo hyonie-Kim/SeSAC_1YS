@@ -13,6 +13,6 @@ const sequelize = new Sequelize( // 새로운 시퀄라이즈 객체 생성 (객
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-db.User = require("./User")(sequelize, Sequelize);
+db.User = require("./User")(sequelize, Sequelize); // 시퀄라이즈 모델로 선택해서 DB에 생성
 
 module.exports = db;
