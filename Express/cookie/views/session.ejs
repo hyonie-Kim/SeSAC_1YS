@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Session</title>
+    <style>
+      span {
+        border: 1px solid black;
+      }
+      .red {
+        border: none;
+        color: red;
+      }
+      p {
+        display: inline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Hello, Session 🍪⚙ 연습중!</h1>
+    <h3>express에서 Session을 구현하는 2가지 방법</h3>
+    <ol>
+      <li>
+        모든 정보를 쿠키에 저장하는 방법 - 쿠키기반 세션
+        <span>cookie-session</span>이라는 미들웨어가 있다.
+      </li>
+      <li>
+        쿠키에는 세션의 식별자만 저장하고, 나머지 정보들은 서버단에 저장하는
+        방법이 있다.
+      </li>
+    </ol>
+    <ul>
+      <li>
+        세션을 사용하기 위해서 미들웨어 설치
+        <span>npm i express-session --save</span>
+      </li>
+      <li>
+        개발환경에서 express session을 import할때, 항상 먼저!!
+        <span>const cookieParser = require("cookie-parser")</span>가 import한
+        다음에 사용할수 있도록 한다.
+        <span class="red"
+          >⚠ express-session 버전 15.0 이상부터 cookie-parser를 사용할 필요가
+          없어졌음</span
+        >
+      </li>
+      <li>
+        <span>const session = require("express-session");</span>세션 import!!
+      </li>
+      <li>
+        세션도 암호와를 위해서 옵션을 줄수 있다.
+        <span>app.use(session({secret:"아무런문자열"}))</span>secret으로 아무런
+        문자열이나 상관없다.옵션으로 원하는 문자열을 넣으면 사용자에게
+        데이터내용을 숨겨줄수 있다.
+      </li>
+      <li>
+        세션을 만드는 방법의 경우에는 req.session을 통해 만들수 있다. get요청이
+        왔을때 세션을 만들어 보도록 하겠다.
+        <span>app.get("/session", (req,res)=>{ })</span>
+      </li>
+      <li>
+        req.session을 통해서 세션을 만들고 . 다음으로 세션을 사용할 이름을
+        넣어주면된다.
+      </li>
+      <li>
+        secret옵션은 세션에 암호화에 대한 설정을 할수 있고, resave는 세션을 항상
+        저장을 할것인지 resave:true는 저장을하고,resave:false로 주면 저장하지
+        않는다. 즉 세션이 바뀔때만 저장을 한다.
+      </li>
+      <li>
+        세션을 삭제를 하는 방법은 req.session.destroy()를 통해서 삭제를 할수
+        있다.
+      </li>
+      <li>
+        destroy는 콜백함수를 하나 받는다. 그 안에 어떤 세션을 삭제할지
+        작성하면된다. 만약에 req.session을 작성하면 모든 세션을 삭제한다는
+        뜻이다.
+      </li>
+    </ul>
+    <button><a href="/deleteSessionAll">모든 세션 삭제</a></button>
+    <p>
+      url을 /deleteSessionAll으로 이동하면 다시 세션으로 redirect되면서
+      초기화된다.
+    </p>
+  </body>
+</html>

@@ -10,6 +10,10 @@ router.get("/checkCookie", controller.checkCookie);
 router.get("/clearCookie", controller.clearCookie);
 router.get("/Unique_clearCookie", controller.Unique_clearCookie);
 
+router.get("/express-session", controller.expressSession);
+router.get("/session", controller.session);
+router.get("/deleteSessionAll", controller.deleteSessionAll);
+
 router.get("/", controller.sessionMain);
 router.post("/", controller.postLogin);
 

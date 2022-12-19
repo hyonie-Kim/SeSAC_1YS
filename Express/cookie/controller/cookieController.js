@@ -24,6 +24,26 @@ exports.Unique_clearCookie = (req, res) => {
   res.clearCookie("cookie", { path: "/cookie-parser" }).render("index");
 };
 
+exports.expressSession = (req, res) => {
+  res.render("session");
+};
+
+exports.session = (req, res) => {
+  if (req.session.pageView) {
+    req.session.pageView++;
+  } else {
+    req.session.pageView = 1;
+  }
+  res.send("이 페이지를" + req.session.pageView + "회 방문 했습니다.");
+};
+// 세션삭제
+exports.deleteSessionAll = (req, res) => {
+  req.session.destroy(() => {
+    req.session;
+    //req.session.pageView => 특정 세션 삭제
+  });
+  res.redirect("/session");
+};
 // exports.modal = (req, res) =>{
 //     if(req.cookies.popup == "1") res.render("cookie", {pop:"none"});
 //     else res.render("cookie", {pop:"block"})
