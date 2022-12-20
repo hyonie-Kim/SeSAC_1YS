@@ -1,4 +1,6 @@
 const { User } = require("../model");
+const multiparty = require("multiparty");
+
 exports.main = (req, res) => {
   res.render("index");
 };
@@ -37,6 +39,22 @@ exports.signIn_post = (req, res) => {
   });
 };
 
+exports.profile = (req, res) => {
+  res.render("profile");
+};
+exports.profile_upload = (req, res) => {
+  //console.log(req.body);
+  const form = new multiparty.Form({
+    uploadDir: "public/image/",
+  });
+  form.parse(req, (err, fields, files) => {
+    // console.log(fields, files);
+    // let temp = {
+    //   name: req.body.Username,
+    //   pw: req.body.UserPw,
+    // };
+  });
+};
 // 회원가입
 // exports.signup = async (req, res) => {
 //   let data = {

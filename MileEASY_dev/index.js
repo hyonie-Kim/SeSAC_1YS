@@ -9,7 +9,6 @@ app.use("/static", express.static(__dirname + "/static"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use("/", router);
-
 app.get("*", (req, res) => {
   res.send("주소가 존재하지 않습니다. 다시 한 번 확인해주세요.");
 });
