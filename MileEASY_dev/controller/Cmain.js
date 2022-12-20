@@ -39,10 +39,10 @@ exports.signIn_post = (req, res) => {
   });
 };
 
-exports.profile = (req, res) => {
-  res.render("profile");
+exports.userInfo = (req, res) => {
+  res.render("userInfo");
 };
-exports.profile_upload = (req, res) => {
+exports.userUpdate = (req, res) => {
   //console.log(req.body);
   const form = new multiparty.Form({
     uploadDir: "public/image/",
