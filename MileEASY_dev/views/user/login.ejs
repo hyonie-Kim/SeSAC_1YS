@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <style>
+      input {
+        margin-bottom: 1rem;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        max-width: 50vw;
+        margin: 0 auto;
+      }
+      span {
+        color: red;
+        font-size: 10px;
+      }
+    </style>
+  </head>
+  <!-- <script>
+    function login() {
+                var form = document.getElementById("form_login");
+                axios({
+                    method: 'post',
+                    url: '/user/login',
+                    data: user
+                }).then((rep) => {return rep.data;} )
+                .then((data) => {
+                    if ( data == true ){
+                        alert("로그인 성공");
+
+                        var form_info = document.getElementById("form_info");
+                        form_info.userId.value = form.userId.value;
+                        form_info.submit();
+                    } else {
+                        alert("로그인 실패");
+                        form.reset();
+                    }
+                });
+            }
+  </script> -->
+
+  <body>
+    <!-- 회원가입 유저 -->
+    <!-- <form id="form_info" action="/user/mypage" method="POST">
+      <input type="hidden" name="userId" />
+    </form> -->
+
+    <form action="/user/login" method="post" id="form_login">
+      <label for="userId">아이디</label>
+      <input type="text" id="userId" name="userId" required />
+
+      <label for="userPw">비밀번호</label>
+      <input type="password" id="userPw" name="userPw" required />
+      <span><%= message %></span>
+
+      <input type="submit" value="로그인" />
+    </form>
+  </body>
+</html>

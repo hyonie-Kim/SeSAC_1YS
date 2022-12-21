@@ -14,5 +14,6 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 db.User = require("./User")(sequelize, Sequelize); // 시퀄라이즈 모델로 선택해서 DB에 생성
+db.User2 = require("./User2")(sequelize, Sequelize);
 
 module.exports = db;

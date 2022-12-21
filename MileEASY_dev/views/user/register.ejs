@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원가입</title>
+    <style>
+      input {
+        margin-bottom: 1rem;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        max-width: 50vw;
+        margin: 0 auto;
+      }
+      span {
+        color: red;
+        font-size: 10px;
+      }
+    </style>
+  </head>
+  <script>
+    const PasswordCheck = () => {
+      let password = document.querySelector("#userPw").value;
+      let passwordConfirm = document.querySelector("#pwConfirm").value;
+      if (password != passwordConfirm) {
+        alert("비밀번호와 비밀번호 확인은 같아야합니다.");
+        return false;
+      }
+    };
+  </script>
+  <body>
+    <!-- 회원가입 유저 -->
+    <form
+      action="/user/register"
+      method="post"
+      onsubmit="return PasswordCheck()"
+    >
+      <label for="name">이름</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="userId">아이디</label>
+      <input type="text" id="userId" name="userId" required />
+      <span> <%= message %> </span>
+
+      <label for="userPw">비밀번호</label>
+      <input type="password" id="userPw" name="userPw" required />
+
+      <label for="pwConfirm">비밀번호 확인</label>
+      <input type="password" id="pwConfirm" name="pwConfirm" required />
+
+      <input type="submit" value="회원가입" />
+    </form>
+  </body>
+</html>
