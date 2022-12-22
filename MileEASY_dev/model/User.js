@@ -15,6 +15,10 @@ const User = (Sequelize, DataTypes) => {
         type: DataTypes.STRING(128),
         allowNull: false,
       },
+      mbti: {
+        type: DataTypes.STRING(4),
+        allowNull: true,
+      },
     },
     {
       tableName: "User",

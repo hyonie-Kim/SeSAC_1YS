@@ -31,63 +31,96 @@
       </div>
 
       <div class="main">
-        <input type="checkbox" id="chk" aria-hidden="true" />
-
         <div class="edit">
           <form
-            action="/userUpdate"
+            action="/profile"
             method="post"
             enctype="multipart/form-data"
+            id="form_profile"
           >
             <label for="chk" aria-hidden="true">
               <a href="/"><img src="../static/Logo.png" alt="logo" /></a>
             </label>
-            <div style="text-align: center">
-              <a href="#"
-                ><img src="../static/profile-1.png" alt="profile"
-              /></a>
+
+            <div class="file_form">
+              <div class="img_wrap">
+                <img
+                  src="../static/user_default_img.jpg"
+                  alt="프로필 이미지"
+                  onclick=""
+                />
+              </div>
+              <div class="file_wrap">
+                <input
+                  type="file"
+                  name="imageFile"
+                  accept="image/*"
+                  style="
+                    background: url(../static/user_default_img.jpg) no-repeat;
+                  "
+                  onchange="readURL(this)"
+                />
+              </div>
             </div>
-            <input type="file" name="imageFile" accept="image/*" />
+
+            <input type="text" name="id" value="<%=data.id%>" />
             <input
               type="text"
-              name="userName"
+              name="name"
               placeholder="User name"
+              value="<%=data.name%>"
               required=""
             />
             <input
               type="password"
-              name="userPw"
+              name="pw"
               placeholder="Password"
               required=""
             />
-            <button type="submit">edit</button>
+            <div class="userInfoBtn">
+              <button type="submit">edit</button>
+              <button type="submit">delete</button>
+            </div>
           </form>
         </div>
       </div>
     </div>
+
     <script>
-      function login() {
-        var form = document.getElementById("login");
+      function readURL(input) {
+        if (input.files && input.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            document.getElementById("preview").src = e.target.result;
+          };
+          reader.readAsDataURL(input.files[0]);
+        } else {
+          document.getElementById("preview").src = "";
+        }
+      }
+
+      function profileEdit() {
+        var form = document.getElementById("form_profile");
+
         let user = {
-          id: form.userId.value,
-          pw: form.userPw.value,
+          id: form.id.value,
+          pw: form.pw.value,
+          name: form.name.value,
+          img: form.imageFile.value,
         };
         axios({
           method: "post",
-          url: "/signIn",
+          url: "/profile",
           data: user,
         })
-          .then((req) => {
-            {
-              return req.data;
-            }
+          .then((rep) => {
+            return rep.data;
           })
           .then((data) => {
-            if (data == true) {
-              console.log(data);
-              console.log(user.id + "님 로그인성공");
+            if (data) {
+              alert("회원정보 수정 성공");
             } else {
-              alert("로그인실패");
+              alert("알 수 없는 문제가 발생했습니다.");
             }
           });
       }
