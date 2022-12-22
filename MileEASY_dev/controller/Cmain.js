@@ -69,6 +69,18 @@ exports.profile_post = (req, res) => {
     res.render("profile", { data: result });
   });
 };
+exports.profile_image = (req, res) => {
+  const form = new multiparty.Form({
+    uploadDir: "public/image",
+  });
+  form.parse(req, (err, fields, files) => {
+    console.log(fields);
+    console.log(files.imageFile[0].path);
+
+    // update
+    res.send({ path: `/${files.imageFile[0].path}` });
+  });
+};
 
 exports.profile_edit = (req, res) => {
   console.log(req.file);

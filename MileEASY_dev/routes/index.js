@@ -12,6 +12,7 @@ router.post("/signIn", controller.signIn_post);
 
 router.get("/profile", controller.profile);
 router.post("/profile", controller.profile_post);
+router.post("/profile/image", controller.profile_image);
 router.patch("/profile/edit", controller.profile_edit);
 // router.delete("/profile/delete", user.profile_delete);
 

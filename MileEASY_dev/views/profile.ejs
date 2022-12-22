@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/static/css/style.css" />
     <title>MileEASY 프로필 수정</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -45,6 +46,7 @@
             <div class="file_form">
               <div class="img_wrap">
                 <img
+                  id="profile_img"
                   src="../static/user_default_img.jpg"
                   alt="프로필 이미지"
                   onclick=""
@@ -52,13 +54,10 @@
               </div>
               <div class="file_wrap">
                 <input
+                  id="userfile"
                   type="file"
                   name="imageFile"
                   accept="image/*"
-                  style="
-                    background: url(../static/user_default_img.jpg) no-repeat;
-                  "
-                  onchange="readURL(this)"
                 />
               </div>
             </div>
@@ -87,17 +86,22 @@
     </div>
 
     <script>
-      function readURL(input) {
-        if (input.files && input.files[0]) {
-          var reader = new FileReader();
-          reader.onload = function (e) {
-            document.getElementById("preview").src = e.target.result;
-          };
-          reader.readAsDataURL(input.files[0]);
-        } else {
-          document.getElementById("preview").src = "";
-        }
-      }
+      $("#userfile").change(function () {
+        var file = document.getElementById("userfile");
+        var formData = new FormData();
+        formData.append("imageFile", file.files[0]);
+        axios({
+          method: "post",
+          url: "/profile/image",
+          data: formData,
+        })
+          .then((a) => {
+            return a.data;
+          })
+          .then((d) => {
+            document.querySelector("#profile_img").src = d.path;
+          });
+      });
 
       function profileEdit() {
         var form = document.getElementById("form_profile");
