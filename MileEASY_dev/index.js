@@ -14,6 +14,7 @@ app.use("/static", express.static(__dirname + "/static"));
 app.use("/public", express.static(__dirname + "/public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
 // app.use(
 //   session({
 //     secret: "MySecret",
