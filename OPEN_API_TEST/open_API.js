@@ -2,10 +2,7 @@
 var xhr = new XMLHttpRequest();
 var url = "http://api.kcisa.kr/openapi/service/rest/meta5/getKTOE0102"; /*URL*/
 var queryParams =
-  "?" +
-  encodeURIComponent("serviceKey") +
-  "=" +
-  "d4f19c74-700a-4f84-ac14-fba90bf4951f"; /*서비스키*/
+  "?" + encodeURIComponent("serviceKey") + "=" + "서비스키"; /*서비스키*/
 queryParams +=
   "&" +
   encodeURIComponent("numOfRows") +
