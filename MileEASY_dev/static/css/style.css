@@ -117,6 +117,21 @@ img {
   border-radius: 10px;
   box-shadow: 5px 20px 50px #000;
 }
+
+/* 방명록 */
+.board_login {
+  background-color: lightblue;
+  float: left;
+  width: 30%;
+  height: 500px;
+}
+
+.board_main {
+  background-color: #e89d3a;
+  float: right;
+  width: 60%;
+  height: 500px;
+}
 #chk {
   display: none;
 }

@@ -94,6 +94,10 @@ exports.profile_edit = (req, res) => {
     res.send(true);
   });
 };
+
+exports.board = (req, res) => {
+  res.render("board");
+};
 // exports.userInfo = (req, res) => {
 //   User.findOne({
 //     where: { id: req.body.id },

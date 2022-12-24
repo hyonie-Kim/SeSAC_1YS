@@ -4,18 +4,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <!-- jquery CDN -->
-        <script
-        src="https://code.jquery.com/jquery-3.6.1.js"
-        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-        crossorigin="anonymous"
-      ></script>
+    <!-- jquery CDN -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.js"
+      integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+      crossorigin="anonymous"
+    ></script>
     <title>Document</title>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <!-- <script src="./open_API.js"></script> -->
     <style>
-      img{
+      img {
         width: 300px;
         display: block;
       }
@@ -35,34 +35,40 @@
     //   console.log( result );
     // })
 
-    axios("https://apis.data.go.kr/B551011/PhotoGalleryService/galleryList?numOfRows=100&pageNo=1&MobileOS=WIN&MobileApp=web&serviceKey=wWbCS%2FWxSjT413uUzDeI9VJyA6x8OpfFgCkA8vh6o4%2B51XNnvo9MIpVyW6wsAytOdWhX6efZr9iRjWZnETpqXg%3D%3D&_type=json", {
-      method: 'get'
-    }).then((result)=>{
-      let items = result.data.response.body.items.item
+    axios(
+      "https://apis.data.go.kr/B551011/PhotoGalleryService/galleryList?numOfRows=100&pageNo=1&MobileOS=WIN&MobileApp=web&serviceKey=wWbCS%2FWxSjT413uUzDeI9VJyA6x8OpfFgCkA8vh6o4%2B51XNnvo9MIpVyW6wsAytOdWhX6efZr9iRjWZnETpqXg%3D%3D&_type=json",
+      {
+        method: "get",
+      }
+    ).then((result) => {
+      let items = result.data.response.body.items.item;
       // for(let i=0; i<items.length; i++){
       //   console.log(items[i].galPhotographyLocation)
-        
-      // }
-      
-      for ( let i=0; i< 10; i++ ) {
-        let random = Math.floor(Math.random() * 100);
-      $("#title").append("<strong>" + items[random].galPhotographyLocation + "</strong>");
 
-      $("#title").append("<img src='"+items[random].galWebImageUrl+"'/>");
+      // }
+
+      for (let i = 0; i < 10; i++) {
+        let random = Math.floor(Math.random() * 100);
+        $("#title").append(
+          "<strong>" + items[random].galPhotographyLocation + "</strong>"
+        );
+
+        $("#title").append("<img src='" + items[random].galWebImageUrl + "'/>");
         console.log(items[random].galPhotographyLocation);
       }
 
-      let title = result.data.response.body.items.item[0].galPhotographyLocation;
+      let title =
+        result.data.response.body.items.item[0].galPhotographyLocation;
       let img = result.data.response.body.items.item[0].galWebImageUrl;
 
       const chosenImage = items[Math.floor(Math.random() * items.length)];
       $("#title").append("<strong>" + title + "</strong>");
 
-      $("#title").append("<img src='"+img+"'/>");
-    })
+      $("#title").append("<img src='" + img + "'/>");
+    });
   </script>
   <body>
-    <img id="trip_img" /> 
+    <img id="trip_img" />
     <div id="title"></div>
   </body>
 </html>
