@@ -1,18 +1,7 @@
 /* Javascript Sample*/
 var xhr = new XMLHttpRequest();
 var url = "http://api.kcisa.kr/openapi/service/rest/meta5/getKTOE0102"; /*URL*/
-var queryParams =
-  "?" + encodeURIComponent("serviceKey") + "=" + "서비스키"; /*서비스키*/
-queryParams +=
-  "&" +
-  encodeURIComponent("numOfRows") +
-  "=" +
-  encodeURIComponent("세션당 요청레코드수"); /*세션당 요청레코드수*/
-queryParams +=
-  "&" +
-  encodeURIComponent("pageNo") +
-  "=" +
-  encodeURIComponent("페이지수"); /*페이지수*/
+url = "https://apis.data.go.kr/B551011/PhotoGalleryService/galleryList?numOfRows=1&pageNo=1&MobileOS=WIN&MobileApp=web&serviceKey=wWbCS%2FWxSjT413uUzDeI9VJyA6x8OpfFgCkA8vh6o4%2B51XNnvo9MIpVyW6wsAytOdWhX6efZr9iRjWZnETpqXg%3D%3D&_type=_json";
 
 xhr.open("GET", url + queryParams);
 xhr.onreadystatechange = function () {
