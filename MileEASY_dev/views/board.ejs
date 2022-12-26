@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/static/css/style.css" />
+    <link rel="stylesheet" href="/static/css/style2.css" />
     <title>MileEASY 게시판</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     
@@ -53,10 +53,12 @@
                       </div>
                     </div>
                   </div>
-                  <textarea placeholder="MBTI별 나만의 특별한 여행지를 공유해보세요." required></textarea>
-                  <button>Post</button>
+                  <textarea id="update" placeholder="MBTI별 나만의 특별한 여행지를 공유해보세요." required></textarea>
+                  <button onclick="result()">Post</button>
                 </form>
               </section>
+
+              <!-- MBTI 선택란 -->
               <section class="mbti_type">
                 <header>
                   <div class="arrow-back"><i class="fas fa-arrow-left"></i></div>
@@ -69,58 +71,177 @@
                 <ul class="list">
                   <!-- MBTI 종류 -->
                   <li>
-                    <div class="colum">
-                      <div class="icon"><i class="fas fa-globe-asia"></i></div>
+                    <div class="column">
+                      <div class="icon">
+                        
+                        <i class="fas fa-globe-asia"></i></div>
                       <div class="details">
-                        <p>ESTJ</p>
-                        <span>dddddddd</span>
+                        <p>ISTJ</p>
+                        <span>소금형</span>
                       </div>
                     </div>
-                    <div class="radio"></div>
+                    <!-- <div class="radio"></div> -->
                   </li>
 
-                  <li class="active">
-                    <div class="colum">
+                  <li>
+                    <div class="column">
                       <div class="icon"><i class="fas fa-globe-asia"></i></div>
                       <div class="details">
-                        <p>ESTP</p>
-                        <span>dddddddd</span>
+                        <p>ISFJ</p>
+                        <span>권력형</span>
                       </div>
                     </div>
-                    <div class="radio"></div>
+                    
                   </li>
                   
                   <li>
-                    <div class="colum">
-                      <div class="icon"><i class="fas fa-globe-asia"></i></div>
+                    <div class="column">
+                      <div class="icon"><i class="fas fa-calendar-week"></i></div>
                       <div class="details">
-                        <p>ESFP</p>
-                        <span>dddddddd</span>
+                        <p>ESTP</p>
+                        <span>활동가형</span>
                       </div>
                     </div>
-                    <div class="radio"></div>
+                    
                   </li>
 
                   <li>
-                    <div class="colum">
+                    <div class="column">
                       <div class="icon"><i class="fas fa-globe-asia"></i></div>
                       <div class="details">
                         <p>ESFJ</p>
-                        <span>dddddddd</span>
+                        <span>사교형</span>
                       </div>
                     </div>
-                    <div class="radio"></div>
+                    
                   </li>
 
                   <li>
-                    <div class="colum">
+                    <div class="column">
                       <div class="icon"><i class="fas fa-globe-asia"></i></div>
                       <div class="details">
-                        <p>ISTJ</p>
-                        <span>dddddddd</span>
+                        <p>INFJ</p>
+                        <span>예언자형</span>
                       </div>
                     </div>
-                    <div class="radio"></div>
+                    
+                  </li>
+
+                  <li>
+                    <div class="column">
+                      <div class="icon"><i class="fas fa-globe-asia"></i></div>
+                      <div class="details">
+                        <p>INTJ</p>
+                        <span>과학자형</span>
+                      </div>
+                    </div>
+                    
+                  </li>
+
+                  <li>
+                    <div class="column">
+                      <div class="icon"><i class="fas fa-globe-asia"></i></div>
+                      <div class="details">
+                        <p>ENFP</p>
+                        <span>스파크형</span>
+                      </div>
+                    </div>
+                    
+                  </li>
+                  <li>
+                    <div class="column">
+                      <div class="icon"><i class="fas fa-globe-asia"></i></div>
+                      <div class="details">
+                        <p>ENTP</p>
+                        <span>발명가형</span>
+                      </div>
+                    </div>
+                    
+                  </li>
+                  <!-- 3열 -->
+                  <li>
+                    <div class="column">
+                      <div class="icon"><i class="fas fa-globe-asia"></i></div>
+                      <div class="details">
+                        <p>ISTP</p>
+                        <span>백과사전형</span>
+                      </div>
+                    </div>
+                    
+                  </li>
+                  <li>
+                    <div class="column">
+                      <div class="icon"><i class="fas fa-globe-asia"></i></div>
+                      <div class="details">
+                        <p>ISFP</p>
+                        <span>성인군자형</span>
+                      </div>
+                    </div>
+                    
+                  </li>
+                  <li>
+                    <div class="column">
+                      <div class="icon"><i class="fas fa-globe-asia"></i></div>
+                      <div class="details">
+                        <p>ESTJ</p>
+                        <span>사업가형</span>
+                      </div>
+                    </div>
+                    
+                  </li>
+
+                  <li>
+                    <div class="column">
+                      <div class="icon"><i class="fas fa-globe-asia"></i></div>
+                      <div class="details">
+                        <p>ESFJ</p>
+                        <span>친선도모형</span>
+                      </div>
+                    </div>
+                    
+                  </li>
+                  <!-- 4열 -->
+                  
+                  <li>
+                    <div class="column">
+                      <div class="icon"><i class="fas fa-globe-asia"></i></div>
+                      <div class="details">
+                        <p>INFP</p>
+                        <span>잔다르크형</span>
+                      </div>
+                    </div>
+                    
+                  </li>
+                  <li>
+                    <div class="column">
+                      <div class="icon"><i class="fas fa-globe-asia"></i></div>
+                      <div class="details">
+                        <p>INTP</p>
+                        <span>아이디어형</span>
+                      </div>
+                    </div>
+                    
+                  </li>
+                  <li>
+                    <div class="column">
+                      <div class="icon"><i class="fas fa-globe-asia"></i></div>
+                      <div class="details">
+                        <p>ENFJ</p>
+                        <span>언변능숙형</span>
+                      </div>
+                    </div>
+                    
+                  </li>
+
+                  <li>
+                    <div class="column">
+                      <div class="icon"><i class="fas fa-globe-asia"></i></div>
+                      <div class="details">
+                        <p>ENTJ</p>
+                        <span>지도자형</span>
+                      </div>
+                    </div>
+                    
                   </li>
 
                 </ul>
@@ -133,14 +254,35 @@
       const container = document.querySelector(".container");
       selectBox = container.querySelector(".select_box"),
       arrowBack = container.querySelector(".arrow-back");
+      const list = document.querySelectorAll(".list")
 
+      const mbtiBtn = document.querySelectorAll("li")
+      
+
+      console.log(mbtiBtn)
       selectBox.addEventListener("click", () =>{
         container.classList.add("active")
       })
 
       arrowBack.addEventListener("click", () =>{
-        container.classList.add("active")
+        container.classList.remove("active")
       })
+
+      // 각 요소에 이벤트 
+      mbtiBtn.forEach(mbti =>{
+        mbti.addEventListener("click",(e)=>{
+          const target = e.target
+          console.log(e,"clicked")
+          container.classList.remove("active")
+        })
+
+        // const mbtiVlue = target.innerText
+      })
+
+      function result() {
+        console.log(update.value)
+      }
+
     </script>
   </body>
 </html>
