@@ -96,7 +96,15 @@ exports.profile_edit = (req, res) => {
 };
 
 exports.board = (req, res) => {
-  res.render("board");
+  res.render("board", { id: "sesac1" });
+};
+
+exports.board_post = (req, res) => {
+  console.log(req.body);
+};
+
+exports.carousel = (req, res) => {
+  res.render("carousel", { id: "sesac1", mbti: "INFT" });
 };
 // exports.userInfo = (req, res) => {
 //   User.findOne({

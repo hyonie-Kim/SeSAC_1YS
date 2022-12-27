@@ -17,5 +17,8 @@ router.patch("/profile/edit", controller.profile_edit);
 // router.delete("/profile/delete", user.profile_delete);
 
 router.get("/board", controller.board);
+router.post("/board/upload", controller.board_post);
+
+router.get("/carousel", controller.carousel);
 
 module.exports = router;
