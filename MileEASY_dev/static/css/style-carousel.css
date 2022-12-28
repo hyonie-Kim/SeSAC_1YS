@@ -163,18 +163,6 @@ section .card .image img {
   background: #f63131;
 }
 
-/* 방명록 */
-
-.two-wrapper {
-  position: absolute;
-  width: 100%;
-  /* height: auto; */
-}
-.two-wrapper .header {
-  display: block;
-  width: 100%;
-}
-
 /* 버튼 */
 .user-card-button {
   margin-top: 50px;
