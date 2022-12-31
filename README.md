@@ -207,3 +207,21 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
 🌱 Saturday, December 10th, 2022 ~
 
 - 1차 팀프로젝트
+
+🌱 Saturday, December 31th, 2022 ~
+
+- 서버에 프로젝트 백그라운 실행 및 배포
+  1. 로컬 컴퓨터 프로젝트 폴더 위치 확인
+  2. filezilla 클라우드 서버 접속
+  3. 로컬프로젝트 폴더 > 클라우드 서버 업로드
+  4. PuTTY서버 접속 > 방금 업로드한 프로젝트 폴더 위치로 이동
+  5. npm install 명령 입력
+  6. node index.js > 서버에 배포된 프로젝트 작동하는지 브라우저 접속확인
+  7. nohup node index & -> 백그라운드 실행
+  8. exit
+  9. 다시 접속
+  10. netstat -tnlp -> (백그라운드 실행 목록확인하는 명령어)
+  
+- 백그라운드 실행 종료
+ 1. netstat -nap 혹은 netstat -nap | grep 포트 번호
+ 2. kill - 9 [pid번호] -> 백그라운드 실행종료 ex) kill -9 12345
