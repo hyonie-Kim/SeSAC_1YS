@@ -49,7 +49,7 @@
               placeholder="MBTI별 나만의 특별한 여행지를 공유해보세요."
               required
             ></textarea>
-            <button type="submit">등록하기</button>
+            <button onclick="cardcreate()">등록하기</button>
           </form>
         </section>
 
@@ -314,8 +314,31 @@
         // const mbtiVlue = target.innerText
       });
 
-      function result() {
-        console.log(update.value);
+      function cardcreate() {
+        axios({
+          method: "post",
+          url: "/cardcreate",
+          data: {
+            mbti: document.querySelector("#mbti").innerText,
+            comment: document.querySelector("textarea").value,
+            photo: $("#photo").attr("src"),
+          },
+        }).then((res) => {
+          if (mbti != mbti) {
+            if (res != false) {
+              alert("여행지 추천 완료!");
+              window.location.href = "/guest_home";
+            }
+          } else {
+            alert("MBTI를 선택해주세요");
+          }
+        });
+        // .then((res) => {
+        //   if (res != false) {
+        //     alert("여행지 추천 완료!");
+        //     window.location.href = '/guest_home';
+        //   }
+        // });
       }
     </script>
   </body>
