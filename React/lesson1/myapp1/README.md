@@ -6,5 +6,5 @@
 
 ## Create-react-app
 
-`npx create-react-app my-app` 설치
-`npm start` 실행
+- `npx create-react-app my-app` 설치
+- `npm start` 실행
