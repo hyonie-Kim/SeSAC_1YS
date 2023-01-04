@@ -1,19 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
-// import MainHeader from './components/MainHeader';
+import logo from "./logo.svg";
+import "./App.css";
 
 function App() {
-  function MainHeader(){
-    return (
-      <h1>함수형 내부 정의</h1>
-    )
-  }
-  return (
-    <div className ="App">
-         <MainHeader/>
-    </div>
-
-  );
+  const str = "Hello, JSX World!";
+  return <div className="App">{str}</div>;
 }
 
 export default App;
