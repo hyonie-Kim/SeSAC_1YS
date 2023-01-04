@@ -1,4 +1,4 @@
-### 실습. JSX 문법 활용하기!
+### 실습47. JSX 문법 활용하기!
 
 - `<div className="App"></div>`안의 내용은 전부 제거
 - `<div className="App"></div>`안에 하나의 `<div>`요소 만들기
