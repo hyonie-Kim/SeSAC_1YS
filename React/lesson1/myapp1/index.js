@@ -6,11 +6,7 @@ function HelloWorldButton() {
 
   return (
     // JSX(JavaScript XML)문법 - 이를 읽기 위해서는 Babel 컴파일러(번역기)가 필요!
-    <button
-      onClick={() => {
-        setClickState(!isClick);
-      }}
-    >
+    <button onClick={() => { setClickState(!isClick);}}>
       <div>
         <span>{text}</span>
       </div>
