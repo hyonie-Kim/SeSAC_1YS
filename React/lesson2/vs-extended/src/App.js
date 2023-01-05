@@ -1,23 +1,32 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Ex1 from './components/Ex1';
 import './App.css';
 
 function App() {
+  let [teacher, setTeacher] = useState('이효석');
+
+  function customSetTeacher(name) {
+    setTeacher(name);
+    // teacher = name;
+    console.log(teacher);
+  }
+
+  // let teacher = '이효석';
+
+  function inEnglish() {
+    const spanEl = document.querySelector('.App > span');
+    spanEl.innerHTML = 'tetz';
+
+    // teacher = 'tetz';
+    // console.log(teacher);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button onClick={() => customSetTeacher('tetz')}>영어로</button>
+      <br />
+      <span>{teacher}</span>
+      <Ex1 />
     </div>
   );
 }
