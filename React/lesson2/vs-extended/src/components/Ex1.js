@@ -1,18 +1,16 @@
 import { useState } from 'react';
 
-function Ex1() {
-  let [counter, setCounter] = useState(1);
+export default function Ex1() {
+  let [count, setCount] = useState(0);
 
   return (
     <div>
       <h1>실습, 카운터 만들기!</h1>
       <div>
-        <span>{counter}</span>
+        <span>{count}</span>
       </div>
-      <button onClick={() => setCounter(counter - 1)}>-</button>
-      <button onClick={() => setCounter(counter + 1)}>+</button>
+      <button onClick={() => setCount(count - 1)}>-</button>
+      <button onClick={() => setCount(count + 1)}>+</button>
     </div>
   );
 }
-
-export default Ex1;
