@@ -136,9 +136,14 @@ const [스테이트이름, 스테이트변경함수] = useState(초기값);
 
 - state가 이전의 값과 달라지면 해당 컴포넌트를 다시 렌더링 한다.
 - 즉, "이효석"으로 지정 되어 있던 초기 값이 "tetz"로 변경 되었기 떄문에 해당 HTML을 다시 렌더링 한것.
+- 스테이트 변경 함수로 변경을 해야만 React가 state 변경을 알아차리고 html을 변경해준다.
+- 상태 변경 함수는 꼭 함수 정의를 하고 사용해야 한다!
+  - Return 내부에서 함수 정의를 하지 않고 바로 상태변경 함수를 호출하면 클릭이 안되어도 실행이 되기 때문에 무한루프에 빠지게 된다.
+  * State가 변경되면 당연히 return 내부에 있는 요소를 다시 렌더링 해야 하니 return을 호출 > 다시 상태 변경 함수 호출 > return 무한 루프가 된다.
 
 #### 🛠ES7 React/Redux/GraphQL/React-Native snippets 확장도구에서 제공하는 스니펫 사용
 
 - `npm install eslint-config-react-app`
+
   > `rfc`: 함수형 컴포넌트  
   > `rcc`: 클래스 컴포넌트

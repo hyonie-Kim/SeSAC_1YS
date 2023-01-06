@@ -4,8 +4,8 @@ export default function StateAndTeacher() {
   let [teacher, setTeacher] = useState('이효석');
 
   function customSetTeacher(name) {
-    setTeacher(name);
-    // teacher = name;
+    //setTeacher(name);
+    teacher = name;
     console.log(teacher);
   }
 

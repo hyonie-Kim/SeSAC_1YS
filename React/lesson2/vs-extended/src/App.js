@@ -9,6 +9,7 @@ import StateAndVariable from './components/StateAndVariable';
 import ArrState from './components/ArrState';
 import ObjState from './components/ObjState';
 import StateAndTeacher from './components/StateAndTeacher';
+import StrState from './components/StrState';
 
 function App() {
   return (
