@@ -11,7 +11,7 @@
 - `--save-dev`는 개발할 때에만 사용하겠다는 의미
  - 실제로 프로젝트를 빌드 & 배포하면 해당 패키지는 포함 X
 - Package.json 파일에 방금 설치한 Prettier 옵션 확인하기
-- .prettierrc 파일로 prettier세부 설정
+#### ⚙.prettierrc 파일로 prettier세부 설정
 ```json
 {
     "semi": true,
@@ -20,7 +20,9 @@
 ```
 > `semi`: 세미콜론 사용여부  
 > `singleQuote`: single 쿼테이션 사용 여부
-- vs-code에게 prettier사용하라고 알려주기 **.vscode폴더를 만들고 settings.json파일 만들기**
+
+#### ⚙.vscode 파일에 settings.jscon 파일 설정
+- vs-code에게 prettier사용하라고 알려주기  **.vscode폴더를 만들고 settings.json파일 만들기**
 ```json
 {
     "[javascript]": {
