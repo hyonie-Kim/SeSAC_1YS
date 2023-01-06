@@ -112,6 +112,13 @@ module.exports = {
 
 # 리액트 배우기
 
+#### 🛠ES7 React/Redux/GraphQL/React-Native snippets 확장도구에서 제공하는 스니펫 사용
+
+- `npm install eslint-config-react-app`
+
+  > `rfc`: 함수형 컴포넌트  
+  > `rcc`: 클래스 컴포넌트
+
 ## 📝State
 
 - 간단하게 표현하면 중요한 변수 정도로 생각하자.
@@ -160,9 +167,15 @@ function customSetTeacher() {
 <button onClick={customSetTeacher}>영어로!</button>;
 ```
 
-#### 🛠ES7 React/Redux/GraphQL/React-Native snippets 확장도구에서 제공하는 스니펫 사용
+## 📝클래스형 컴포넌트의 State
 
-- `npm install eslint-config-react-app`
+- 클래스에서 사용하는 생성자에 state 값을 지정
+- this.state라는 객체에 변경하고자 하는 값을 저장
+  - **단, state는 반드시 객체로 지정해서 사용해야 한다.**
+- 그리고 this.setState 메소드를 이용하여 this.state라는 객체에 저장된 값을 변경한다.
+- State 변경이 일어나면 컴포넌트는 알아서 다시 렌더링 된다.
 
-  > `rfc`: 함수형 컴포넌트  
-  > `rcc`: 클래스 컴포넌트
+## 📝함수형 컴포넌트의 State
+
+- 함수형 컴포넌트의 초창기에는 리액트의 핵심 기능(State, Lifecycle) 기능을 쓸 수 없었다.
+- 하지만 16.8버전 이후 부터는 hooks 라는 메소드를 제공하여 함수형 컴포넌트에서도 핵심 기능들 사용이 가능해 졌다.
