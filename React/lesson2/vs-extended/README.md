@@ -46,7 +46,7 @@
 - Main.js 파일의 코드를 `console.log("Hello, Node.js")` 로 작성하고 `ctrl+s` 로 저장해보기.
 - Prettier 작동한다
 
-##⚠formatting이 안될때, settings 옵션에 Editor:Default Formatter: Prettier-Code formatter로 설정 확인##
+**⚠formatting이 안될때, settings 옵션에 Editor:Default Formatter: Prettier-Code formatter로 설정 확인**
 
 ## 📝Linting
 
