@@ -1,70 +1,30 @@
-# Getting Started with Create React App
+# Formatting, Linting, Typescript 세팅
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📝Formatting
+- Code의 스타일을 통일 시켜준다.
+- 함수의 소괄호와 중괄호는 띄울것인지, 세미콜론은 찍을지, 탭을 누르면 몇 칸을 띄울것인지 등등
+- 문법이 아닌 코드의 스타일을 통일 시켜줘서 가독성을 높이고 버그를 예방한다.
+- Prettier를 사용
+### 프로젝트에 Prettier 설정
+- `npm install --save-dev prettier`
+- `--save`는 패키지 모듈에 추가한다는 의미
+- `--save-dev`는 개발할 때에만 사용하겠다는 의미
+ - 실제로 프로젝트를 빌드 & 배포하면 해당 패키지는 포함 X
+- Package.json 파일에 방금 설치한 Prettier 옵션 확인하기
+- .prettierrc 파일로 prettier세부 설정
 
-## Available Scripts
+## 📝Linting
+- Formatting에 가깝지만 더 많은 규약과 규율을 검사해주는 방법이다.
+- 웹 개발에서는 Airbnb에서 사용하는 Linting 규율이 유명하다.
 
-In the project directory, you can run:
+### ESLint 설치
+- `npm install --save-dev eslint`
+- package-lock.json 파일을 보면 prettier에 비해 훨씬 많은 package가 설치 되었음을 확인이 가능하다.
+**그만큼 많은 규약을 가지고 있다는 것!**
+### ESLint 설정
+- .eslintrc.js 파일 생성 `module.exports= {};`
+- 모든 Lint 관련 룰을 전부 지정할수 없기 때문에 Airbnb의 Linting Rule를 가져온다.
+- `npm install --save-dev eslint-config-airbnb-base eslint-plugin-import`
 
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📝Typescript 설치
+- `npm install --save-dev typescript`
