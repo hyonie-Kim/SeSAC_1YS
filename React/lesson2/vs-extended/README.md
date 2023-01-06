@@ -43,7 +43,7 @@
 #### 🎯내용정리
 
 - Prettier 확장 설치
-- Main.js 파일의 코드를 `console.log("Hello, Node.js")` 로 작성하고 `crtl+s` 로 저장해보기.
+- Main.js 파일의 코드를 `console.log("Hello, Node.js")` 로 작성하고 `ctrl+s` 로 저장해보기.
 - Prettier 작동한다
 
 ## 📝Linting
@@ -59,10 +59,16 @@
 
 ### 📕ESLint 설정
 
-#### ⚙.eslintrc.js 파일 생성 및 작성
+#### ⚙.eslintrc.js 파일 생성 후, Airbnb 모듈 추가 (window용)
 
 ```javascript
-module.exports = {};
+module.exports = {
+  extends: ['airbnb-base'],
+  rules: {
+    'linebreak-style': 0,
+    'no-console': 'off',
+  },
+};
 ```
 
 - 모든 Lint 관련 룰을 전부 지정할수 없기 때문에 Airbnb의 Linting Rule를 가져온다.
@@ -75,3 +81,8 @@ module.exports = {};
 ### 📕Typescript 설치
 
 - `npm install --save-dev typescript`
+
+### 📕Typescript 적용
+
+- Main.js 파일에 `//@ts-check` 주석 추가
+- Type관련 문제는 typescript가 알려준다.
