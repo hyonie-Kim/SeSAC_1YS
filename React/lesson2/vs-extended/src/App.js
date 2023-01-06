@@ -8,11 +8,12 @@ import ClassState from './components/ClassState';
 import StateAndVariable from './components/StateAndVariable';
 import ArrState from './components/ArrState';
 import ObjState from './components/ObjState';
+import StateAndTeacher from './components/StateAndTeacher';
 
 function App() {
   return (
     <div className="App">
-      <ObjState />
+      <StateAndTeacher />
     </div>
   );
 }

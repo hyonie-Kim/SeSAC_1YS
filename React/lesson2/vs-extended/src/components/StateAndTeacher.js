@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Teacher() {
+export default function StateAndTeacher() {
   let [teacher, setTeacher] = useState('이효석');
 
   function customSetTeacher(name) {
