@@ -18,7 +18,7 @@
     "singleQuote": true
 }
 ```
-> `semi`: 세미콜론 사용여부
+> `semi`: 세미콜론 사용여부___
 > `singleQuote`: single 쿼테이션 사용 여부
 
 
