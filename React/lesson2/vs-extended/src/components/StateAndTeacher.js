@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default function StateAndTeacher() {
   let [teacher, setTeacher] = useState('이효석');
@@ -12,6 +12,7 @@ export default function StateAndTeacher() {
   // let teacher = '이효석';
 
   function inEnglish() {
+    // JS식 버튼 클릭 효과
     const spanEl = document.querySelector('.App > span');
     spanEl.innerHTML = 'tetz';
 

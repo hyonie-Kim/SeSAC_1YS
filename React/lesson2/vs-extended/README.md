@@ -118,7 +118,27 @@ module.exports = {
 - State의 뜻은 -> 상태를 의미한다. 즉, 리액트에서 컴포넌트에 대한 상태를 의미
 - 사용하는 이유는? State가 변경되면 해당 컴포넌트는 바로 다시 렌더링이 되기 때문에 컴포넌트의 유동성 관리가 쉽다.
 
+## 📝useState
+
+- state를 활용하면 훨씬 쉽게 변경 사항을 HTML 반영 할 수 있다.
+
+### 📕useState 문법
+
+```javascript
+import { useState } from 'react';
+const [스테이트이름, 스테이트변경함수] = useState(초기값);
+```
+
+- 먼저 상태를 관리하는 state를 배열의 첫번째로 정해주고, 해당 state를 변경 할 수 있는 함수를 두번째로 지정한다.
+- 그리고 useState의 ()안에는 state의 초기값을 넣어준다.
+
+### 📕useState 동작원리
+
+- state가 이전의 값과 달라지면 해당 컴포넌트를 다시 렌더링 한다.
+- 즉, "이효석"으로 지정 되어 있던 초기 값이 "tetz"로 변경 되었기 떄문에 해당 HTML을 다시 렌더링 한것.
+
 #### 🛠ES7 React/Redux/GraphQL/React-Native snippets 확장도구에서 제공하는 스니펫 사용
 
-> `rfc`: 함수형 컴포넌트  
-> `rcc`: 클래스 컴포넌트
+- `npm install eslint-config-react-app`
+  > `rfc`: 함수형 컴포넌트  
+  > `rcc`: 클래스 컴포넌트

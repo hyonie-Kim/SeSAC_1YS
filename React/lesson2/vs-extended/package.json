@@ -42,5 +42,9 @@
     "eslint-plugin-import": "^2.26.0",
     "prettier": "^2.8.1",
     "typescript": "^4.9.4"
-  }
+  },
+  "description": "- Code의 스타일을 통일 시켜준다.\r - 함수의 소괄호와 중괄호는 띄울것인지, 세미콜론은 찍을지, 탭을 누르면 몇 칸을 띄울것인지 등등\r - 문법이 아닌 코드의 스타일을 통일 시켜줘서 가독성을 높이고 버그를 예방한다.\r - Prettier를 사용",
+  "main": "main.js",
+  "author": "",
+  "license": "ISC"
 }
