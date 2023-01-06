@@ -14,7 +14,7 @@ import StrState from './components/StrState';
 function App() {
   return (
     <div className="App">
-      <StateAndTeacher />
+      <Ex2 />
     </div>
   );
 }
