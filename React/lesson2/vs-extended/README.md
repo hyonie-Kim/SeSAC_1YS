@@ -18,9 +18,17 @@
     "singleQuote": true
 }
 ```
-> `semi`: 세미콜론 사용여부___
+> `semi`: 세미콜론 사용여부  
 > `singleQuote`: single 쿼테이션 사용 여부
-
+- vs-code에게 prettier사용하라고 알려주기 **.vscode폴더를 만들고 settings.json파일 만들기**
+```json
+{
+    "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+}
+```
 
 ## 📝Linting
 - Formatting에 가깝지만 더 많은 규약과 규율을 검사해주는 방법이다.
