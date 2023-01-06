@@ -118,7 +118,7 @@ module.exports = {
 - State의 뜻은 -> 상태를 의미한다. 즉, 리액트에서 컴포넌트에 대한 상태를 의미
 - 사용하는 이유는? State가 변경되면 해당 컴포넌트는 바로 다시 렌더링이 되기 때문에 컴포넌트의 유동성 관리가 쉽다.
 
-### 📕ES7 React/Redux/GraphQL/React-Native snippets 확장도구에서 제공하는 스니펫 사용
+#### 🛠ES7 React/Redux/GraphQL/React-Native snippets 확장도구에서 제공하는 스니펫 사용
 
 > `rfc`: 함수형 컴포넌트  
 > `rcc`: 클래스 컴포넌트
