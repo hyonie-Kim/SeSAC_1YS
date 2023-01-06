@@ -82,9 +82,30 @@ module.exports = {
 
 ### 📕Typescript 설치
 
-- `npm install --save-dev typescript`
+- `npm install --save-dev typescript @typescript-eslint/parser`
 
 ### 📕Typescript 적용
 
 - Main.js 파일에 `//@ts-check` 주석 추가
 - Type관련 문제는 typescript가 알려준다.
+
+#### ⚙.eslintrc 파일 설정
+
+```javascript
+module.exports = {
+  extends: [
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended',
+  ],
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint'],
+  overrides: [
+    {
+      files: ['*.js', '*.jsx'],
+      rules: {
+        '@typescript-eslint/explicit-function-return-type': 'off',
+      },
+    },
+  ],
+};
+```
