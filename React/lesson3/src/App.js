@@ -1,12 +1,16 @@
 import './App.css';
 import ClassProps from './components/ClassProps';
 import List from './components/List';
+import ItemList from './components/ItemList';
 import MainHeader from './components/MainHeader';
+import CallCustomList from './components/CallCustomList';
+import CallCustomObj from './components/CallCustomObj';
+import Ex5 from './components/Ex5';
 
 function App() {
   return (
     <div className="App">
-      <List title="리액트 공부하기" content="스테이트 정복하기" />
+      <Ex5 />
     </div>
   );
 }
