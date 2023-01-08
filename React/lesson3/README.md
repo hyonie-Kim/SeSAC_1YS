@@ -6,7 +6,6 @@
 ### 📕 pacakge.json 파일 만들고 위의 코드 넣기 > `npm i` 모듈 인스톨
 
 ```json
-// package.json
 {
   "devDependencies": {
     "eslint-config-airbnb-base": "^15.0.0",
@@ -35,9 +34,9 @@ module.exports = {
 };
 ```
 
-#### ⚙.git 폴더가 안생기도록 리액트 앱 생성
+### 📕.git 폴더가 안생기도록 리액트 앱 생성
 
-- `npx create-react-app --skip-git`
+- `npx create-react-app --skip-git` or `npx create-react-app [projectName] --skip-git`
 
 # 컴포넌트 활용하기
 
