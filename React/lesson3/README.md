@@ -172,7 +172,9 @@ return (
 - Key의 값은 전역에서 unique할 필요는 없지만, 반드시 형제 사이에서는 unique해야한다.
 - 단, Key값으로 index는 최후의 수단으로 사용한다
 
-### 📕Props 활용-배열을 전달하고 props로 받아서 처리
+## 📝Props 활용
+
+### 📕배열을 전달하고 props로 받아서 처리
 
 - Props로는 배열 같은 다양한 자료형도 전달이 가능하다.
 - 배열을 받아서 처리하는 CustomList.js 컴포넌트를 만들기
@@ -201,3 +203,56 @@ function App(){
   )
 }
 ```
+
+### 📕객체를 전달하고 props로 받아서 처리
+
+- 객체를 받아서 처리하는 CustomObj.js 컴포넌트 만들기
+
+```jsx
+function CustomObj(props) {
+  const { name, age, nickName } = props.obj;
+  return (
+    <div>
+      <h1>이름: {name}</h1>
+      <h2>나이: {age}</h2>
+      <h2>별명: {nickName}</h2>
+    </div>
+  );
+}
+```
+
+#### ⚙App.js에서 배열 전달
+
+```javascript
+function App() {
+  const hyonieObj = {
+    name: '김세현',
+    age: '20',
+    nickName: '효니',
+  };
+  return (
+    <div className="App">
+      <CustomObj obj={hyonieObj} />
+    </div>
+  );
+}
+```
+
+### 📕IF문 사용하기
+
+- if문을 사용해서 props가 들어왔는지 확인 후, 처리 해준다.
+- 단, if문은 JSX문법 내부(return내부)에서는 사용할수 없다.
+  - **그래서 3항 연산자를 사용한다.**
+- 대신 return밖에서 사용을 하고 상황에 따라 다른 return을 주는 방식으로는 가능하다.
+- CustomObj.jsx 참고
+
+## 📝Prototype Chaining에 ? 활용하기
+
+- `props.arr.map`해당 객체 또는 Key값이 들어올지에 대한 확신이 없을 때에는 ?를 사용해서 에러를 막을 수 있다.
+- JS가 에러를 일으키는 상황
+  - Key에 값이 없어서 undefined 값이 리턴 된 상황에서, 다시 Key 값을 참조하려고 할때
+  * key에 값이 없어서 undefined 값이 리턴 된 상황에서 메소드를 실행 하려고 할 때
+- `{props.arr?.map((el)=>{})}`하지만 값이 들어올지 확실하지 않은 Key에 ? 를 붙여 주면, 해당 Key의 값이 들어 왔을 떄에만 뒤의 chain을 참조한다.
+- 즉, ?를 붙인 key가 undefined면 뒤의 부분은 실행되지 않는다.
+- 그런데 오히려 Err를 발생시키고 깔끔하게 수정하는 편이 나을 수도 있다.
+- 데이터를 받아오는 곳에 대한 확신이 없을 때 사용하면 좋다.
