@@ -1,5 +1,5 @@
 import React from 'react';
-import LisatChild from './LisatChild';
+import LisatChild from './ListChild';
 
 export default function () {
   return (

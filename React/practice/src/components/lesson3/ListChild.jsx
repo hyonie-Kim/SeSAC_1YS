@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function LisatChild(props) {
+export default function ListChild(props) {
   const { title, content } = props;
   return (
     <div>

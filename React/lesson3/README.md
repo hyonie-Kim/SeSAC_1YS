@@ -129,7 +129,7 @@ function MainHeader(props) {
 }
 ```
 
-## 📝클래스형 컴포넌트 Props
+### 📕클래스형 컴포넌트 Props
 
 - 클래스형 컴포넌트인 만큼 기족의 props로 접근하던 것을 this.props로 접근하면 된다.
 - 클래스이기 떄문에 매개변수를 따로 받지 않는다.
