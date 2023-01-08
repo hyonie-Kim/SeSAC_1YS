@@ -171,3 +171,33 @@ return (
 - 구분을 해야하기 때문에 반드시 unique한 값으로 넣어야 한다.
 - Key의 값은 전역에서 unique할 필요는 없지만, 반드시 형제 사이에서는 unique해야한다.
 - 단, Key값으로 index는 최후의 수단으로 사용한다
+
+### 📕Props 활용-배열을 전달하고 props로 받아서 처리
+
+- Props로는 배열 같은 다양한 자료형도 전달이 가능하다.
+- 배열을 받아서 처리하는 CustomList.js 컴포넌트를 만들기
+
+```jsx
+function CustomList(props){
+  return(
+    <ul>
+    {props.arr.map((el)=>{
+      return <li>{el}<li>
+    })}
+    </ul>
+  )
+}
+```
+
+#### ⚙App.js에서 배열 전달
+
+```javascript
+function App(){
+  const nameArr = ['HTML', 'CSS', 'JS']
+  return(
+    <div className="App">
+      <CustomList arr={nameArr}>
+    </div>
+  )
+}
+```
