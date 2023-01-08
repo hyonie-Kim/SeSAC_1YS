@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+## 📝리액트 폴더 최상위에 세팅
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- .vscode는 최상위에 두면 하위 폴더의 모든 코드를 관리한다.
+- 기존 .vscode와 .prettierrc/.eslintrc.js 파일을 리액트 폴더 최상위로 옮긴다.
 
-## Available Scripts
+### 📕필요 모듈 설치
 
-In the project directory, you can run:
+```json
+{
+  "devDependencies": {
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "typescript": "^4.9.3"
+  }
+}
+```
 
-### `npm start`
+- package.json파일을 만들고 위의 코드를 넣어주기
+- `npm i` 모듈 인스톨 하기
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 📕Es-lint 설정 변경
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```javascript
+module.exports = {
+  extends: ['airbnb-base'],
+  rules: {
+    'linebreak-style': 0,
+    'no-console': 'off',
+  },
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+  },
+};
+```
 
-### `npm test`
+- 기본 eslint 모듈로도 jsx 문법을 문제 없이 처리 할 수 있도록 .eslintrc.js코드를 변경
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### ⚙.git 폴더가 안생기도록 리액트 앱 생성
 
-### `npm run build`
+- `npx create-react-app --skip-git`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# 컴포넌트 활용하기
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- 기존 HTML에서는 기존의 것과 동일한 것을 만들어도 코드를 동일하게 써야했다. 즉, 템플릿 기능이 없었음
+- 리액트에서는 이러한 HTML의 문제를 컴포넌트를 활용하여 손쉽게 해결이 가능하다.
+- 컴포넌트를 쓰면 코드를 크게 줄일 수 있고, 재사용도 편리하다.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📝Props
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- 리액트에서는 props(properties)라는 것으로 손쉽게 전달이 가능하다.
+- 부모 컴포넌트에서 자식 컴포넌트에 원하는 데이터를 보내는 방법이다.
+  - **props라는 이름의 객체로 전달**
