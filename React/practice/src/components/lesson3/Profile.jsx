@@ -1,6 +1,7 @@
 import React from 'react';
+import ChangeObjArr from './ChangeObjArr';
 
-export default function profile() {
+export default function Profile() {
   const friendObjArr = [
     { name: '지수', age: '20', nickName: '츄' },
     {
@@ -14,5 +15,9 @@ export default function profile() {
       nickName: '20',
     },
   ];
-  return <div>profile</div>;
+  return (
+    <div>
+      <ChangeObjArr objArr={friendObjArr} />
+    </div>
+  );
 }
