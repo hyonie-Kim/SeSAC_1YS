@@ -6,6 +6,7 @@ export default function Timer() {
     const timer = setInterval(() => {
       console.log('타이머 실행중');
     }, 1000);
+
     return () => {
       clearInterval(timer);
     };
