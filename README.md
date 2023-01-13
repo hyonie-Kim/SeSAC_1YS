@@ -1,5 +1,4 @@
 # SeSAC_1YS
-
 SeSAC 용산캠퍼스 웹 풀스택 과정 1기
 
 - 효니 1일 1커밋 도전(Thursday, October 27th, 2022~)
