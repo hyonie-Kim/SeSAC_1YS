@@ -53,24 +53,24 @@ const onChangeText = () => {
 - 인풋 태그를 초기화한다.
 - `src/components/RefDOM.jsx` 참고
 
-## 👩‍💻실습 useRef 활용
+### 👩‍💻실습 useRef 활용
 
 - `<div>`요소의 배경색을 직접 입력 받아서 변경하는 ColorInput.jsx 컴포넌트 만들기
 - Input 창에 색을 압력하고 색 변경 버튼을 누르면 컴포넌트의 배경색이 변경되는 컴포넌트를 완성하기
 - Input 값을 받는 것과 DOM 컨트롤은 useRef를 활용해서 구현해야 한다.
 
-## 📝React.Fragment
+# React.Fragment
 
 - `src/components/ReactFragment.jsx` 참고
 - 실제 리액트에서 컴포넌트를 조합할때, 최상위에 div를 사용하지 않고 반환해야만 하는 경우가 생긴다.
 - CSS가 깨진다거나, 테이블 요소 사이에 div요소가 들어가면 에러가 뜨기 때문이다.
 - 그럴 때 쓰는 것이 바로 `React.Fragment` 이다.
 
-### 📕`<> </>`
+## 📝`<> </>`
 
 - `<React.Fragment>`는 `<>`로 대체가 가능하다.
 
-## 📝조건부 렌더링
+# 조건부 렌더링
 
 컴포넌트를 상황에 따라 켜고 끄기!
 
