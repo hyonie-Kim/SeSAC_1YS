@@ -66,7 +66,7 @@ const onChangeText = () => {
 - CSS가 깨진다거나, 테이블 요소 사이에 div요소가 들어가면 에러가 뜨기 때문이다.
 - 그럴 때 쓰는 것이 바로 `React.Fragment` 이다.
 
-## 📝`<> </>`
+### 📝`<> </>`
 
 - `<React.Fragment>`는 `<>`로 대체가 가능하다.
 
@@ -79,7 +79,72 @@ const onChangeText = () => {
 - 이전 JS,HTML에서는 Display 속성을 none으로 처리하곤 했다.
 - 리액트는 JSX문법을 사용하므로 if문 또는 3항 연산자, 논리 연산자와 HTML태그를 같이 쓰면 되기 때문에 상당히 쉽다.
 - `src/components/Item.jsx` 참고
-- ConditionalRender에서 조건부 렌더링
-  - ConditionalRender.jsx에서 useState를 활용해서 condition에 따른 조건부 렌더링을 처리해보자.
-  * Condition이 감추기이면 Item를 보여주고, 보이기이면 감춰준다.
-  - 이럴땐, 보통 AND 연산자(&&)를 사용한다. **AND연산자는 두 피연산자가 모두 참일 때 `true`를 반환한다. 그외의 경우는 `false`를 반환한다.**
+
+## 📝ConditionalRender에서 조건부 렌더링
+
+- ConditionalRender.jsx에서 useState를 활용해서 condition에 따른 조건부 렌더링을 처리해보자.
+- Condition이 감추기이면 Item를 보여주고, 보이기이면 감춰준다.
+- 이럴땐, 보통 AND 연산자(&&)를 사용한다.
+- **AND연산자는 두 피연산자가 모두 참일 때 `true`를 반환한다. 그외의 경우는 `false`를 반환한다.**
+- `src/components/ConditionalRender.jsx` 참고
+
+### 📕변수로 처리해서 코드 정리
+
+- 조건부 렌더링 자체를 변수에 넣어서 처리해보자.
+- 이렇게 하면 코드가 깔끔해 지는 효과가 있다.
+- 재사용에 유리하다.
+
+### 👩‍💻실습 조건부 렌더링 처리
+
+- PracticeOne, PracticeTwo 컴포넌트 만들기
+- props로 데이터를 받아서 h1 태그로 출력하는 간단한 구조를 가진다.
+- ExConditional.jsx에서 버튼을 클릭하면 PracticeOne과 PracticeTwo가 번갈아서 렌더링 되는 조건부 렌더링 처리하기
+- 버튼의 컨텐츠도 렌더링 되는 컴포넌트 번호가 나오게 하면 된다.
+
+# 컴포넌트의 Life Cycle
+
+- 컴포넌트는 최초에 화면에 등장할 때 → Mount
+- 컴포넌트의 state변화로 리렌더링 될 때 → Update
+- 화면에서 사라질 떄 → Unmount
+- 생명 주기를 가진다.
+
+## 📝클래스형 컴포넌트의 Life Cycle
+
+- 리액트의 장점은 이러한 상황에서 컴포넌트별 상태 관리 및 리렌더링에 있기 때문에 리액트는 Life Cycle에 대한 기능이 많다.
+- 따라서 각각의 Life Cycle 상황에 맞게 특정 기능을 수행할 수 있도록 다양한 기능을 제공 했다.
+- 리액트는 위와 같은 기능을 통해서 컴포넌트가 처음 불려 왔을때, 리렌더링 되었을때, 컴포넌트가 사라질 때 마다 특정한 기능을 수행 할 수 있도록 처리를 했다.
+
+## 📝함수형 컴포넌트의 Life Cycle
+
+- 하지만 우리 리액트에게 과거는 과거일 뿐 더 빠르고 편리한 미래만을 그린다.
+- 따라서, 클래스형 컴포넌트에서 함수형 컴포넌트로 넘어가면서 기존의 Life Cycle을 담당하던 기능을 하나의 Hooks에 추가 시켰다.
+- 바로 UseEffect이다.
+
+# useEffect
+
+**1.렌더링이 될때마다 실행**
+
+```jsx
+useEffect(() => {
+  //작업...
+});
+```
+
+**2.화면에 첫 렌더링 될떄 실행 value 값이 바뀔때 실행**
+
+```jsx
+useEffect(() => {
+  //작업...
+}, [value]);
+```
+
+**Clean Up 정리**
+
+```jsx
+useEffect(() => {
+  // 구독...
+  return () => {
+    // 구독 해지...
+  };
+}, []);
+```

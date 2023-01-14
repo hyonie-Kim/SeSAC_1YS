@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import PracticeTwo from './PracticeTwo';
-import PractoceOne from './PractoceOne';
+import PracticeOne from './PracticeOne';
 
 export default function ExConditional() {
   const [condition, setCondition] = useState('1번');
@@ -12,7 +12,7 @@ export default function ExConditional() {
   return (
     <div>
       {condition === '1번' ? (
-        <PractoceOne text={condition} />
+        <PracticeOne text={condition} />
       ) : (
         <PracticeTwo text={condition} />
       )}

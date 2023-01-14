@@ -12,11 +12,12 @@ import ShowTimer from './components/ShowTimer';
 import TestRef from './components/TestRef';
 import TestUseEffect from './components/TestUseEffect';
 import Timer from './components/Timer';
+import ConditionalRender2 from './components/조건부렌더링/ConditionalRender2';
 
 function App() {
   return (
     <div className="App">
-      <Comparing />
+      <ConditionalRender2 />
     </div>
   );
 }
