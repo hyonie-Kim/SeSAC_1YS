@@ -53,7 +53,7 @@ const onChangeText = () => {
 - 인풋 태그를 초기화한다.
 - `src/components/RefDOM.jsx` 참고
 
-### 👩‍💻실습 useRef 활용
+### 👩‍💻실습55. useRef 활용
 
 - `<div>`요소의 배경색을 직접 입력 받아서 변경하는 ColorInput.jsx 컴포넌트 만들기
 - Input 창에 색을 압력하고 색 변경 버튼을 누르면 컴포넌트의 배경색이 변경되는 컴포넌트를 완성하기
@@ -94,7 +94,7 @@ const onChangeText = () => {
 - 이렇게 하면 코드가 깔끔해 지는 효과가 있다.
 - 재사용에 유리하다.
 
-### 👩‍💻실습 조건부 렌더링 처리
+### 👩‍💻실습57. 조건부 렌더링 처리
 
 - PracticeOne, PracticeTwo 컴포넌트 만들기
 - props로 데이터를 받아서 h1 태그로 출력하는 간단한 구조를 가진다.
@@ -182,3 +182,37 @@ useEffect(() => {
 - 지금까지 useEffect를 컴포넌트가 마운트 되는 순간과 리렌더링 되는 순간에 적용하여 사용하는 방법을 배웠다.
 - 그럼 컴포넌트가 Unmount되는 순간에는 어떻게 처리할까?
 - 클래스형에서는 componentWillUnmount라는 메소드를 사용했지만 useEffect Hook에서는 useEffect의 리턴에 함수를 부여하면 된다.
+
+### 코드로 확인해보기
+
+- 간단한 Timer 컴포넌트 만들기
+- 버튼을 클릭하면 setInterval 함수를 통해 1초에 한번씩 console.log를 찍는 컴포넌트이다.
+- 그리고 해당 컴포넌트를 조건부 렌더링 처리하여 Mount와 Unmount를 시킬수 있도록 만들어 보자.
+- `src/components/Timer.jsx` 참고
+
+### Clean-up
+
+- Unmount가 되면 실행되는 Clean-up을 이용, 타이머를 제거해준다.
+- 기존의 useEffect코드에 return으로 Clean-up 함수를 지정해준다.
+- Unmount가 되는 상황에서는 return에 인자로 전달한 함수가 실행이 되고 타이머가 정상 종료 된다.
+
+```jsx
+useEffect(() => {
+  const timer = setInterval(() => {
+    console.log('타이머 실행중');
+  }, 1000);
+  return () => {
+    clearInterval(timer);
+  };
+}, []);
+```
+
+### 👩‍💻 실습58. 컴포넌트 타이머
+
+- PracticeTimer라는 컴포넌트를 만든다.
+- ExUnmount.jsx에는 '보이기'라는 버튼이 하나 있다. 해당 버튼을 클릭하면 PracticeTimer가 마운트 된다.
+- 버튼을 클릭하면 PracticeTimer 컴포넌트가 마운트 되고 마운트 된 시간을 초단위로 기록하는 타이머가 실행된다.
+- PracticeTimer에도 '시간'버튼이 존재하며, 해당 버튼을 누르면 지금까지 마운트가 된 시간을 출력해 준다.
+- '보이기'버튼을 한번 더 클릭하면 PracticeTimer가 Unmount되고 타이머도 종료 되어야 한다.
+  - 추가, '보이기' 버튼이 클릭되면 버튼 이름을 '숨기기'로 변경
+  * 추가, 페이지가 처음 시작되면 '보이기'버튼에 포커스가 이동하도록 처리
