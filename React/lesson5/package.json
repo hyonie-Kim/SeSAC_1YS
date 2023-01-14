@@ -34,5 +34,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "3가지 타입에 대해서 정리해보자.",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }

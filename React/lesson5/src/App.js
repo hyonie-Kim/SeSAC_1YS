@@ -16,7 +16,7 @@ import Timer from './components/Timer';
 function App() {
   return (
     <div className="App">
-      <ExUnmount />
+      <Comparing />
     </div>
   );
 }

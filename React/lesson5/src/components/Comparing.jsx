@@ -18,7 +18,7 @@ export default function Comparing() {
   };
   const countUpVar = () => {
     countVar += 1;
-    console.log('Vaiable:', countVar);
+    console.log('Variable:', countVar);
   };
   const reRender = () => {
     setRender(!render);
@@ -31,7 +31,7 @@ export default function Comparing() {
       <h1>Variable: {countVar}</h1>
       <br />
       <button onClick={countUpState}>State UP!</button>
-      <button onClick={countUpRef}>Red UP!</button>
+      <button onClick={countUpRef}>Ref UP!</button>
       <button onClick={countUpVar}>Variable UP!</button>
       <button onClick={reRender}>렌더링</button>
     </div>
