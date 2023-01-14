@@ -148,3 +148,37 @@ useEffect(() => {
   };
 }, []);
 ```
+
+### 코드로 확인해보기
+
+- 지금은 버튼이 클릭되면 state 값의 변경이 일어나기 때문에 컴포넌트가 다시 렌더링이 되고, 그로 인해서 useEffect 내부의 함수가 실행되고 있다.
+- 그럼 여기에다가 input 태그를 하나 추가하고, input 태그의 입력 내용이 h1태그에 출력되도록 코드를 변경해보자.
+- `src/components/TestUseEffect.jsx` 참고
+- 버튼이 클릭되면 state 값의 변경이 일어나기 때문에 컴포넌트가 다시 렌더링 되고, 그로 인해서 useEffect 내부의 함수가 실행 되고 있다.
+
+## 📝useEffect의 Dependency Array
+
+- useEffect는 두번째 인자로 Dependency Array를 받는다.
+- 해당 Array에는 변수를 넣을 수가 있으며, 해당 변수가 변경 될 때에만 useEffect내부의 함수가 실행된다.
+- +빈 배열[]을 넣으면 최초 마운트 시에만 실행 된다.
+- 버튼을 클릭하면 Dependency로 count를 전달한 useEffect만 작동하고, 인풋에 값을 입력하면 Dependency로 value를 전달한 useEffect만 작동하게 된다.
+- 물론 Dependency Arr를 전달하지 않은 경우는 렌더링 떄마다 실행
+
+### Dependency Array를 전달하면?
+
+- 두번째 인자 자체를 전달하지 않으면, 매번 렌더링 마다 실행이 되지만 빈 배열을 두번째 인자로 전달한다면?
+- 아래 코드는 변화를 감지할게 없으므로 최초 마운트 시에만 실행이 된다.
+
+```jsx
+useEffect(() => {
+  console.log('🎨최초 마운트 시에만 실행');
+}, []);
+```
+
+## 📝useEffect Clean-Up
+
+**컴포넌트 unmount에 실행되는 useEffect**
+
+- 지금까지 useEffect를 컴포넌트가 마운트 되는 순간과 리렌더링 되는 순간에 적용하여 사용하는 방법을 배웠다.
+- 그럼 컴포넌트가 Unmount되는 순간에는 어떻게 처리할까?
+- 클래스형에서는 componentWillUnmount라는 메소드를 사용했지만 useEffect Hook에서는 useEffect의 리턴에 함수를 부여하면 된다.

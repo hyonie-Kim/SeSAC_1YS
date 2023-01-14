@@ -18,7 +18,7 @@ export default function TestUseEffect() {
   };
 
   useEffect(() => {
-    console.log('🖼️ 렌더링 될 때마다 실행');
+    console.log('🎨 렌더링 될 때마다 실행되는 useEffect');
   });
 
   useEffect(() => {
