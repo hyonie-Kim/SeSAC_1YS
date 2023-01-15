@@ -1,8 +1,6 @@
 # Node.js 서버
 
-## JavaScript 문법
-
-### 구조분해 할당 (Destructuring assignment)
+## 구조분해 할당 (Destructuring assignment) - JavaScript 문법
 
 - 배열이나 객체의 속성을 해체해 그 값을 개별 변수에 담는 것
 - 배열 구조 분해
