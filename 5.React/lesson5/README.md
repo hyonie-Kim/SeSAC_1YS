@@ -66,7 +66,7 @@ const onChangeText = () => {
 - CSS가 깨진다거나, 테이블 요소 사이에 div요소가 들어가면 에러가 뜨기 때문이다.
 - 그럴 때 쓰는 것이 바로 `React.Fragment` 이다.
 
-### 📝`<> </>`
+### `<> </>`
 
 - `<React.Fragment>`는 `<>`로 대체가 가능하다.
 
