@@ -1,3 +1,5 @@
+🌱 Thursday, November 17th, 2022
+
 # Node.js 서버
 
 ## 구조분해 할당 (Destructuring assignment) - JavaScript 문법
@@ -35,3 +37,27 @@ console.log("item1", item1)
   > 메소드: mew()-울다, eat()-먹는다
 
 ## 콜백함수
+
+- Callback : 함수가 끝난 뒤 실행되는 함수
+- 함수를 만들 때 parameter로 함수를 받아서 사용한다.
+
+**Q. 콜백 함수를 왜 사용할까?**
+
+- A1. 가독성이나 코드 재사용을 위하여
+- A2. 비동기 방식으로 작성된 함수를 동기(순차로) 처리하기 위하여
+
+```javascript
+function func(callback) {
+  callback();
+}
+function func2() {
+  console.log("gogo 함수");
+}
+func(func2);
+```
+
+### 콜백 지옥 (Callback Hell)
+
+- 비동기 프로그래밍 시 발생하는 문제
+- 함수의 매개변수로 넘겨지는 콜백 함수가 반복되어 코드의 들여쓰기가 너무 깊어지는 현상
+- 가독성 ↓ 코드 수정 난이도 ↑
