@@ -174,7 +174,7 @@ const returnString = require("./func.js");
 - `module.exports={a,b}` → `export{a,b};`
 - `module.exports=connect` → `export default connect;`
 
-**import~from~:모듈 가져오기**
+**import ~ from ~ :모듈 가져오기**
 
 - `const{a,b}=require("./var.js");` → `import{a,b}from './var.js'`
 - `const returnString = require("./func.js")` → `import returnString from './func.js'`
