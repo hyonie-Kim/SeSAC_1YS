@@ -102,7 +102,7 @@ func(func2);
 
 **Node.js설치-서버**
 
-> `apt-get update` `(apt-get remove nodejs)` > `curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -` > `apt-get install nodejs` > `apt-get install npm`
+> `apt-get update` `(apt-get remove nodejs)` </br> > `curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -` </br> > `apt-get install nodejs` > `apt-get install npm`
 
 npm 이란?
 
