@@ -99,6 +99,7 @@ func(func2);
 **Node.js 설치-로컬**
 
 - Node.js(nodejs.org)
+- `npm init -y` 초기화 명령
 
 **Node.js설치-서버**
 
