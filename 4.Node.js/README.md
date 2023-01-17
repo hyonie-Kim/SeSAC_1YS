@@ -116,6 +116,8 @@ npm 이란?
 
 ### 📕REPL
 
+명령 프롬프트에 node 명령어를 입력하면 REPL이 실행된다. 이곳에는 자바스크립트 코드를 한 줄씩 입력해서 실행할 수 있다.
+
 - R(Read) → E(Evaluate) → P(Print) → L(Loop)
 - 윈도우에서의 cmd 맥에서 terminal 처럼 노드에는 REPL콘솔이 있다.
 - `>`에서 JavaScript 코드 입력 > 간단한 코드 테스트 용도
