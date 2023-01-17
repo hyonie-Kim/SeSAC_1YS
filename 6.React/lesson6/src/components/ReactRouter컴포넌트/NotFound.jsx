@@ -1,11 +1,12 @@
 import React from 'react';
 import Header from './Header';
 
-export default function Profile() {
+export default function NotFound() {
   return (
     <>
       <Header />
-      <h1>프로필 페이지입니다.</h1>
+      <h1>404 Page Not Found</h1>
+      <hr />
     </>
   );
 }
