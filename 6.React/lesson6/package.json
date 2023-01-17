@@ -6,11 +6,13 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.2.2",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
+    "styled-components": "^5.3.6",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -36,5 +38,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "- useEffect는 다양한 곳에서 활용이 가능하다.\r - 보통 컴포넌트가 서버로 부터 데이터를 받아와야 하는 상황에서 많이 사용한다.\r - 컴포넌트가 최초 마운트 → 서버로 부터 데이터를 요청 → 데이터를 State에 등록 → 해당 내용을 렌더링\r - 위와 같은 흐름을 많이 사용한다.",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }

@@ -1,23 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
+import InlineCss from './components/InlineCss';
+import TestCss from './components/TestCss';
+import TestStyled from './components/TestStyled';
+import UseEffectFetch from './components/UseEffectFetch';
+import StyledApp from './components/StyledApp';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <StyledApp />
     </div>
   );
 }

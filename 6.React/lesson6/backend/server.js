@@ -23,9 +23,9 @@ app.get('/', (req, res) => {
       nickName: '장난꾸러기',
     },
   ];
-  res.send(JSON.stringify(pororoObjArr));
+  res.status(200).send(JSON.stringify(pororoObjArr));
 });
 
 app.listen(PORT, () => {
-  console.log(`데이터 통신 서버가 ${PORT}에서 작동중 입니다!`);
+  console.log(`백엔드 서버가 ${PORT}번에서 작동중 입니다!`);
 });
