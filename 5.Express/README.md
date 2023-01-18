@@ -1,7 +1,11 @@
+🌱 Tuesday, November 22th, 2022
+
 # Express 서버 만들기
 
 - node환경에서 서버 구축하기
-- `npm i express --save` 설치
+- npm_modules가 만들어지며 express에 관련된 폴더 생성
+- package.json의 dependencies에 express 기록
+- `npm i express --save` or `npm install express`설치
 
 ### 공식 문서 확인
 
@@ -51,6 +55,10 @@ app.get("*", (req, res) => {
   res.status(404).send("찾을 수 없는 페이지 입니다.");
 });
 ```
+
+# 미들웨어
+
+- `use()`를 이용해 등록할 수 있다.
 
 ### `<form>` 으로 데이터 전송 하기 : get방식
 
