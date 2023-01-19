@@ -1,9 +1,12 @@
-import logo from "./logo.svg";
-import "./App.css";
+// import './App.css';
+import Count from './components/state/Count';
 
 function App() {
-  const str = "Hello, JSX World!";
-  return <div className="App">{str}</div>;
+  return (
+    <div className="App">
+      <Count />
+    </div>
+  );
 }
 
 export default App;
