@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('header') -%>
+  <body>
+    안녕하세요,
+    <h2><%=text%></h2>
+    <%if(true){%>
+    <h1>참입니다.</h1>
+    <%} else{%>
+    <h1>거짓입니다.</h1>
+    <% }%>
+    <hr />
+    <h2>배열데이터 반복문으로 출력하기</h2>
+    <% for(let i =0; i < ArrayData.length; i++) {%>
+    <h3><%= ArrayData[i] %></h3>
+    <%}%>
+    <h2>반복문 문자 출력하기</h2>
+    <% for(let i=0; i< 5; i++) {%>
+    <h3>안녕하세요</h3>
+    <%}%>
+  </body>
+</html>

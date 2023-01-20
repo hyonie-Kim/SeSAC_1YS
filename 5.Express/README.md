@@ -59,12 +59,3 @@ app.get("*", (req, res) => {
 # 미들웨어
 
 - `use()`를 이용해 등록할 수 있다.
-
-### `<form>` 으로 데이터 전송 하기 : get방식
-
-- form 안에 name을 통해서 값이 어떠한지 추적을 할수 있다.
-- 물음표(?) 뒤에 나오는 파라미터를 express에서는 요청에 있는 쿼리를 통해 접근할수 있다.
-- `console.log(req.query)`
-- 자바스크립트의 변수명을 `res.send(계산결과 =${result})` 중괄호안에 백틱넣기
-- `console.log(typeof req.query.num1)` req.query의 값이 String 타입으로 인식되고 있기 때문에 문자열을 숫자로 바꿔야 한다. `const result = Number(req.query.num1)+Number(req.query.num2)`
-- 또한 `res.send()`에서 숫자타입만 전달할 경우 에러가 나기 때문에 문자로 다시 바꿔서 전달해야 한다. `res.send(String(result))`
