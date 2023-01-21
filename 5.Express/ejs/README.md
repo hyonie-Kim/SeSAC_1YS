@@ -78,4 +78,37 @@ mongodb atlas는 Json 형태로 저장할수 있는 NoSQL 데이터베이스
 ### `npm i dotenv --save`
 
 - 개발 환경 변수를 직접 세팅을 해줄수 있는 라이브러리
-- `.env`
+- `.env` 파일 생성
+
+### `npm i mongodb --save`
+
+- 설치된 mongoDB를 어플리케이션에 불러온다. `MongoClient` 라는 이름으로 불러오고 mongodb에서 MongoClient를 가져온다.
+- `const Mongodb = require("mongodb").MongoClient`
+- MongoClient를 통해서 데이터베이스에 연결을 시도 할 예정이다.
+- 이전에 서버에 listen 메서드를 통해서 연결을 시도 했는데, MongoClient에 데이터베이스를 연결을 하고 그 데이터 베이스가 성공적이라면 서버를 여는 방식으로 코드를 수정한다.
+
+### `MongoClient.connect()`
+
+- MongoClient에 connect 메서드를 통해서 MongoDB에 접근을 할수 있다.
+- MongoDB에 연결 할 수 있는 URL값을 담아줘야한다.
+
+```javascript
+MongoClient.connect(MongoURL, (err, database) => {
+  if (err) {
+    console.log(err); //어떤 에러가 발생했는지 출력
+    return; //함수를 끝냄
+  } else {
+    app.listen(port, () => {
+      console.log(`서버포트번호:${port}`); //서버 열기
+    });
+    db = database.db("Express");
+    post = db.collection("post");
+  }
+});
+```
+
+**코드설명**
+
+- MongoURL을 연결해주고, 두번째 함수에 인자를 두개를 받아준다. 첫번째는 에러가 발생했을때 err와 연결이 성공하면은 반환 할 database를 받아준다.
+- db변수에는 데이터베이스를 받고 데이터베이스를 받을 때 다시 데이터베이스를 통해서 어떤 데이터베이스에 접근할지 선택해준다. `db=database.db("express")`
+- post변수에는 db에 있는 콜렉션에서 어떤 콜렉션을 사용할 건지 선택할수 있다. 여기에서는 "post"라는 이름의 콜렉션을 사용한다.
