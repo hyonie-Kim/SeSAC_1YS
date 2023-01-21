@@ -50,20 +50,15 @@ app.get("/", (req, res) => {
 - 예를 들어 서버에서 flag라는 KEY를 서버에서 보내면 `{flag:true}` 블리언 데이터의 값이 참인지 거짓인지 사용자에게 보여주는 영역을 제어 할수 있다.
 - if문 뿐만 아니라 반복문도 사용 가능하다. index.js 코드에서 arrayData KEY에 배열을 담아서 보낸다. `{arrayData:[1,2,3]}` index.ejs에서는 ejs코드로 반복문 사용
 
-## CSS 임포트
+### CSS 임포트
 
 - public 폴더가 express static폴더 이기 때문에 js파일, css파일, 이미지 등은 현재폴더의 상태경로로 사용하면 된다.
 
-## 레이아웃 형식 사용
+### `<%- include('템플릿 파일 위치') -%> ` & `<%- include('header') -%>`
 
 include를 통해서 레이아웃 설정을 할수 있다.
 
-- `<%- include('템플릿 파일 위치') -%> `
-- `<%- include('header') -%>`
-
-## 주석
-
-- `<%# 주석 %>`
+### `<%# 주석 %>`
 
 # CRUD
 
