@@ -34,8 +34,8 @@ app.get("/", (req, res) => {
 
 ### EJS 자바스크립트 문법 사용하기
 
-- 만약에 이퀄을 제외를 하면 데이터는 가지고 있지만 사용자에게 표현은 해주지 않는다. `<h1><% text %></h1>`
 - ejs에서는 꺽새와 퍼센트로 자바스크립트를 사용을 할수 있다.
+- 만약에 이퀄을 제외를 하면 데이터는 가지고 있지만 사용자에게 표현은 해주지 않는다. `<h1><% text %></h1>`
 
 ```javascript
 <body>
@@ -64,3 +64,18 @@ include를 통해서 레이아웃 설정을 할수 있다.
 ## 주석
 
 - `<%# 주석 %>`
+
+# CRUD
+
+게시글을 CRUD로 서비스를 구현할수 있는지 알아보자.
+
+- index.ejs 파일은 현재 어떤 게시글들이 저장되어 있는지 보여주는 기능
+- upload.ejs 파일은 게시글을 CREATE 하는 기능을 수행
+- detail.ejs 파일은 게시글을 하나하나의 정보를 확인하는 기능
+
+# NoSQL
+
+mongodb atlas는 Json 형태로 저장할수 있는 NoSQL 데이터베이스
+
+- 구글 검색창에 mongodb atlas 검색 > 접속 > Shared 무료버전사용 > Create User
+- Connect > Connect your application > application code 복사

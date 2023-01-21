@@ -14,7 +14,7 @@ app.get("/", (req, res) => {
 app.post("/calculator", (req, res) => {
   console.log(req.body);
   const result = Number(req.body.num1) + Number(req.body.num2);
-  res.render("result", { result: result });
+  res.render("calculator/result", { result: result });
 });
 
 app.all("*", (req, res) => {
