@@ -131,6 +131,6 @@ MongoClient.connect(MongoURL, (err, database) => {
 - insertOne은 실행이 되면 자바스크립트에서 Promise로 반환을 해준다.
 - return value가 Promise를 통해서 오면 post.insertOne 명령이 끝난 이후에 .then을 통해서 실행 명령 이후에 일어날 행동을 정의할수 있다.
 
-### res.redirect()
+### `res.redirect()`
 
-- 응답에 있는 redirect를 통해서 루트(/)URL로 보내기
+- 응답에 있는 redirect를 통해서 루트("/")URL로 보내기
