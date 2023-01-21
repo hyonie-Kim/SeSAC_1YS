@@ -4,10 +4,9 @@
   <body>
     <h2>Hello, CRUD</h2>
     <ul>
-      <li><span>C</span>reate</li>
-      <li><span>R</span>ead</li>
-      <li><span>U</span>pdate</li>
-      <li><span>D</span>elete</li>
+      <% for(let i=0; i < postData.length; i++){%>
+      <li><%=postData[i].title%></li>
+      <% } %>
     </ul>
   </body>
 </html>

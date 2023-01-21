@@ -120,6 +120,8 @@ MongoClient.connect(MongoURL, (err, database) => {
 - MongoDB의 데이터는 또는 문서들이 저장을 할 때는 데이터베이스에 콜렉션이라는 폴더에 문서가 저장이 된다.
 - Express 데이터베이스에 posts라는 이름의 컬렉션을 만들어서 그쪽에 저장을 하겠다는 뜻
 
+## CREATE - upload.ejs
+
 ### `post.insertOne()`
 
 - post컬렉션을 들고와서 insertOne 메서드를 통해서 document를 저장할수 있다.
@@ -134,3 +136,34 @@ MongoClient.connect(MongoURL, (err, database) => {
 ### `res.redirect()`
 
 - 응답에 있는 redirect를 통해서 루트("/")URL로 보내기
+
+## READ - 저장된 게시글 리스트 보여주기
+
+### `post.find()`
+
+- postData 로 값 보내주기
+- 콜렉션에서 document를 찾는 메서드는 먼저, post 컬렉션을 불러온 뒤 find()를 통해 찾을수 있다.
+- find() 안에 중괄호를 통해서 어떤 데이터를 찾을지 특정할수 있다.
+- 아무런 조건도 주지 않으면 컬렉션 안에 들어있는 모든 document를 찾을수 있다.
+
+```javascript
+app.get("/", (req, res) => {
+  post
+    .find()
+    .then((postData) => {
+      res.render("index", { postData: postData });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.render("index", { postData: [] });
+    });
+});
+```
+
+- post.find()를 통해서 post.find()가 되었을때 찾을 결과 값을 postData에 담는다.
+- postData를 받아서 res.render로 "index.ejs"파일을 렌더링 시켜주면서 postData KEY로 find 메서드로 찾은 postData를 보내주면 된다.
+
+### `toArray()`
+
+- find()메서드는 return value로 프로미스를 주지 않는다. 커서라고 하는 MongoDB에서 사용하는 document 정보를 준다.
+- document정보를 확인할수 있는 메서드는 toArray()이다. toArray()는 다시 프로미스를 반환한다.

@@ -7,6 +7,7 @@ const MongoClient = require("mongodb").MongoClient;
 const app = express();
 const port = process.env.PORT;
 const MongoURL = process.env.MONGO_URL;
+const MongoURL2 = process.env.MONGO_URL2;
 var db, post;
 
 app.set("view engine", "ejs");
@@ -14,7 +15,18 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req, res) => {
-  res.render("index");
+  post
+    .find()
+    .toArray()
+    .then((postData) => {
+      res.render("index", { postData: postData });
+      console.log(req.body.postData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.render("index", { postData: [] });
+    });
+
   //   res.render("index", { text: "효니", flag: true, ArrayData:[1,2,3] });
 });
 app.get("/upload", (req, res) => {
@@ -22,13 +34,13 @@ app.get("/upload", (req, res) => {
 });
 app.post("/post/upload", (req, res) => {
   // MongoDB를 통해서 data를 받는법
-  //console.log(req.body);
+  console.log(req.body);
 
   post
     .insertOne({
-      제목: req.body.title,
-      내용: req.body.content,
-      날짜: new Date(),
+      title: req.body.title,
+      content: req.body.content,
+      date: new Date(),
     })
     .then(() => {
       res.redirect("/");
@@ -49,7 +61,7 @@ app.all("*", (req, res) => {
   res.status(404).send("찾을수 없는 페이지 입니다.");
 });
 
-MongoClient.connect(MongoURL, (err, database) => {
+MongoClient.connect(MongoURL2, (err, database) => {
   if (err) {
     console.log(err);
     return;
