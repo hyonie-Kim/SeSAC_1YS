@@ -5,7 +5,7 @@
     <h2>Hello, CRUD</h2>
     <ul>
       <% for(let i=0; i < postData.length; i++){%>
-      <li><%=postData[i].title%></li>
+      <li><a href="/post/<%= postData[i]._id %>"><%=postData[i].title%></a></li>
       <% } %>
     </ul>
   </body>

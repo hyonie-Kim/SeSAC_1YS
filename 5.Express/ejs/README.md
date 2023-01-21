@@ -167,3 +167,21 @@ app.get("/", (req, res) => {
 
 - find()메서드는 return value로 프로미스를 주지 않는다. 커서라고 하는 MongoDB에서 사용하는 document 정보를 준다.
 - document정보를 확인할수 있는 메서드는 toArray()이다. toArray()는 다시 프로미스를 반환한다.
+
+## READ - custom 'id'부여하기
+
+### `findOne()`
+
+하나의 document만 찾을수 있다. 그리고 findOne에게 어떤 document를 찾을지 알려준다. `counter.findOne({name:"counter"})` name KEY로 counter 라는 value를 준 document를 찾는다.
+
+- 커서로 반환하지않고 바로 프로미스로 반환하기 때문에 .then을 사용하면 된다.
+- then에서 counterInfo라는 이름으로 받아서 post 컬렉션에 데이터를 저장할때, counterInfo에 postNum이라는 값을 post의 id에 저장한다.
+
+### `findOneAndUpdate()`
+
+- document를 하나 찾고 그 정보를 업데이트 시켜준다.
+- 쿼리문을 두개 받는다. 첫번째 쿼리문은 어떤 document를 찾을지, 두번째는 값을 어떻게 수정할지를 받는다. `counter.findOneAndUpdate({name:"counter"},{$inc: {post:1}})`
+  - 데이베이스 쿼리문 중에서 값을 증가 시켜주는 쿼리는 `$inc`이다.
+  * postNum의 값을 증가 시켜준다. 1만큼 증가 시켜준다. `$inc : {postNum:1}`
+
+## Read - 게시글 정보 보여주기

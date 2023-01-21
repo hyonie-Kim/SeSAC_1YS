@@ -8,7 +8,7 @@ const app = express();
 const port = process.env.PORT;
 const MongoURL = process.env.MONGO_URL;
 const MongoURL2 = process.env.MONGO_URL2;
-var db, post;
+var db, post, counter;
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
@@ -35,15 +35,28 @@ app.get("/upload", (req, res) => {
 app.post("/post/upload", (req, res) => {
   // MongoDB를 통해서 data를 받는법
   console.log(req.body);
-
-  post
-    .insertOne({
-      title: req.body.title,
-      content: req.body.content,
-      date: new Date(),
-    })
-    .then(() => {
-      res.redirect("/");
+  counter
+    .findOne({ name: "counter" })
+    .then((counterInfo) => {
+      post
+        .insertOne({
+          _id: counterInfo.postNum,
+          title: req.body.title,
+          content: req.body.content,
+          date: new Date(),
+        })
+        .then(() => {
+          counter
+            .findOneAndUpdate(
+              { name: "counter" },
+              {
+                $inc: { postNum: 1 }, // postNum 값증가
+              }
+            )
+            .then(() => {
+              res.redirect("/");
+            });
+        });
     })
     .catch((err) => {
       console.log(err);
@@ -61,7 +74,7 @@ app.all("*", (req, res) => {
   res.status(404).send("찾을수 없는 페이지 입니다.");
 });
 
-MongoClient.connect(MongoURL2, (err, database) => {
+MongoClient.connect(MongoURL, (err, database) => {
   if (err) {
     console.log(err);
     return;
@@ -70,6 +83,7 @@ MongoClient.connect(MongoURL2, (err, database) => {
       console.log(`Example app listening on port ${port}`);
       db = database.db("Express"); //Express 데이터베이스에 접근
       post = db.collection("posts"); // post변수에는 db에 있는 posts라는 이름의 collection을 만듦
+      counter = db.collection("counter");
     });
   }
 });
