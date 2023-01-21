@@ -83,7 +83,7 @@ mongodb atlas는 Json 형태로 저장할수 있는 NoSQL 데이터베이스
 ### `npm i mongodb --save`
 
 - 설치된 mongoDB를 어플리케이션에 불러온다. `MongoClient` 라는 이름으로 불러오고 mongodb에서 MongoClient를 가져온다.
-- `const Mongodb = require("mongodb").MongoClient`
+- `const MongoClient = require("mongodb").MongoClient`
 - MongoClient를 통해서 데이터베이스에 연결을 시도 할 예정이다.
 - 이전에 서버에 listen 메서드를 통해서 연결을 시도 했는데, MongoClient에 데이터베이스를 연결을 하고 그 데이터 베이스가 성공적이라면 서버를 여는 방식으로 코드를 수정한다.
 
@@ -113,9 +113,24 @@ MongoClient.connect(MongoURL, (err, database) => {
 - db변수에는 데이터베이스를 받고 데이터베이스를 받을 때 다시 데이터베이스를 통해서 어떤 데이터베이스에 접근할지 선택해준다. `db=database.db("express")`
 - post변수에는 db에 있는 콜렉션에서 어떤 콜렉션을 사용할 건지 선택할수 있다. 여기에서는 "post"라는 이름의 콜렉션을 사용한다.
 
-### "db","post" 설명
+**"db","post" 설명**
 
 - MongoDB 클라이언트(MongoDB Atlas) 화면에서 Browser Collections 을 클릭한다.
   현재 어떤 데이터베이스가 생성 되어 있는지, 그리고 그 데이터베이스에는 어떤 콜렉션들이 담겨져 있는지 확인할수 있다.
 - MongoDB의 데이터는 또는 문서들이 저장을 할 때는 데이터베이스에 콜렉션이라는 폴더에 문서가 저장이 된다.
 - Express 데이터베이스에 posts라는 이름의 컬렉션을 만들어서 그쪽에 저장을 하겠다는 뜻
+
+### `post.insertOne()`
+
+- post컬렉션을 들고와서 insertOne 메서드를 통해서 document를 저장할수 있다.
+- insertOne은 중괄호를 통해서 object형태의 데이터를 담을수 있다.
+- 예시로 제목이라는 KEY로 "test"라는 문자열을 저장하고 내용 KEY로 "test" 문자열을 저장하고
+  날짜 KEY 로 자바스크립트 `new Data()`를 통해서 데이터를 넣어보도록 하겠다.
+- 데이터가 잘 들어왔는지 REFRESH 클릭!!
+- insertOne을 통해 document를 보내줄때 \_id 라는 KEY가 없으면 자동으로 MongoDB의 고유한 아이디 키를 만들어준다.
+- insertOne은 실행이 되면 자바스크립트에서 Promise로 반환을 해준다.
+- return value가 Promise를 통해서 오면 post.insertOne 명령이 끝난 이후에 .then을 통해서 실행 명령 이후에 일어날 행동을 정의할수 있다.
+
+### res.redirect()
+
+- 응답에 있는 redirect를 통해서 루트(/)URL로 보내기

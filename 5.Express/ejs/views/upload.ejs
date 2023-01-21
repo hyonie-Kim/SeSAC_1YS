@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('header') -%>
+  <style>
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    textarea {
+      resize: none; /* 사이즈고정 */
+    }
+  </style>
+  <body>
+    <form action="/post/upload" method="post">
+      <label for="title">제목</label>
+      <input type="text" name="title" id="title" />
+      <label for="content">내용</label>
+      <textarea
+        type="text"
+        name="content"
+        id="content"
+        cols="30"
+        rows="10"
+      ></textarea>
+      <button type="submit">제출</button>
+    </form>
+  </body>
+</html>
