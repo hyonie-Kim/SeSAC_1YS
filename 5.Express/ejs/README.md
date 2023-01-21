@@ -181,8 +181,9 @@ app.get("/", (req, res) => {
 
 - document를 하나 찾고 그 정보를 업데이트 시켜준다.
 - 쿼리문을 두개 받는다. 첫번째 쿼리문은 어떤 document를 찾을지, 두번째는 값을 어떻게 수정할지를 받는다. `counter.findOneAndUpdate({name:"counter"},{$inc: {post:1}})`
-  - 데이베이스 쿼리문 중에서 값을 증가 시켜주는 쿼리는 `$inc`이다.
-  * postNum의 값을 증가 시켜준다. 1만큼 증가 시켜준다. `$inc : {postNum:1}`
+  - `$inc`: 데이베이스 쿼리문 중에서 특정한 값을 증가또는 감소 시켜줄때 사용하는 연산자이다.
+  * `$set`: 왼쪽에 있는 데이터를 오른쪽에 있는 데이터로 완전히 바꿔주는 set도 있다.
+  - postNum의 값을 증가 시켜준다. 1만큼 증가 시켜준다. `$inc : {postNum:1}`
 
 ## READ - 게시글 정보 보여주기
 
@@ -203,7 +204,9 @@ app.get("/post/:postNum", (req, res) => {
 
 ### `npm i moment --save`
 
-### `const moment = require('moment')` 모멘트 라이브러리 불러오기
+### `const moment = require('moment')`
+
+- 모멘트 라이브러리 불러오기
 
 ### `doc.date = moment(doc.date).format('MMMM Do YYYY, h:mm:ss a')`
 
@@ -229,3 +232,43 @@ app.use(function (req, res, next) {
 
 - res.locals에 moment라는 이름으로 선언하고 셋팅했던 moment를 보내준다.
 - 서버에서 원본 데이터를 수정해서 보내는 것이 아니라 서버에서는 원본데이터를 그대로 보내주고 detail.ejs는 서버로 부터 받은 moment 라이브러리를 통해 데이터를 보여주면 된다.
+
+## 유저에게 수정 혹은 삭제 기능 제공
+
+- 수정 혹은 삭제 기능을 detail.ejs에서 버튼으로 제공하려고한다.
+- 예를 들어서 수정버튼 클릭시 수정할수 있어야하고, 삭제 버튼 클릭시 글을 삭제할수 있어야한다.
+- 수정 버튼에 링크를 걸어서 URL규칙을 새로 만들어서 detail 페이지를 만들었던것처럼 수정하기 페이지를 만들면 된다.
+
+# jquery/ajax
+
+- ajax는 자바스크립과 XML을 이용해서 비동기적으로 정보를 교환하는 방법이다.
+- jquery를 임포트 하는 것만으로 ajax를 사용할수 있다.
+
+## jquery CDN
+
+- https://releases.jquery.com/ 링크에서 jquery를 임포트 할 CDN주소를 확인한다.
+- jQuery 3.x 버전에서 minified를 링크를 복사하여 head영역에 선언한다.
+
+### ajax요청
+
+- 수정하기/삭제하기 버튼을 클릭했을때 ajax요청을 진행한다.
+- jQuery에서 어떤 특정한 HTML element가 선택되었다는 것을 알려주기 위해 버튼에 고유의 ID 또는 Class값을 부여한다.
+- jQuery를 통해 특정한 HTML element를 선택하는 방법은 $기호 다음에 소괄호()를 열어주고 쌍다옴표 안에 Css선택자를 입력하면 된다.
+
+### 수정/삭제 버튼 click이벤트
+
+- `$("#test")` = `document.querySelector("#test")` 같은 동작을 수행한다.
+- 이후 점으로 어떤 이벤트를 걸지 선택할수 있다.
+- `$("#test").click(e)=>{e}` = `document.querySelector("#test").addEventListener("click",(e)=>{e})`
+
+### $.ajax는 기능
+
+- $.ajax는 호출해서 사용할수 있다. 인자로써 오브젝트 데이터를 받는다.
+- 오브젝트 데이터 받는 데이터는
+  - 첫번째는 `method:""`: 어떠한 방식으로 통신을 할것인지
+  * 그리고 엔드포인트 KEY는 `url:""`로 받는다.
+  - POST 통신을 보낼때 Body에 담는 내용이다. data라는 이름으로 데이터도 함께 보내줄수 있다. `data:{}`
+- HTML Form과 다른점은 클라이언트에서 서버단으로 보내는 메서드는 크게 POST, GET, PUT, DELETE 4가지의 방법이 있다.
+- HTML Form은 get요청이나 post요청 둘중 하나 밖에 선택을 하지 못한다. Ajax같은 경우에는 그런 제한 없이 원하는 메소드를 선택할 수 있다.
+- `.done((res)=>{//요청이 성공했을때 수행할 코드})` 이후에 해야할일을 정의를 해야한다. 서버로 부터 받은 내용을 response에 담기게 된다.
+- `.fail((xhr, status, err)=>{//요청이 실패했을때 수행할 코드})`요청이 실패할 경우
