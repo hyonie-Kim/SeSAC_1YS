@@ -168,7 +168,7 @@ app.get("/", (req, res) => {
 - find()메서드는 return value로 프로미스를 주지 않는다. 커서라고 하는 MongoDB에서 사용하는 document 정보를 준다.
 - document정보를 확인할수 있는 메서드는 toArray()이다. toArray()는 다시 프로미스를 반환한다.
 
-## READ - custom 'id'부여하기
+## CREATE - custom 'id'부여하기
 
 ### `findOne()`
 
@@ -184,4 +184,48 @@ app.get("/", (req, res) => {
   - 데이베이스 쿼리문 중에서 값을 증가 시켜주는 쿼리는 `$inc`이다.
   * postNum의 값을 증가 시켜준다. 1만큼 증가 시켜준다. `$inc : {postNum:1}`
 
-## Read - 게시글 정보 보여주기
+## READ - 게시글 정보 보여주기
+
+- express에서는 자바스크립트 정규식과는 별개로 URL parameter를 사용할수 있다.
+- post 다음에 콜론(:) 그리고 postNum 이라고 하면 post/ 다음에 어떤 문자열이 오든 해당 API규칙에 대응된다.
+
+```javascript
+app.get("/post/:postNum", (req, res) => {
+  post.findOne({ _id: req.param.postNum }).then((doc) => {
+    res.render("/detail", { postInfo: doc });
+  });
+});
+```
+
+- parseInt를 통해서 req.params에 있는 postNum을 숫자로 바꿔준다. `post.findOne({_id:parseInt(req.params.postNum)})`
+
+# Moment
+
+### `npm i moment --save`
+
+### `const moment = require('moment')` 모멘트 라이브러리 불러오기
+
+### `doc.date = moment(doc.date).format('MMMM Do YYYY, h:mm:ss a')`
+
+- detail API 규칙에서 document에 데이터의 값을 현재 moment에 포맷을 시켜서 데이터를 보내준다.
+
+### `moment.locale("ko")` Moment 한국어 셋팅
+
+- 한국어로 기본 지역값 셋팅을 한다.
+- 한국은 년월일 시간으로 표현한다. 포맷해주는 부분에서 양식을 변경한다.
+- 시간은 HH 하면 24시간 기준으로 표현되고 초(ss)랑 오전/오후(a) 정보는 빼도록한다.
+
+### express `res.locals`
+
+- Express에서 locals메서드를 통해 렌더링 되는 파일에게 locals 변수를 전달을 해줄수 있다.
+
+```javascript
+app.use(function (req, res, next) {
+  // Make `user` and `authenticated` available in templates
+  res.locals.user = req.user;
+  next();
+});
+```
+
+- res.locals에 moment라는 이름으로 선언하고 셋팅했던 moment를 보내준다.
+- 서버에서 원본 데이터를 수정해서 보내는 것이 아니라 서버에서는 원본데이터를 그대로 보내주고 detail.ejs는 서버로 부터 받은 moment 라이브러리를 통해 데이터를 보여주면 된다.

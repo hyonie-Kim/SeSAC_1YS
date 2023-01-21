@@ -1,6 +1,8 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const path = require("path");
+const moment = require("moment");
+moment.locale("ko");
 dotenv.config({ path: "../../.env" });
 const MongoClient = require("mongodb").MongoClient;
 
@@ -13,6 +15,10 @@ var db, post, counter;
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
+app.use(function (req, res, next) {
+  res.locals.moment = moment;
+  next();
+});
 
 app.get("/", (req, res) => {
   post
@@ -62,6 +68,15 @@ app.post("/post/upload", (req, res) => {
       console.log(err);
       res.send("글 저장에 실패 하였습니다.");
     });
+});
+
+app.get("/post/:postNum", (req, res) => {
+  console.log(req.params.postNum);
+  post.findOne({ _id: parseInt(req.params.postNum) }).then((doc) => {
+    //doc.date = moment(doc.date).format("YYYY MMMM Do, HH:mm");
+    res.render("detail", { postInfo: doc });
+    console.log(doc);
+  });
 });
 
 app.post("/calculator", (req, res) => {
