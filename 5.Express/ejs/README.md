@@ -102,7 +102,7 @@ MongoClient.connect(MongoURL, (err, database) => {
       console.log(`서버포트번호:${port}`); //서버 열기
     });
     db = database.db("Express");
-    post = db.collection("post");
+    post = db.collection("posts");
   }
 });
 ```
@@ -112,3 +112,10 @@ MongoClient.connect(MongoURL, (err, database) => {
 - MongoURL을 연결해주고, 두번째 함수에 인자를 두개를 받아준다. 첫번째는 에러가 발생했을때 err와 연결이 성공하면은 반환 할 database를 받아준다.
 - db변수에는 데이터베이스를 받고 데이터베이스를 받을 때 다시 데이터베이스를 통해서 어떤 데이터베이스에 접근할지 선택해준다. `db=database.db("express")`
 - post변수에는 db에 있는 콜렉션에서 어떤 콜렉션을 사용할 건지 선택할수 있다. 여기에서는 "post"라는 이름의 콜렉션을 사용한다.
+
+### "db","post" 설명
+
+- MongoDB 클라이언트(MongoDB Atlas) 화면에서 Browser Collections 을 클릭한다.
+  현재 어떤 데이터베이스가 생성 되어 있는지, 그리고 그 데이터베이스에는 어떤 콜렉션들이 담겨져 있는지 확인할수 있다.
+- MongoDB의 데이터는 또는 문서들이 저장을 할 때는 데이터베이스에 콜렉션이라는 폴더에 문서가 저장이 된다.
+- Express 데이터베이스에 posts라는 이름의 컬렉션을 만들어서 그쪽에 저장을 하겠다는 뜻
