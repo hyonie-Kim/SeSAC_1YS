@@ -79,3 +79,8 @@ mongodb atlas는 Json 형태로 저장할수 있는 NoSQL 데이터베이스
 
 - 구글 검색창에 mongodb atlas 검색 > 접속 > Shared 무료버전사용 > Create User
 - Connect > Connect your application > application code 복사
+
+### `npm i dotenv --save`
+
+- 개발 환경 변수를 직접 세팅을 해줄수 있는 라이브러리
+- `.env`

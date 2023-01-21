@@ -1,6 +1,11 @@
 const express = require("express");
+const dotenv = require("dotenv");
+const path = require("path");
+dotenv.config({ path: "../../.env" });
+
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
+const MongoURL = process.env.MONGO_URL;
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
