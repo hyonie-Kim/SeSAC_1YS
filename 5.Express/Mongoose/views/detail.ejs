@@ -3,15 +3,15 @@
   <%- include("header") -%>
   <body>
     <h2><%= postInfo.title %></h2>
-    <p><%= moment(postInfo.date).format('YYYY MMMM Do , HH:mm') %></p>
+    <p><%= moment(postInfo.createdAt).format('YYYY MMMM Do , HH:mm') %></p>
     <p><%= postInfo.content %></p>
-    <button id="edit" data-post_num="<%=postInfo._id%>">수정하기</button>
-    <button id="delete" data-post_num="<%%=postInfo._id%>">삭제하기</button>
+    <button id="edit" data-post_num="<%=postInfo.postNum%>">수정하기</button>
+    <button id="delete" data-post_num="<%=postInfo.postNum%>">삭제하기</button>
   </body>
   <script>
     // 제이쿼리 변수 선택자
     $("#edit").click((e) => {
-      location.href = "/post/edit" + e.target.dataset.post_num;
+      location.href = "/post/edit/" + e.target.dataset.post_num;
     });
     $("#delete").click((e) => {
       $.ajax({
@@ -24,12 +24,12 @@
         .done((response) => {
           // 요청이 성공 했을 때 수행할 코드
           alert("글이 삭제되었습니다.");
-          location.href("/");
+          location.href = "/";
         })
         .fail((xhr, status, err) => {
           //요청이 실패 했을 때 수행할 코드
           alert("글을 삭제하는데 실패하였습니다.");
-          console.log(err);
+          location.href = "/";
         });
     });
   </script>

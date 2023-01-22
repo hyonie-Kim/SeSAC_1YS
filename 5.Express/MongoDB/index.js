@@ -39,7 +39,6 @@ app.get("/upload", (req, res) => {
   res.render("upload");
 });
 app.post("/post/upload", (req, res) => {
-  // MongoDB를 통해서 data를 받는법
   console.log(req.body);
   counter
     .findOne({ name: "counter" })
