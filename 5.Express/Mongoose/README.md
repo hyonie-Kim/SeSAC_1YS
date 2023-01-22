@@ -64,3 +64,13 @@ mongoose
 ### `.exec()`
 
 - 이전함수가 실행되는 것을 보장한다
+
+# Router - 다른 파일로 관리하기
+
+- express에서 지원해 주는 router를 사용해보자.
+- router폴더에 post와 관련된 API들을 모아 놓는 파일을 만든다.
+
+### `var router = require("express").Router`
+
+- `var express = require('express')`: post.js에서도 express를 불러온다.
+- `var router = express.Router()`: router라고 express에 있는 Router()를 들고온다.

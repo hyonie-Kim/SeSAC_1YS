@@ -22,6 +22,7 @@ app.use(function (req, res, next) {
   next();
 });
 // 라우팅 경로
+app.use("/post", require("./router/post"));
 
 app.get("/", (req, res) => {
   Post.find()
@@ -37,82 +38,6 @@ app.get("/", (req, res) => {
 
 app.get("/upload", (req, res) => {
   res.render("upload");
-});
-
-app.post("/post/upload", (req, res) => {
-  let temp = {
-    title: req.body.title,
-    content: req.body.content,
-  };
-  Counter.findOne({ name: "counter" })
-    .exec()
-    .then((counterInfo) => {
-      temp.postNum = counterInfo.postNum;
-      const NewPost = new Post(temp);
-      NewPost.save().then(() => {
-        Counter.findOneAndUpdate(
-          { name: "counter" },
-          {
-            $inc: { postNum: 1 },
-          }
-        )
-          .exec()
-          .then(() => {
-            res.redirect("/");
-          });
-      });
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(400).send("게시글 저장 실패");
-    });
-});
-
-app.get("/post/:postNum", (req, res) => {
-  Post.findOne({ postNum: req.params.postNum })
-    .exec()
-    .then((docInfo) => {
-      res.render("detail", { postInfo: docInfo });
-    });
-});
-
-// 수정
-app.get("/post/edit/:postNum", (req, res) => {
-  Post.findOne({ postNum: req.params.postNum })
-    .exec()
-    .then((docInfo) => {
-      res.render("edit", { postInfo: docInfo });
-    });
-});
-
-// 수정기능
-app.post("/post/edit", (req, res) => {
-  Post.findOneAndUpdate(
-    { postNum: req.body.postNum },
-    {
-      $set: { title: req.body.title, content: req.body.content },
-    }
-  )
-    .exec()
-    .then(() => {
-      res.redirect(`/post/${req.body.postNum}`);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.redirect("/");
-    });
-});
-// 삭제기능
-app.delete("/post/delete", (req, res) => {
-  Post.deleteOne({ postNum: req.body.postNum })
-    .exec()
-    .then(() => {
-      res.status(200).send("삭제 성공");
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(400).send("삭제 실패");
-    });
 });
 
 // 404 페이지
