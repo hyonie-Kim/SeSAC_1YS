@@ -89,7 +89,7 @@ app.all("*", (req, res) => {
   res.status(404).send("찾을수 없는 페이지 입니다.");
 });
 
-MongoClient.connect(MongoURL, (err, database) => {
+MongoClient.connect(MongoURL2, (err, database) => {
   if (err) {
     console.log(err);
     return;
