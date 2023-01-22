@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const path = require("path");
 const moment = require("moment");
+const { allowedNodeEnvironmentFlags } = require("process");
 moment.locale("ko");
 dotenv.config({ path: "../../.env" });
 const MongoClient = require("mongodb").MongoClient;
@@ -102,6 +103,17 @@ app.post("/post/edit", (req, res) => {
     .catch((err) => {
       console.log(err);
       res.redirect("/");
+    });
+});
+app.delete("/post/delete", (req, res) => {
+  post
+    .deleteOne({ _id: parseInt(req.body.postNum) })
+    .then(() => {
+      res.status(200).send("삭제 성공");
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(400).send("삭제 실패");
     });
 });
 
