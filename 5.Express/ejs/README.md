@@ -280,3 +280,8 @@ app.use(function (req, res, next) {
 - HTML Form은 get요청이나 post요청 둘중 하나 밖에 선택을 하지 못한다. Ajax같은 경우에는 그런 제한 없이 원하는 메소드를 선택할 수 있다.
 - `.done((res)=>{//요청이 성공했을때 수행할 코드})` 이후에 해야할일을 정의를 해야한다. 서버로 부터 받은 내용을 response에 담기게 된다.
 - `.fail((xhr, status, err)=>{//요청이 실패했을때 수행할 코드})`요청이 실패할 경우
+
+### `deleteOne`
+
+- document를 하나 찾아서 해당 document를 삭제하는 메서드이다.
+- 예시로 \_id의 값이 req.body.postNum이랑 똑같은 document를 찾을 것이고, id는 숫자인데 현재 req.body에 있는 값은 문자 이기 때문에 parseInt를 통해서 숫자로 바꿔준다. `{_id:parsInt(req.body.postNum)}`
