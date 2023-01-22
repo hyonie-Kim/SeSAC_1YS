@@ -2,7 +2,6 @@ const express = require("express");
 const dotenv = require("dotenv");
 const path = require("path");
 const moment = require("moment");
-const { allowedNodeEnvironmentFlags } = require("process");
 moment.locale("ko");
 dotenv.config({ path: "../../.env" });
 const MongoClient = require("mongodb").MongoClient;
