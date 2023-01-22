@@ -26,7 +26,7 @@ app.get("/", (req, res) => {
     .toArray()
     .then((postData) => {
       res.render("index", { postData: postData });
-      console.log(req.body.postData);
+      console.log("postData:", req.body.postData);
     })
     .catch((err) => {
       console.log(err);
@@ -75,8 +75,34 @@ app.get("/post/:postNum", (req, res) => {
   post.findOne({ _id: parseInt(req.params.postNum) }).then((doc) => {
     //doc.date = moment(doc.date).format("YYYY MMMM Do, HH:mm");
     res.render("detail", { postInfo: doc });
-    console.log(doc);
+    console.log("doc:", doc);
   });
+});
+app.get("/post/edit/:postNum", (req, res) => {
+  post.findOne({ _id: parseInt(req.params.postNum) }).then((doc) => {
+    res.render("edit", { postInfo: doc });
+    console.log("edit_doc:", doc);
+  });
+});
+
+app.post("/post/edit", (req, res) => {
+  post
+    .findOneAndUpdate(
+      { _id: parseInt(req.body.postNum) },
+      {
+        $set: {
+          title: req.body.title,
+          content: req.body.content,
+        },
+      }
+    )
+    .then(() => {
+      res.redirect(`/post/${req.body.postNum}`);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.redirect("/");
+    });
 });
 
 app.post("/calculator", (req, res) => {

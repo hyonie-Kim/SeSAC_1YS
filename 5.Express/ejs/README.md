@@ -179,11 +179,19 @@ app.get("/", (req, res) => {
 
 ### `findOneAndUpdate()`
 
-- document를 하나 찾고 그 정보를 업데이트 시켜준다.
+- document를 하나 찾고 그 정보를 Update(수정) 시켜준다.
 - 쿼리문을 두개 받는다. 첫번째 쿼리문은 어떤 document를 찾을지, 두번째는 값을 어떻게 수정할지를 받는다. `counter.findOneAndUpdate({name:"counter"},{$inc: {post:1}})`
+
   - `$inc`: 데이베이스 쿼리문 중에서 특정한 값을 증가또는 감소 시켜줄때 사용하는 연산자이다.
+
   * `$set`: 왼쪽에 있는 데이터를 오른쪽에 있는 데이터로 완전히 바꿔주는 set도 있다.
+
   - postNum의 값을 증가 시켜준다. 1만큼 증가 시켜준다. `$inc : {postNum:1}`
+
+  **/post/edit**
+
+  - document가 `{_id: req.body.postNum}` 찾는다. String으로 넘어 오기 때문에 parseInt를 통해서 숫자로 바꿔준다. `{_id:parseInt(req.body.postNum)}`
+  - 수정에서는 `$set` 연산자를 사용한다. set 연산자는 좌항에 있는 KEY에 데이터를 우항에 값으로 완전히 바꿔준다.
 
 ## READ - 게시글 정보 보여주기
 

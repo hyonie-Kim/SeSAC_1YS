@@ -5,7 +5,31 @@
     <h2><%= postInfo.title%></h2>
     <p><%= moment(postInfo.date).format('YYYY MMMM Do , HH:mm') %></p>
     <p><%= postInfo.content%></p>
-    <button>수정하기</button>
-    <button id="test">삭제하기</button>
+    <button id="edit" data-post_num="<%= postInfo._id%>">수정하기</button>
+    <button id="delete">삭제하기</button>
   </body>
+  <script>
+    $("#edit").click((e) => {
+      location.href = "/post/edit/" + e.target.dataset.post_num;
+      console.log(e.target.dataset.post_num);
+    });
+
+    $("#delete").click((e) => {
+      $.ajax({
+        method: "post",
+        url: "/test",
+        data: {
+          text: "안녕하세요",
+        },
+      })
+        .done((response) => {
+          // 요청이 성공 했을 때 수행할 코드
+          alert("요청 성공");
+        })
+        .fail((xhr, status, err) => {
+          // 요청이 실패 했을 떄 수행할 코드
+          alert("요청 실패");
+        });
+    });
+  </script>
 </html>
