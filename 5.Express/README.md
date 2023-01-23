@@ -2,12 +2,13 @@
 
 # Express통한 서버 구축
 
+### `npm i express --save` or `npm install express`
+
 - node환경에서 서버 구축하기
 - npm_modules가 만들어지며 express에 관련된 폴더 생성
 - package.json의 dependencies에 express 기록
-- `npm i express --save` or `npm install express`설치
 
-### 공식 문서 확인
+## 공식 문서 확인
 
 - Express를 통해서 서버를 구축하는 방법은 Hello world 예제 참고
 - https://expressjs.com/ko/starter/hello-world.html
@@ -56,9 +57,13 @@ app.get("*", (req, res) => {
 });
 ```
 
-# 미들웨어
+### `app.use()` 미들웨어 등록
 
-- `use()`를 이용해 등록할 수 있다.
+### `app.use(express.static('public'))` 미들웨어 static
+
+- `app.use('/static', express.static('public'))`
+- 이미지, css 파일 및 JavaScript 파일과 같은 정적 파일 제공
+- Express에 있는 static 메소드를 이용해 미들웨어로 로드
 
 ## RDB / NoSQL 차이점
 
