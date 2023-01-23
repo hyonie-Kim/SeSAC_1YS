@@ -32,6 +32,18 @@ app.use("/views", express.static(__dirname) + "/views");
 - 속성: action, name, target, method
 - 폼 요소: `<input>`, `<select>`, `<textarea>`, `<button>` 등등
 
+```html
+<form action="/폼_전송할_서버주소" name="폼이름" method="폼_전송방식">
+  <input type="text" />
+  <textarea name="" id="" cols="30" rows="10"></textarea>
+  <select name="" id="">
+    <option value=""></option>
+    <option value=""></option>
+  </select>
+  <button type="submit"></button>
+</form>
+```
+
 ## `<form></form>` 속성
 
 ### `action`
