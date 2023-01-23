@@ -110,7 +110,7 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
 🌱 The 9th Class (Saturday, November 12th, 2022)
 
 - 서버 구축하기 (클라우드 서버)
-  - naver Cloud Platform
+  - Naver Cloud Platform
   - AWS(Amazon Web Service)
   - Apache
 
@@ -249,6 +249,6 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
   - JSX(Javascript XML) 문법
   - Kebob-case to camelCase
 
-  🌱 Saturday, January 14th, 2023
+🌱 Saturday, January 14th, 2023
 
-  - 리액트 수업 휴무 💤
+- 리액트 수업 휴무 💤
