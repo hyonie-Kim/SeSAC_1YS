@@ -149,15 +149,16 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
   - localhost와 port
   - 🌷실습28. http 모듈
 
-## 🌱 The 13th Class (Tuesday, November 22nd, 2022)
+### 🌱 The 13th Class (Tuesday, November 22nd, 2022)
 
 - Express.ejs
   - EJS 템플릿
   - EJS 문법 사용하기
 - form 전송
   - GET/POST
-- 🌷 실습 30. get 정보 받기
-- 🌷 실습 31. post 정보 받기
+- 🌷 실습 29. ejs와 static 활용하기
+- 🌷 실습 30. get으로 정보 받기
+- 🌷 실습 31. post로 정보 받기
 
 ### 🌱 The 14th Class (Thursday, November 24th, 2022)
 
