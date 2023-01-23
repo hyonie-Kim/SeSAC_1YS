@@ -32,7 +32,7 @@ app.use("/views", express.static(__dirname) + "/views");
 - 속성: action, name, target, method
 - 폼 요소: `<input>`, `<select>`, `<textarea>`, `<button>` 등등
 
-## form 속성
+## `<form></form>` 속성
 
 ### `action`
 
@@ -89,6 +89,11 @@ app.use("/views", express.static(__dirname) + "/views");
 
 - 폼 양식에 이름을 붙일수 있다.
 - for속성: for속성에 연결할 요소의 id를 적어 label을 클릭해도 해당 요소로 가게 만들 수 있다.
+
+## `<fieldset>` `<legend>`
+
+- `<fieldset>`: 폼 태그 안에 있는 요소들을 **그룹화**할때 사용한다.
+- `<legend>`: `<fieldset>`안에 들어가는 태그로, 목적에 맞게 **이름**을 지정할 수 있다.
 
 ## Form get방식
 
