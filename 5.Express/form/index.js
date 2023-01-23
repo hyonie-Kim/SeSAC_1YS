@@ -2,10 +2,14 @@ const express = require("express");
 const app = express();
 const port = 3000;
 
+// 미들웨어등록
+// app.use("/static", express.static("static"));
+
 app.set("view engine", "ejs"); // ejs 템플릿 설정
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
-
+// // 미들웨어등록
+// app.use("/static", express.static("static"));
 // app.use("/views", express.static(__dirname) + "/views");
 
 app.get("/", (req, res) => {
@@ -30,6 +34,10 @@ app.post("/postForm", (req, res) => {
     title: "POST 요청",
     userInfo: req.body,
   });
+});
+
+app.get("/img", (req, res) => {
+  res.render("practice29");
 });
 
 app.all("*", (req, res) => {

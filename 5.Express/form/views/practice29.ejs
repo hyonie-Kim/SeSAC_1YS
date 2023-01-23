@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습29. ejs와 static 활용하기</title>
+  </head>
+  <body>
+    <h1>실습29. ejs와 static 활용하기</h1>
+    <ol>
+      <li>
+        프로젝트 내 static이 설정된 폴더에 1.png~3.png 까지 3개의 이미지
+        업로드하기
+      </li>
+      <li>
+        localhost:3000/img로 접속했을때 ejs의 for문을 이용해 1.png, 2.png, 3.png
+        이미지 나오게하기
+      </li>
+    </ol>
+    <% for(let i =1; i <= 3; i++){%>
+    <img src="image/<%=[i]%>.png" alt="cat" width="100px" />
+    <% } %>
+  </body>
+</html>
