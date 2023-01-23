@@ -21,16 +21,29 @@ app.use("/views", express.static(__dirname) + "/views");
 
 변수의 값을 출력할 때 사용
 
-## `<%- include('view의 상대주소') %>`
+### `<%- include('view의 상대주소') %>`
 
 다른 view파일을 불러올 때 사용
 
-# <form>
+# form
 
 - **입력된 데이터를 한번에 서버로 전송**하기 위해 사용
 - **클라이언트가 서버에게 정보를 전달할 때**사용
 - 속성: action, name, target, method
 - 폼 요소: `<input>`, `<select>`, `<textarea>`, `<button>` 등등
+
+## form 속성
+
+### `action` : 폼을 전송할 서버 주소 지정
+
+### `name` : 폼을 식별하기 위한 이름
+
+### `method` : 폼을 서버에 전송할 http 메소드 지정
+
+### `target`
+
+- action 속성값에 지정한 스크립트 파일을 현재 창이 아닌 다른 위치에서 열 수 있도록함
+- `_blank`, `_self`
 
 ## Form get방식
 
