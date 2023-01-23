@@ -39,6 +39,18 @@ app.post("/postForm", (req, res) => {
 app.get("/img", (req, res) => {
   res.render("practice29");
 });
+app.get("/practice30", (req, res) => {
+  console.log(req.query);
+  res.render("practice30");
+});
+
+app.get("/practice31", (req, res) => {
+  res.render("practice31");
+});
+app.post("/practice31_form", (req, res) => {
+  console.log(req.body);
+  res.send("Post form 전송이 완료되었습니다.");
+});
 
 app.all("*", (req, res) => {
   res.status(404).send("찾을수 없는 페이지 입니다.");

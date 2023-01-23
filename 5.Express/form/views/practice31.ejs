@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>실습31. post로 정보 받기</title>
+  </head>
+  <body>
+    <h1>실습31. post로 정보 받기</h1>
+    <form action="/practice31_form" method="post">
+      이름 <input type="text" name="name" required />
+      <fieldset>
+        <legend>성별</legend>
+        <input
+          type="radio"
+          name="gender"
+          id="man"
+          value="남자"
+          required
+        /><label for="man">남자</label>
+        <input
+          type="radio"
+          name="gender"
+          id="women"
+          value="여자"
+          required
+        /><label for="women">여자</label>
+      </fieldset>
+      <fieldset>
+        <legend>생년월일</legend>
+        <select name="year" id="">
+          <% for(var i =1980; i <= 2022; i++){ %> <% if(i==2010) { %>
+          <option value="<%=i%>" selected><%=i%></option>
+          <% } else {%>
+          <option value="<%=i%>"><%=i%></option>
+          <% } %> <% } %>
+        </select>
+        년
+        <select name="month" id="">
+          <% for(let i = 1; i <= 12; i++) {%>
+          <option value="<%=i%>"><%= i %></option>
+          <%}%>
+        </select>
+        월
+        <select name="date" id="">
+          <% for(let i = 1; i < 31; i++) {%>
+          <option value="<%=i%>"><%= i %></option>
+          <%}%>
+        </select>
+        일
+      </fieldset>
+      <fieldset>
+        <legend>관심사</legend>
+        <input type="checkbox" name="interest" id="travel" value="여행" /><label
+          for="travel"
+          >여행</label
+        >
+        <input
+          type="checkbox"
+          name="interest"
+          id="fashion"
+          value="패션"
+        /><label for="fashion">패션</label>
+        <input type="checkbox" name="interest" id="food" value="음식" /><label
+          for="food"
+          >음식</label
+        >
+      </fieldset>
+
+      <fieldset>
+        <legend>선택</legend>
+        <label for="color">좋아하는 색상</label>
+        <input type="color" name="color" id="color" /> <br />
+        <label for="number">좋아하는 숫자</label>
+        <input type="number" name="number" id="number" />
+      </fieldset>
+      <br />
+      <button>회원가입</button>
+    </form>
+  </body>
+</html>

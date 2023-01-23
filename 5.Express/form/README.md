@@ -96,7 +96,7 @@ app.use("/views", express.static(__dirname) + "/views");
 
 ## `<select>`
 
-- 선택창으로 서버가 지정한 틍정 값만을 선택할 수 있는 요소
+- 선택창으로 서버가 지정한 특정 값만을 선택할 수 있는 요소
 - `input`이 주관식이라면 select는 객관식
 
 ## `<label>`
