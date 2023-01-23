@@ -1,7 +1,7 @@
 {
   "name": "study_03",
   "version": "1.0.0",
-  "description": "",
+  "description": "- 문법과 설정에 따라 파일을 html 형식으로 변환시키는 모듈",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^3.1.8",
     "express": "^4.18.2"
   }
 }
