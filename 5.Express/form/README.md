@@ -34,16 +34,61 @@ app.use("/views", express.static(__dirname) + "/views");
 
 ## form 속성
 
-### `action` : 폼을 전송할 서버 주소 지정
+### `action`
 
-### `name` : 폼을 식별하기 위한 이름
+폼을 전송할 서버 주소 지정
 
-### `method` : 폼을 서버에 전송할 http 메소드 지정
+### `name`
+
+폼을 식별하기 위한 이름
+
+### `method`
+
+폼을 서버에 전송할 http 메소드 지정
+
+- GET: 폼에 입력한 정보가 url에 추가되어 보인다.
+- POST
 
 ### `target`
 
 - action 속성값에 지정한 스크립트 파일을 현재 창이 아닌 다른 위치에서 열 수 있도록함
 - `_blank`, `_self`
+
+## `<input/>`
+
+- 사용자가 다양하게 폼 태그를 입력할 수 있게 하는 입력창으로 가장 기본적인 form 요소
+
+### `type`
+
+- text
+- radio
+- checkbox 등등
+
+### `name`
+
+이름지정. backend에서 **name으로 Key가 설정** 된다.
+
+### `readonly`
+
+읽기 전용(수정 불가)
+
+### `autofocus`
+
+자동 focus
+
+### `placeholder`
+
+짧은 도움말
+
+## `<select>`
+
+- 선택창으로 서버가 지정한 틍정 값만을 선택할 수 있는 요소
+- `input`이 주관식이라면 select는 객관식
+
+## `<label>`
+
+- 폼 양식에 이름을 붙일수 있다.
+- for속성: for속성에 연결할 요소의 id를 적어 label을 클릭해도 해당 요소로 가게 만들 수 있다.
 
 ## Form get방식
 
