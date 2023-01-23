@@ -1,6 +1,6 @@
 🌱 Tuesday, November 22th, 2022
 
-# Express 서버 만들기
+# Express통한 서버 구축
 
 - node환경에서 서버 구축하기
 - npm_modules가 만들어지며 express에 관련된 폴더 생성

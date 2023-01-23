@@ -24,8 +24,27 @@
 
 ## READ
 
-- `"SELECT * FROM 테이블이름 WHERE 조건 = 첫번째데이터"`
+### `"SELECT * FROM 테이블이름 WHERE 조건 = 첫번째데이터"`
 
 1. SELECT \* 로 모든 데이터를 선택을 하고 FROM 어디로 부터 받을지 테이블을 선택한다.
 2. 특정한 row의 데이터만 가져온다면 그 조건을 WHERE로서 정의를 할 수 있다.
 3. 예시로 Post_ID 가 뒤 따라오는 배열의 첫번째 데이터($1) 인것을 선택한다.
+
+## UPDATE
+
+### `"UPDATE 테이블 이름 SET 데이터1 = $값1, 데이터2= $값2"`
+
+- `"UPDATE posts SET Title = $1, Content = $2 WHERE (Post_ID = $3)"`
+
+1. UPDATE를 통해서 수정을 할수 있다. 수정할 테이블을 선택을 하고 SET을 통해서 바꿀것이고, 데이터와 값을 선택한다.
+2. 예시로 Title의 첫번째 값과 Content의 두번째 값을 선택한다.
+3. 특정한 row 만 바꿀 것이기 때문에 특정한 row를 선택하기 위해 WHERE로써 post_ID의 값이 3번 데이터랑 일치하는 row를 바꿔준다.
+
+## DELETE
+
+### `"DELETE FROM 테이블이름 WHERE 데이터 = $값1"`
+
+- `"DELETE FROM Posts WHERE Post_ID = $1"`
+
+1. DELETE FROM 테이블이름을 입력하고 WHERE로 무엇을 삭제 할것인지 입력한다.
+2. 예시로 Post_ID가 첫번째 데이터 인것을 삭제를 한다. 쿼리문을 만들어준다.
