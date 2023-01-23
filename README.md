@@ -165,6 +165,7 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
 
 - form, JS validation(유효성 검사)
 - nodemon package
+- 동적 폼전송
 - 비동기 HTTP통신
   1. Ajax
   2. Axios
