@@ -33,8 +33,14 @@ $.ajax({
 
 ### Axios `npm install axios`
 
-- Node.js와 브라우저를 위한 Promise API를 활용
-- 비동기 HTTP 통신이 가능, return이 Promise 객체로 온다.
+axios는 Promise 기반의 HTTP 비동기 통신 라이브러리이며 아래와 같이 HTTP 메서드 전부를 지원한다.
+
+> - axios.get(url, [,config])
+> - axios.delete(url, [,config])
+> - axios.post(url, [,config])
+> - axios.put(url, [,config])
+> - axios.patch(url, [,config])
+
 - 장점
   - Timeout 기능이 존재
   * Promise 기반으로 만들어짐
@@ -59,6 +65,9 @@ axios({
 - GET방식으로 보낼때 ? 뒤에 객체를 보내는것
 - {key:value, key:value}로 작성
 - Request의 query가 받는다.
+  **axios를 Back에서는?**
+- `res.send()`를 이용해 데이터를 보낸다.
+- `res.send()`를 이용하면 데이터를 클라이언트로 다시 보낼수 있다.
 
 ### Fetch
 

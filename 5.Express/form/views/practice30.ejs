@@ -4,11 +4,48 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>실습30. get으로 정보 받기</title>
+    <script>
+      // 실습32. 30번실습 axios로 보내기
+      // 회원가입을 axios의 get 메소드를 이용해 받게끔 작업하기
+      function login() {
+        var form = document.querySelector("#form_info");
+        var interestSlt = document.querySelectorAll(".interest");
+        const getInterest = function (e) {
+          e.preventDefault();
+          interests = [];
+          interestSlt.forEach((interest) => {
+            if (interest.checked) {
+              interests.push(interest.value);
+            }
+            return interests;
+          });
+        };
+
+        axios({
+          method: "get",
+          url: "/axios_get",
+          params: {
+            name: form.name.value,
+            gender: form.gender.value,
+            year: form.year.value,
+            month: form.month.value,
+            date: form.date.value,
+            interests: interests,
+          },
+        }).then((res) => {
+          console.log(res);
+          alert(res.data.msg);
+        });
+      }
+    </script>
   </head>
   <body>
     <h1>실습30. get으로 정보 받기</h1>
-    <form action="/practice30" method="get">
+    <form action="/practice30" method="get" id="form_info">
       이름 <input type="text" name="name" />
       <fieldset>
         <legend>성별</legend>
@@ -46,23 +83,30 @@
       </fieldset>
       <fieldset>
         <legend>관심사</legend>
-        <input type="checkbox" name="interest" id="travel" value="여행" /><label
-          for="travel"
-          >여행</label
-        >
         <input
           type="checkbox"
+          class="interest"
+          name="interest"
+          id="travel"
+          value="여행"
+        /><label for="travel">여행</label>
+        <input
+          type="checkbox"
+          class="interest"
           name="interest"
           id="fashion"
           value="패션"
         /><label for="fashion">패션</label>
-        <input type="checkbox" name="interest" id="food" value="음식" /><label
-          for="food"
-          >음식</label
-        >
+        <input
+          type="checkbox"
+          class="interest"
+          name="interest"
+          id="food"
+          value="음식"
+        /><label for="food">음식</label>
       </fieldset>
       <br />
-      <button>회원가입</button>
+      <button onclick="login()">회원가입</button>
     </form>
   </body>
 </html>

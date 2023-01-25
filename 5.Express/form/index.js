@@ -40,7 +40,7 @@ app.get("/img", (req, res) => {
   res.render("practice29");
 });
 app.get("/practice30", (req, res) => {
-  console.log(req.query);
+  // console.log(req.query);
   res.render("practice30");
 });
 
@@ -50,6 +50,26 @@ app.get("/practice31", (req, res) => {
 app.post("/practice31_form", (req, res) => {
   console.log(req.body);
   res.send("Post form 전송이 완료되었습니다.");
+});
+app.get("/axios_get", (req, res) => {
+  console.log(req.query);
+  // console.log(interests);
+  // res.send({
+  //   msg:
+  //     "이름: " +
+  //     req.query.name +
+  //     "\n" +
+  //     "성별: " +
+  //     req.query.gender +
+  //     "\n" +
+  //     "생년월일: " +
+  //     req.query.year +
+  //     req.query.month +
+  //     req.query.date +
+  //     "\n" +
+  //     "관심사: " +
+  //     req.query.interests,
+  // });
 });
 
 app.all("*", (req, res) => {
