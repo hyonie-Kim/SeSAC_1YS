@@ -1,0 +1,106 @@
+<html>
+  <head>
+    <!-- redux CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.min.js"></script>
+    <style>
+      .container {
+        border: 3px solid black;
+        padding: 10px;
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="red">
+      <div class="container" id="component_red">
+        <h1>red</h1>
+        <input
+          type="button"
+          value="실행"
+          onclick="store.dispatch({type: 'CHANGE', color:'red'})"
+        />
+        <!-- 위에 온클릭은 액션으로 체인지 타입과 컬러레드를 담아서 보냄 -->
+      </div>
+    </div>
+    <div id="green">
+      <div class="container" id="component_green">
+        <h1>green</h1>
+        <input type="button" value="실행" onclick="green();" />
+      </div>
+    </div>
+    <div id="yellow">
+      <div class="container" id="component_yellow">
+        <h1>yellow</h1>
+        <input type="button" value="실행" onclick="yellow();" />
+      </div>
+    </div>
+    <script>
+      // 1. redux를 사용할 준비
+      // - redux 함수 만들기
+      // - redux함수를 이용해 store을 만들기 만들떄 reducer 함수 등록
+      // - 만들어진 store안의 subscribe함수를 이용해 state가 변경 되었을때 실행할 함수 등록하기
+
+      // 2. red에 있는 "실행" 버튼 클릭
+      // - store.dispatch({type: 'CHANGE', color:'red'})
+
+      // 3. store.dispatch함수를 실행
+      // - dispatch가 현재 state와 전달받은 action으로 reducer 함수를 호출
+      // - reducer함수는 전달받은 action을 이용해 state를 변경
+      // - reducer 함수는 변경된 state를 return한다.
+      // - dispatch는 reducer에게 state를 전달받은 후 subscribe에 등록된 함수를 실행한다.
+
+      //  2. 리듀서 함수 만들고 등록하기
+      function reducer(state = { color: 'orange' }, action) {
+        if (action.type == 'CHANGE') return { color: action.color };
+        // 3. 변경된 state를 리턴
+        return state;
+      }
+      //  1.스토어 만들기
+      var store = Redux.createStore(reducer);
+
+      function red() {
+        // state를 가져온 다음, 색깔 값을 가져와서 변경
+        var state = store.getState();
+        document.querySelector('#component_red').style.backgroundColor =
+          state.color;
+        // document.querySelector('#component_green').style.backgroundColor =
+        //   'red';
+        // document.querySelector('#component_yellow').style.backgroundColor =
+        //   'red';
+      }
+      function green() {
+        // document.querySelector('#component_red').style.backgroundColor =
+        //   'green';
+        document.querySelector('#component_green').style.backgroundColor =
+          'green';
+        // document.querySelector('#component_yellow').style.backgroundColor =
+        //   'green';
+      }
+      function yellow() {
+        // document.querySelector('#component_red').style.backgroundColor =
+        //   'yellow';
+        // document.querySelector('#component_green').style.backgroundColor =
+        //   'yellow';
+        document.querySelector('#component_yellow').style.backgroundColor =
+          'yellow';
+      }
+
+      //   function change() {
+      //     var state = store.getState();
+      //     document.querySelector('#component_red').style.backgroundColor =
+      //       state.color;
+      //     document.querySelector('#component_green').style.backgroundColor =
+      //       'red';
+      //     document.querySelector('#component_yellow').style.backgroundColor =
+      //       'red';
+      //   }
+
+      //   alert(store.getState().color);
+
+      store.subscribe(red);
+      store.subscribe(green);
+      store.subscribe(yellow);
+    </script>
+  </body>
+</html>

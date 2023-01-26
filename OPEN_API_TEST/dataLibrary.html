@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>data4library</title>
+    <!-- axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+  <script>
+    axios({
+      url: "http://data4library.kr/api/loanItemSrch",
+      method: "get",
+      data: {
+        authKey:
+          "2126a96ca2272296601b1e047de2ae141f05d3943dcdfde622aa3b20b85c6527",
+        format: "json",
+        startDt: "2022-12-01",
+        endDt: "2023-01-01",
+        addCode: 0,
+        kdc: 6,
+        pageNo: 1,
+        pageSize: 10,
+      },
+    }).then((result) => {
+      console.log(result);
+    });
+
+    axios("http://data4library.kr/api/loanItemSrch");
+  </script>
+  <body></body>
+</html>

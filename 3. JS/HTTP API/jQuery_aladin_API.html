@@ -10,6 +10,9 @@
       integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
       crossorigin="anonymous"
     ></script>
+    <!-- axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>HTTP API</title>
   </head>
   <body>
@@ -55,22 +58,65 @@
         var img = "<img src='" + cover + "'/>";
         $("#book_img").append(img);
       }
-      $.ajax({
-        method: "GET",
-        dataType: "jsonp",
-        jsonp: "aladin1",
+      // $.ajax({
+      //   method: "GET",
+      //   dataType: "jsonp",
+      //   jsonp: "aladin1",
+      //   url: "http://www.aladin.co.kr/ttb/api/ItemSearch.aspx",
+      //   data: {
+      //     Query: "미움받을 용기",
+      //     TTBKey: "ttblovely2012530900001",
+      //     output: "JS",
+      //     cover: "big",
+      //     callback: "aladin1",
+      //   },
+      // });
+
+      axios({
+        method: "get",
         url: "http://www.aladin.co.kr/ttb/api/ItemSearch.aspx",
-        data: {
+        responseType: "json",
+        headers: {
+          Accept: "*/*",
+          "Access-Control-Allow-Headers": "*",
+          "Access-Control-Allow-Credentials": "true",
+          "Content-Type": "application/json;charset=UTF-8",
+        },
+        params: {
           Query: "미움받을 용기",
           TTBKey: "ttblovely2012530900001",
           output: "JS",
           cover: "big",
           callback: "aladin1",
         },
+      }).then(() => {
+        console.log("성공!", success);
+        console.log(data);
       });
+      // axios({
+      //   method: "get",
+      //   url: "http://www.aladin.co.kr/ttb/api/ItemSearch.aspx",
+      //   responseType: "json",
+      //   headers: {
+      //     "Access-Control-Allow-Origin": "*",
+      //     "Access-Control-Allow-Headers": "*",
+      //     "Access-Control-Allow-Credentials": "true",
+      //     "Content-Type": "application/json;charset=UTF-8",
+      //   },
+      //   params: {
+      //     Query: "미움받을 용기",
+      //     TTBKey: "ttblovely2012530900001",
+      //     output: "JS",
+      //     cover: "big",
+      //     callback: "aladin1",
+      //   },
+      // }).then(() => {
+      //   console.log("성공!", success);
+      //   console.log(data);
+      // });
 
       //https://blog.naver.com/jjanghyewon/222118183510 참고
     </script>
-    <script src="./main.js"></script>
+    <!-- <script src="./main.js"></script> -->
   </body>
 </html>

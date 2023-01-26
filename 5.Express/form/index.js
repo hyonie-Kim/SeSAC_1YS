@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const port = 3000;
+const axios = require("axios");
 
 // 미들웨어등록
 // app.use("/static", express.static("static"));
@@ -27,6 +28,25 @@ app.get("/getForm", (req, res) => {
   });
 });
 
+app.get("/data", (req, res) => {
+  axios({
+    url: "http://data4library.kr/api/loanItemSrch",
+    method: "get",
+    data: {
+      authKey:
+        "2126a96ca2272296601b1e047de2ae141f05d3943dcdfde622aa3b20b85c6527",
+      format: "json",
+      startDt: "2022-12-01",
+      endDt: "2023-01-01",
+      addCode: 0,
+      kdc: 6,
+      pageNo: 1,
+      pageSize: 10,
+    },
+  }).then((res) => {
+    console.log(res);
+  });
+});
 app.post("/postForm", (req, res) => {
   console.log(req.body);
   // const data = { id: req.body.id, pw: req.body.pw, title: "POST 요청" };
