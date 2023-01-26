@@ -30,21 +30,19 @@ app.get("/getForm", (req, res) => {
 
 app.get("/data", (req, res) => {
   axios({
-    url: "http://data4library.kr/api/loanItemSrch",
     method: "get",
-    data: {
-      authKey:
-        "2126a96ca2272296601b1e047de2ae141f05d3943dcdfde622aa3b20b85c6527",
-      format: "json",
-      startDt: "2022-12-01",
-      endDt: "2023-01-01",
-      addCode: 0,
-      kdc: 6,
-      pageNo: 1,
-      pageSize: 10,
+    url: "http://www.aladin.co.kr/ttb/api/ItemSearch.aspx",
+    responseType: "json",
+    params: {
+      Query: "미움받을 용기",
+      TTBKey: "ttblovely2012530900001",
+      output: "JS",
+      cover: "big",
+      callback: "aladin1",
     },
-  }).then((res) => {
-    console.log(res);
+  }).then((r) => {
+    // console.log("성공!", success);
+    res.send(r.data);
   });
 });
 app.post("/postForm", (req, res) => {

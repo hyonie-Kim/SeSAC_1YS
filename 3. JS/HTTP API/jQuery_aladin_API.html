@@ -77,10 +77,11 @@
         url: "http://www.aladin.co.kr/ttb/api/ItemSearch.aspx",
         responseType: "json",
         headers: {
-          Accept: "*/*",
-          "Access-Control-Allow-Headers": "*",
+          // Accept: "*/*",
+          // "Access-Control-Allow-Headers": "*",
           "Access-Control-Allow-Credentials": "true",
           "Content-Type": "application/json;charset=UTF-8",
+          "Access-Control-Allow-Origin": "*",
         },
         params: {
           Query: "미움받을 용기",
