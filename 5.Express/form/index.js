@@ -8,6 +8,7 @@ const port = 3000;
 app.set("view engine", "ejs"); // ejs 템플릿 설정
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 // // 미들웨어등록
 // app.use("/static", express.static("static"));
 // app.use("/views", express.static(__dirname) + "/views");
@@ -77,9 +78,9 @@ app.post("/login", (req, res) => {
   console.log(req.body);
   // const data = { id: "sesac", pw: "1234" };
   if (req.body.id == "sesac" && req.body.pw == "1234") {
-    res.send({ msg: "<p>성공</p>" });
+    res.send({ msg: "<p style='color:red'>성공</p>" });
   } else {
-    res.send({ msg: "실패" });
+    res.send({ msg: "<p style='color:blue'>실패</p>" });
   }
 });
 

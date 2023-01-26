@@ -11,24 +11,31 @@
     <script>
       function login() {
         const form = document.getElementById("form");
-        // const result = document.getElementById("result");
+        console.log(form.id.value);
+        const result = document.getElementById("result");
+
+        const data = { id: form.id.value, pw: form.pw.value };
+        console.log(data);
         axios({
           url: "/login",
           method: "post",
-          data: { id: form.id.value, pw: form.pw.value },
+          data,
+          Headers,
         }).then((res) => {
           console.log("login");
-          document.getElementById("result").innerHTML = res.data.msg;
+          console.log(res.data);
+          console.log(res.data.msg);
+          document.querySelector("#result").innerHTML = res.data.msg;
         });
       }
     </script>
   </head>
   <body>
-    <form action="/login" method="post" id="form">
+    <form id="form">
       <label for="id">id: </label><input type="text" name="id" id="id" /> <br />
       <label for="pw">pw: </label><input type="text" name="pw" id="pw" />
-      <button>로그인</button>
-      <p id="result"></p>
+      <button type="button" onclick="login()">로그인</button>
+      <div id="result"></div>
     </form>
   </body>
 </html>
