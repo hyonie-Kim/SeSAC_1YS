@@ -71,6 +71,18 @@ app.get("/axios_get", (req, res) => {
   //     req.query.interests,
   // });
 });
+app.get("/login", (req, res) => {
+  res.render("practice33");
+});
+app.post("/login", (req, res) => {
+  console.log(req.body);
+  // const data = { id: "sesac", pw: "1234" };
+  if (req.body.id == "sesac" && req.body.pw == "1234") {
+    res.send({ msg: "<p>성공</p>" });
+  } else {
+    res.send({ msg: "실패" });
+  }
+});
 
 app.all("*", (req, res) => {
   res.status(404).send("찾을수 없는 페이지 입니다.");

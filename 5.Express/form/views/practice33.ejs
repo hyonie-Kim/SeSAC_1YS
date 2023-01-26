@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>실습22. 회원가입 > 로그인</title>
+    <script>
+      function login() {
+        const form = document.getElementById("form");
+        // const result = document.getElementById("result");
+        axios({
+          url: "/login",
+          method: "post",
+          data: { id: form.id.value, pw: form.pw.value },
+        }).then((res) => {
+          console.log("login");
+          document.getElementById("result").innerHTML = res.data.msg;
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <form action="/login" method="post" id="form">
+      <label for="id">id: </label><input type="text" name="id" id="id" /> <br />
+      <label for="pw">pw: </label><input type="text" name="pw" id="pw" />
+      <button>로그인</button>
+      <p id="result"></p>
+    </form>
+  </body>
+</html>
