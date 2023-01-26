@@ -13,16 +13,15 @@
       // 회원가입을 axios의 get 메소드를 이용해 받게끔 작업하기
       function login() {
         var form = document.querySelector("#form_info");
-        var interestSlt = document.querySelectorAll(".interest");
         const getInterest = function (e) {
-          e.preventDefault();
+          var interestSlt = document.querySelectorAll(".interest");
           interests = [];
           interestSlt.forEach((interest) => {
             if (interest.checked) {
               interests.push(interest.value);
             }
-            return interests;
           });
+          return interests;
         };
 
         axios({
@@ -34,7 +33,7 @@
             year: form.year.value,
             month: form.month.value,
             date: form.date.value,
-            interests: interests,
+            interests: getInterest(),
           },
         }).then((res) => {
           console.log(res);
@@ -106,7 +105,7 @@
         /><label for="food">음식</label>
       </fieldset>
       <br />
-      <button onclick="login()">회원가입</button>
+      <button type="button" onclick="login()">회원가입</button>
     </form>
   </body>
 </html>

@@ -53,23 +53,22 @@ app.post("/practice31_form", (req, res) => {
 });
 app.get("/axios_get", (req, res) => {
   console.log(req.query);
-  // console.log(interests);
-  // res.send({
-  //   msg:
-  //     "이름: " +
-  //     req.query.name +
-  //     "\n" +
-  //     "성별: " +
-  //     req.query.gender +
-  //     "\n" +
-  //     "생년월일: " +
-  //     req.query.year +
-  //     req.query.month +
-  //     req.query.date +
-  //     "\n" +
-  //     "관심사: " +
-  //     req.query.interests,
-  // });
+  res.send({
+    msg:
+      "이름: " +
+      req.query.name +
+      "\n" +
+      "성별: " +
+      req.query.gender +
+      "\n" +
+      "생년월일: " +
+      req.query.year +
+      req.query.month +
+      req.query.date +
+      "\n" +
+      "관심사: " +
+      req.query.interests,
+  });
 });
 app.get("/login", (req, res) => {
   res.render("practice33");
