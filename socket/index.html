@@ -11,6 +11,10 @@
   </head>
   <body>
     <h2>Socket.io 사용하기</h2>
+    <h3>Hello World!</h3>
+    <button class="hello">hello</button>
+    <button class="study">study</button>
+    <button class="bye">bye</button>
     <script>
       // 메세지 보내기 : socket.emit("이벤트명", data)
       // 메세지 받기 : socket.on("이벤트명", (data)=>{})
@@ -21,6 +25,46 @@
       // connection : Client와 연결되었을때 생성
       socket.on("connect", () => {
         console.log("server connected");
+      });
+
+      socket.on("welcome", (data) => {
+        //data :{msg:''}
+        console.log(data.msg);
+        socket.emit("response", "hello");
+      });
+
+      const hello = document.querySelector(".hello");
+      hello.addEventListener("click", btnHello);
+      function btnHello() {
+        console.log("hello clicked");
+        socket.emit("hello", "client hello");
+      }
+      socket.on("hello", (data) => {
+        console.log(data.msg);
+        socket.emit("resHello", "msg");
+      });
+      socket.on("helloRes", (msg) => {
+        console.log(msg);
+      });
+
+      const study = document.querySelector(".study");
+      study.addEventListener("click", btnStudy);
+      function btnStudy() {
+        console.log("study clicked");
+        socket.emit("study", "client study");
+      }
+      socket.on("studyRes", (msg) => {
+        console.log(msg);
+      });
+
+      const bye = document.querySelector(".bye");
+      bye.addEventListener("click", btnBye);
+      function btnBye() {
+        console.log("bye clicked");
+        socket.emit("bye", "client bye");
+      }
+      socket.on("byeRes", (msg) => {
+        console.log(msg);
       });
     </script>
   </body>
