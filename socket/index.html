@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>socket</title>
+    <!-- socket io CDN -->
+    <script
+      src="https://cdn.socket.io/4.6.0/socket.io.min.js"
+      integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h2>Socket.io 사용하기</h2>
+    <script>
+      // 메세지 보내기 : socket.emit("이벤트명", data)
+      // 메세지 받기 : socket.on("이벤트명", (data)=>{})
+
+      // 클라이언트 소켓 생성 후 연결
+      let socket = io.connect();
+
+      // connection : Client와 연결되었을때 생성
+      socket.on("connect", () => {
+        console.log("server connected");
+      });
+    </script>
+  </body>
+</html>
