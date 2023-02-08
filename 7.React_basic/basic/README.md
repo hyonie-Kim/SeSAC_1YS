@@ -18,3 +18,7 @@ packageExtensions:
 ### `yarn cache clean`
 
 캐시에 있는 모든 내용을 삭제한 이후 `yarn install`로 셋업 후 다시 실행한다.
+
+### Box Shadow를 시각적으로 확인하는 사이트
+
+https://cssgenerator.org/box-shadow-css-generator.html
