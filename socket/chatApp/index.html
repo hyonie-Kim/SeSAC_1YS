@@ -91,22 +91,52 @@
       });
 
       socket.on("newMSG", (json) => {
-        // json = {msg:~~, from: ~~}
+        // mag: 메세지, from: 보낸사람의 소켓아이디, username: 보낸사람의 닉네임
+        // json = {msg:~~, from: ~~, username: ~~}
         const container = document.querySelector(".container");
         const outer_div = document.createElement("div");
         const div = document.createElement("div");
-        div.textContent = json.msg;
+        div.textContent = json.username + " : " + json.msg;
 
-        if (my_id == json.from) outer_div.classList.add("my-chat");
-        else outer_div.classList.add("other-chat");
+        if (my_id == json.from) {
+          if (json.is_dm) outer_div.classList.add("my-dm", "dm");
+          else outer_div.classList.add("my-chat");
+        } else {
+          if (json.is_dm) outer_div.classList.add("dm");
+          else outer_div.classList.add("other-chat");
+        }
 
         outer_div.appendChild(div);
         container.appendChild(outer_div);
       });
 
+      socket.on("list", (list) => {
+        console.log(list);
+
+        const members_list = document.getElementById("members");
+
+        // select box option tag 모두 지우기
+        while (members_list.firstChild)
+          members_list.removeChild(members_list.lastChild);
+        const option = document.createElement("option");
+        option.text = "전체";
+        option.value = "전체";
+        members_list.appendChild(option);
+        console.log(Object.entries(list));
+        for (let [key, value] of Object.entries(list)) {
+          const option = document.createElement("option");
+          option.text = value;
+          option.value = value;
+          members_list.appendChild(option);
+        }
+      });
+
       const btnSend = () => {
         const input = document.getElementById("msg_box");
-        socket.emit("send", { msg: input.value });
+        const to = document.getElementById("members").value;
+
+        // {to:to}
+        socket.emit("send", { msg: input.value, to });
       };
 
       const enter = () => {
