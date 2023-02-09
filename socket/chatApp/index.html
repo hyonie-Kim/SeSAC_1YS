@@ -1,0 +1,119 @@
+<html>
+  <head>
+    <title>socket.io</title>
+    <script
+      src="https://cdn.socket.io/4.5.4/socket.io.min.js"
+      integrity="sha384-/KNQL8Nu5gCHLqwqfQjA689Hhoqgi2S84SNUxC3roTe4EhJ9AfLkp8QiQcU8AMzI"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .container {
+        width: 500px;
+        height: 600px;
+        padding: 20px;
+        background-color: lightblue;
+        overflow-y: auto;
+      }
+      .notice {
+        text-align: center;
+      }
+      .container div div {
+        display: inline-block;
+        padding: 10px;
+      }
+      .container div {
+        margin-bottom: 10px;
+      }
+      .my-chat {
+        text-align: right;
+      }
+      .my-chat div {
+        background-color: yellow;
+      }
+      .other-chat {
+        text-align: left;
+      }
+      .other-chat div {
+        background-color: white;
+      }
+      .my-dm {
+        text-align: right;
+      }
+      .dm div {
+        background-color: lightpink;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="notice">공지 메세지</div>
+      <div class="my-chat">
+        <div>내가 보낸 메세지</div>
+      </div>
+      <div class="other-chat">
+        <div>남이 보낸 메세지</div>
+      </div>
+      <div class="dm my-dm">
+        <div>(속닥속닥) 내가 보낸 디엠</div>
+      </div>
+      <div class="dm">
+        <div>(속닥속닥) 남이 보낸 디엠</div>
+      </div>
+    </div>
+    <select id="members">
+      <option value="전체">전체</option>
+    </select>
+    <input type="text" id="msg_box" onkeydown="enter()" />
+    <button onclick="btnSend()">전송</button>
+
+    <script>
+      const username = prompt("닉네임을 입력해주세요");
+      const socket = io.connect();
+
+      socket.on("connect", () => {
+        console.log("server connected");
+
+        //클라이언트로 username 보냇음 이제 서버에서 받아야함
+        socket.emit("username", username);
+      });
+
+      let my_id = "";
+      socket.on("info", (socketID) => {
+        my_id = socketID;
+      });
+
+      socket.on("notice", (msg) => {
+        const container = document.querySelector(".container");
+        const div = document.createElement("div");
+        div.classList.add("notice");
+        div.textContent = msg;
+        container.appendChild(div);
+      });
+
+      socket.on("newMSG", (json) => {
+        // json = {msg:~~, from: ~~}
+        const container = document.querySelector(".container");
+        const outer_div = document.createElement("div");
+        const div = document.createElement("div");
+        div.textContent = json.msg;
+
+        if (my_id == json.from) outer_div.classList.add("my-chat");
+        else outer_div.classList.add("other-chat");
+
+        outer_div.appendChild(div);
+        container.appendChild(outer_div);
+      });
+
+      const btnSend = () => {
+        const input = document.getElementById("msg_box");
+        socket.emit("send", { msg: input.value });
+      };
+
+      const enter = () => {
+        if (event.keyCode == 13) {
+          btnSend();
+        }
+      };
+    </script>
+  </body>
+</html>
