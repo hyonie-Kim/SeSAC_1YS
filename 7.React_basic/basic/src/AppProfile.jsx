@@ -3,8 +3,13 @@ import Avatar from "./components/Avatar";
 import Profile from "./components/Profile";
 
 function AppProfile() {
+  const handleClick = (event) => {
+    console.log(event);
+    alert("버튼이 클릭됨!");
+  };
   return (
     <>
+      <button onClick={handleClick}>클릭</button>
       <Avatar
         img={
           "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
