@@ -1,9 +1,16 @@
 import "./App.css";
+import Avatar from "./components/Avatar";
 import Profile from "./components/Profile";
 
 function AppProfile() {
   return (
     <>
+      <Avatar
+        img={
+          "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+        }
+        isNew={true}
+      />
       <Profile
         img={
           "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
