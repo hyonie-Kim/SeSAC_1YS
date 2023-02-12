@@ -12,7 +12,6 @@ export default function AppForm() {
     const { name, value } = e.target;
 
     setFrom({ ...form, [name]: value });
-    // setFrom({ ...form, [email]: value });
   };
   return (
     <form>
