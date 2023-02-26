@@ -265,3 +265,8 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
 - AWS
   - EC2 생성
   - MySQL 설치 및 MySQL Dump
+
+🌱 Saturday, February 25th, 2023
+
+- 2차 팀프로젝트 및 발표
+- 가계부 웹 프로젝트 모모아
