@@ -276,8 +276,10 @@ SeSAC 용산캠퍼스 웹 풀스택 과정 1기
 
 - JAVA 기본 문법, 조건문 반복문, 배열
 
-🌱Thursday, March 2nd, 2023
+🌱 Thursday, March 2nd, 2023
 
 - Java
   - getter & setter
   - Static
+
+🌱 Saturday, March 4th, 2023
