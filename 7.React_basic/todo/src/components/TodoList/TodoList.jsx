@@ -13,9 +13,13 @@ export default function TodoList({ filter }) {
     // console.log(todo);
     setTodos([...todos, todo]);
   };
+
+  // 업데이트
   const handleUpdate = (updated) => {
     setTodos(todos.map((t) => (t.id === updated.id ? updated : t)));
   };
+
+  // 삭제
   const handleDelete = (deleted) => {
     setTodos(todos.filter((t) => t.id !== deleted.id)); //삭제하고자 한 id가 아닌것만 필터링
   };
