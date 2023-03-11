@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div style="display: flex">
+    <form action="/get/response1" method="get" style="margin-right: 20px;">
+        <h3>Get 전송 ( required = true )</h3>
+        이름 : <input type="text" name="name">
+        <br>
+        <button type="submit">Get 전송</button>
+    </form>
+    <form action="/get/response2" method="get" style="margin-right: 20px;">
+        <h3>Get 전송 ( required = false )</h3>
+        <button type="submit">Get 전송</button>
+    </form>
+
+    <div style="margin-right: 20px;">
+        <h3>Get 전송 - ~/{value}</h3>
+        <a href="/get/response3/이름/나이">
+            get/response3/이름/나이
+        </a>
+    </div>
+    <div>
+        <h3>Get 전송 - ~/{value}</h3>
+        <a href="/get/response4/이름">
+            get/response4/이름
+        </a>
+    </div>
+</div>
+
+</body>
+</html>
