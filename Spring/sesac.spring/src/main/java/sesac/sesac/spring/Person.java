@@ -1,13 +1,16 @@
-package sesac.sesac.spring.controller;
+package sesac.sesac.spring;
 
 public class Person {
     private String name;
     private int age;
 
-    public Person(String name, int age ) {
+    public Person(String name, int age){
         this.name = name;
         this.age = age;
     }
+
+    // getter & setter 만들기
+
     public String getName() {
         return name;
     }

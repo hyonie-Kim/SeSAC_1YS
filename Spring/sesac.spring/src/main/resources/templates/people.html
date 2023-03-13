@@ -5,17 +5,15 @@
     <title>Title</title>
 </head>
 <body>
-
-<h1>실습2</h1>
-<table border="1">
-  <tr>
+  <table border="1">
+    <tr>
       <td>이름</td>
       <td>나이</td>
-  </tr>
-    <tr>
-        <td>이름</td>
-        <td>나이</td>
     </tr>
-</table>
+    <tr th:each="a:${people}">
+      <td th:text="${a.name}">이름</td>
+      <td th:text="${a.getAge()}">나이</td>
+    </tr>
+  </table>
 </body>
 </html>
