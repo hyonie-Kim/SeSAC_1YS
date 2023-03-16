@@ -32,4 +32,16 @@ public class PersonService {
 
         return info;
     }
+    public  void updatePerson(PersonDTO personDTO){
+        Person person = new Person();
+        person.setId(personDTO.getId());
+        person.setPw(personDTO.getPw());
+        person.setName(personDTO.getName());
+
+        personMapper.updatePerson(person);
+    }
+
+    public void  deletePerson(PersonDTO personDTO){
+        personMapper.deletePerson(personDTO.getId());
+    }
 }

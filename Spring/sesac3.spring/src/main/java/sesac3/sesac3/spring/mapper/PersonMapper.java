@@ -1,8 +1,6 @@
 package sesac3.sesac3.spring.mapper;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import sesac3.sesac3.spring.domain.Person;
 
 @Mapper
@@ -12,4 +10,10 @@ public interface PersonMapper {
 
     @Select("select * from person where id=#{id} and pw=#{pw} limit 1")
     Person getPerson(String id, String pw);
+
+    @Update("update person set pw=#{pw}, name=#{name} where id=#{id}")
+    void updatePerson(Person person);
+
+    @Delete("delete from person where id=#{id}")
+    void deletePerson(String id);
 }
