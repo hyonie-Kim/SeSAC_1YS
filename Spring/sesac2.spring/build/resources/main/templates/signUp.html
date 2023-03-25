@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function dtoResponse5() {
+        var form = document.getElementById('form_vo');
+        axios.post(`/axiosVo`, {name: form.name.value, gender: form.gender.value,date: form.date.value,
+          interest: form.interest.value
+          })
+        .then((res)=>{
+            console.log( res );
+            console.log( 'axiosVo : ', res.data );
+        });
+    }
+
+</script>
+<form action="/axiosVo" method="post" style="margin-right: 20px;" id="form_vo">
+  <h3>Post 전송 ( ResponseBody )</h3>
+  이름 <input type="text" name="name">
+  <div>
+    성별
+    <input type="radio" id="man" value="man" name="gender">
+    <label for="man">남자</label>
+    <input type="radio" id="woman" value="woman" name="gender">
+    <label for="woman">여자</label>
+  </div>
+  <div>
+    <label for="date">생년월일</label>
+    <input name="date" type="date" id="date" max="2023-03-11" min="1980-01=01" value="2023-01-01">
+  </div>
+  <div>
+    관심사
+    <input type="checkbox" id="trip" name="interest">
+    <label for="trip">여행</label>
+    <input type="checkbox" id="fashion" name="interest">
+    <label for="fashion">패션</label>
+    <input type="checkbox" id="food" name="interest">
+    <label for="food">음식</label>
+  </div>
+  <br>
+  <button type="submit">회원가입</button>
+</form>
+
+</body>
+</html>
