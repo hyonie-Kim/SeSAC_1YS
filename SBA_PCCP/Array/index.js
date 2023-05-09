@@ -39,3 +39,10 @@ arr8.shift();
 console.log("arr8변수에 0,1번 인덱스 삭제:", arr8);
 arr8.unshift(10);
 console.log("arr8변수에 10 추가:", arr8);
+
+// 배열 생성으로 루프 제거하기
+let sum = 0;
+for (let i = 5; i < 10; i += 1) {
+  // i = i+1
+  sum += i;
+}
