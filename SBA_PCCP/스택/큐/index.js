@@ -17,3 +17,17 @@ function solution(common) {
 const common = [2, 4, 8];
 
 console.log(solution(common));
+
+// 괄호 실습
+
+function solution2(s) {
+  var answer = true;
+  var stack = [];
+
+  for (var idx = 0; idx < s.length; idx++) {
+    if (s[idx] == "(") {
+    } else {
+    }
+  }
+  return answer;
+}
