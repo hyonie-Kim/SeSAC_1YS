@@ -61,3 +61,18 @@ function solution3(arr) {
   return queArray;
 }
 console.log(solution3(arr));
+
+// 연속된 수의 합
+function solution8(num) {
+  var answer = [];
+
+  for (let i = 0; i < num; i++) {
+    answer = console.log(num[i]);
+  }
+
+  return answer;
+}
+
+let num = 3;
+
+console.log(solution8(num));
